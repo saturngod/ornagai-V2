@@ -3,36 +3,75 @@ $data['base']=$base;
 $this->load->view("header_view.php",$data);
 ?>
 <script>
-var form_id;
-form_id=1;
+var h_id;
+h_id=1;
 $(document).ready(function(){
     $("#search").click(function(){
         
-    
+    if($("#message").val()!="")
+    {
          $.ajax({
             type: "POST",
             url: "<?= $base ?>/index.php/search",
             data: "message="+$("#message").val(),
             success: function(html){
-              $('body').append("<div id='form_"+form_id+"' class='ui-widget-content' style='z-index:"+form_id+"'><div class='ui-widget-header'>Result For "+$("#message").val()+"<span class='btn'><a class='mini' href='#'></a>&nbsp;<a ref="+form_id+" class='close' href='#'>&nbsp;</a></span></div>"+html+"</div>");
-              
-              
-              
-              return false;
+              $("#result").html(html);
+              $("#left").append('<div id="history_'+h_id+'" class="history"><a rel="'+$("#message").val()+'" href="#" class="history_result">'+$("#message").val()+'<img rel="history_'+h_id+'" src="./images/remove.png" align="middle" class="sidebar_rm" align="right" /></a></div>');
+               
+                h_id=h_id+1;
+            },
+            beforeSend:function(){
+                $("#result").html("Loading...")
             }
         });
-
+     }
+        return false;
     });
+    
 
+$(".sidebar_rm").live("click", function() {
+
+    frmdiv_id=$(this).attr("rel");
+  //  alert(frmdiv_id);
+    $("#"+frmdiv_id).fadeOut("fast");
+    return false;
+});
+    
+   
+   $(".history_result").live("click", function() {
+
+                if($(this).attr("rel")!="")
+                {
+                    $.ajax({
+            type: "POST",
+            url: "<?= $base ?>/index.php/search",
+            data: "message="+$(this).attr("rel"),
+            success: function(html){
+              $("#result").html(html);
+               
+                h_id=h_id+1;
+            },
+            beforeSend:function(){
+                $("#result").html("Loading...")
+            }
+        });
+                }
+    });
 });
 </script>
 <body>
     
-<div class="wrapper">
-<img src="<?= $base ?>/images/logo.png" class="logo">
-<form action="<?= $base ?>/index.php/search" method="post">
+<div class="top_menu">
+<img src="<?= $base ?>/images/logo.png" class="logo" width=32px">
 <input type="text" id="message" name="message" class="searchbox"><input type="button" value="Search" id="search">
-</form>
+</div>
+<div id="wrapper">
+<div id="left">
+    <h3>History</h3>
+    
+</div>
+<div id="result"></div>
+<div class="history_result"></div>
 </div>
 </body>
 </html>
