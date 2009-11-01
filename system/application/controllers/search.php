@@ -22,6 +22,8 @@ class Search extends Controller {
                     $q=$this->zgnor->zawgyi($q,"|",true);
                 }
                 $data['query']=$this->searchmodel->query($q,$myanmar);
+                $data['result']=$q;
+                $data['mm']=$myanmar;
                 if($data['query'])
                 {
                     $this->load->view('result_view',$data);
