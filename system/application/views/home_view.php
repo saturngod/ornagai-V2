@@ -29,15 +29,26 @@ $(document).ready(function(){
     });
     
 
-$(".sidebar_rm").live("click", function() {
-
-    frmdiv_id=$(this).attr("rel");
-  //  alert(frmdiv_id);
-    $("#"+frmdiv_id).fadeOut("fast");
-    return false;
-});
+    $(".sidebar_rm").live("click", function() {
     
+        frmdiv_id=$(this).attr("rel");
+      //  alert(frmdiv_id);
+        $("#"+frmdiv_id).fadeOut("fast");
+        return false;
+    });
+    
+   $(".history").live("mouseover", function() {
+    form_id=this.id;
+    $("#"+form_id+" .sidebar_rm").css({"visibility":"visible"});
+    
+   });
    
+    $(".history").live("mouseout", function() {
+    form_id=this.id;
+    $("#"+form_id+" .sidebar_rm").css({"visibility":"hidden"});
+    
+   });
+    
    $(".history_result").live("click", function() {
 
                 if($(this).attr("rel")!="")
