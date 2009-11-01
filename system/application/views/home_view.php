@@ -4,6 +4,8 @@ $this->load->view("header_view.php",$data);
 ?>
 <script>
 var h_id;
+var history_flag;
+history_flag=1;
 h_id=1;
 $(document).ready(function(){
     $("#search").click(function(){
@@ -66,6 +68,25 @@ $(document).ready(function(){
     
    });
     
+    $("#history_onoff").click(function()
+    {
+       if(history_flag==1)
+       {
+     
+        $("#history_onoff").removeClass("select_btn");
+        $("#left").hide();
+        $("body").css({"background-image":"none"});
+        history_flag=0;
+      
+       }
+       
+       else{
+        $("#history_onoff").addClass("select_btn");
+        $("#left").show();
+         $("body").css({"background-image":"url('./images/bg.jpg')"});
+        history_flag=1;
+       }
+    })
    $(".history_result").live("click", function() {
 
                 if($(this).attr("rel")!="")
@@ -91,7 +112,9 @@ $(document).ready(function(){
     
 <div class="top_menu">
 <img src="<?= $base ?>/images/logo.png" class="logo" width=32px">
-<input type="text" id="message" name="message" class="searchbox"><input type="button" value="Search" id="search">
+<input type="text" id="message" name="message" class="searchbox">
+<input type="button" value="Search" id="search">
+<img src="./images/history.png" id="history_onoff" class="select_btn btn">    
 </div>
 <div id="wrapper">
 <div id="left">

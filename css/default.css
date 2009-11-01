@@ -151,7 +151,7 @@ input[type=text]
 {
     display:inline;
     position:absolute;
-    margin-top:0px;
+    margin-top:10px;
     margin-left:5px;
     cursor:pointer;
 }
