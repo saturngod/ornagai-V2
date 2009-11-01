@@ -37,6 +37,23 @@ $(document).ready(function(){
         return false;
     });
     
+    $(".page_nav").live("click",function()
+    {
+       
+        $.ajax({
+            type: "POST",
+            url: "<?= $base ?>/index.php/search",
+            data: "message="+$(this).attr("href")+"&page="+$(this).html(),
+            success: function(html){
+              $("#result").html(html);
+            },
+            beforeSend:function(){
+                $("#result").html("Loading...")
+            }
+        });
+        return false;
+    });
+    
    $(".history").live("mouseover", function() {
     form_id=this.id;
     $("#"+form_id+" .sidebar_rm").css({"visibility":"visible"});
