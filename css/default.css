@@ -161,10 +161,15 @@ input[type=text]
     border:#aaa 1px dotted;
 }
 
+.page_lnk
+{
+    padding-top:10px;
+}
 .page_lnk a, .page_lnk a:link
 {
     color:#333;
     text-decoration:none;
+  
 }
 
 .page_nav
