@@ -2,14 +2,7 @@
 $data['title']=$title;
 $data['base']=$base;
 $this->load->view("header_view",$data);
-// Get a key from http://recaptcha.net/api/getkey
-$publickey = "6Leg0QgAAAAAAG56ibAYPZ8K8BZhElJ5OyzwmkIL";
-$privatekey = "6Leg0QgAAAAAAFTBTIwwQ9Rdp0Tdl0XmhUPU4RHg";
 
-# the response from reCAPTCHA
-$resp = null;
-# the error code from reCAPTCHA, if any
-$error = null;
 ?>
 <style>
 /* Clear The Background Image */
@@ -37,7 +30,8 @@ body{
 #register_wrapper label
 {
     display:block;
-    margin-bottom:8px;
+    margin-top:5px;
+    margin-bottom:3px;
 }
 
 input[type=text],input[type=password]
@@ -58,18 +52,28 @@ input[type=text]:focus,input[type=password]:focus
     color:#0090E1;
     
 }
+#recaptcha_response_field
+{
+    height:20px;
+}
 </style>
 <div id="register_wrapper">
 <h2>Register</h2>
+<?= (isset($err) ? $err : ""); ?>
+<form action="<?= $base?>/index.php/register" method="post">
 <label>User Name</label>
-<input type="text" id="username">
+<input type="text" id="username" name="username">
+<label>Email</label>
+<input type="text" id="email" name="email">
 <label>Password</label>
-<input type="password" id="password">
+<input type="password" id="password" name="password">
 <label>Confirm Password</label>
-<input type="password" id="conf_password">
+<input type="password" id="conf_password" name="conf_password">
 <label>Verify</label>
-<? echo recaptcha_get_html($publickey, $error); ?>
+<?= form_error('recaptcha_response_field') ?>
+<? echo $recaptcha ?>
 <label></label>
 <input type="submit" value="Register">
 <input type="reset" value="Clear">
+</form>
 </div>
