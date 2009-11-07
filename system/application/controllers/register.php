@@ -19,6 +19,7 @@ class Register extends Controller {
             
                 if ($this->form_validation->run()) 
                 {
+                    
                     header("Location:".$this->config->item('base_url')."/index.php");
                 }
             }
