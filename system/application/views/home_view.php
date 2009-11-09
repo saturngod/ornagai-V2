@@ -109,12 +109,16 @@ $(document).ready(function(){
 });
 </script>
 <body>
-    
+<div class="login_frm">
+<input type="text" name="username" value="username">
+<input type="password" name="password" value="password">
+</div>
 <div class="top_menu">
 <img src="<?= $base ?>/images/logo.png" class="logo" width=32px">
 <input type="text" id="message" name="message" class="searchbox">
 <input type="button" value="Search" id="search">
-<img src="./images/history.png" id="history_onoff" class="select_btn btn">    
+<img src="./images/history.png" id="history_onoff" class="select_btn btn">
+<span id="user_panel"><a href="#" id="login">Login</a></div>
 </div>
 <div id="wrapper">
 <div id="left">

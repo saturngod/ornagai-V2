@@ -152,8 +152,7 @@ input[type=button]:hover,input[type=submit]:hover,input[type=reset]:hover
 .btn
 {
     display:inline;
-    position:absolute;
-    margin-top:10px;
+    margin-top:-5px;
     margin-left:5px;
     cursor:pointer;
 }
