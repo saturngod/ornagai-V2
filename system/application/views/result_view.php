@@ -11,7 +11,7 @@ foreach ($query  as $row)
         echo $row->Word;
     }
     echo "<br>";
-    echo $row->state;
+    echo "<b><font color='#7082AA'>".$row->state."</font></b>";
     echo "<br>";
     if(!$mm)
     {
