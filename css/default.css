@@ -25,8 +25,7 @@ body{
 
 #wrapper
 {
-    margin-top:20px;
-     
+    margin-top:40px;
     
 }
 img{
@@ -35,11 +34,14 @@ img{
      outline:none;
 }
 
-input[type=text]
+input[type=text],input[type=password]
 {
-
      -moz-border-radius: 2em;  
     -webkit-border-radius: 2em;
+    background-color:#FFF;
+    border:1px solid #5C5C5C;
+    padding-left:8px;
+   
 }
 
 .searchbox
@@ -108,6 +110,10 @@ input[type=button]:hover,input[type=submit]:hover,input[type=reset]:hover
     float:left;
    
 }
+form{
+    padding:0px;
+    margin:0px;
+}
 
 #left h3{
     font-size:14px;
@@ -157,6 +163,11 @@ input[type=button]:hover,input[type=submit]:hover,input[type=reset]:hover
     cursor:pointer;
 }
 
+#login_form input[type=text]
+{
+    color:#AAA;
+}
+
 .select_btn
 {
     border:#aaa 1px dotted;
@@ -173,7 +184,34 @@ input[type=button]:hover,input[type=submit]:hover,input[type=reset]:hover
   
 }
 
+.login_frm
+{
+    background-color:#eee;
+    margin-top:42px;
+    padding:3px;
+}
+
 .page_nav
 {
     outline:none;
 }
+
+.popup
+{
+   
+   position: absolute;
+   width: 100%;
+   opacity: 0.9;
+   top:0px;
+   min-height:200px;
+   height:100%;
+   z-index: 100;
+   background: #FFFFFF;
+   font-size: 20px;
+   text-align: center;
+   display:none;
+   
+   
+   
+}
+

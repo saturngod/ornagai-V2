@@ -22,6 +22,11 @@ class Users extends Model {
         
     }
     
+    function login($user,$pwd)
+    {
+        
+    }
+    
     //save user
     function save($data)
     {
