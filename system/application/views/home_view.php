@@ -1,6 +1,7 @@
 <?php
 $data['base']=$base;
 $this->load->view("header_view.php",$data);
+$this->load->helper('form');
 ?>
 <script>
 var h_id;
@@ -41,11 +42,11 @@ $(document).ready(function(){
     
     $(".page_nav").live("click",function()
     {
-       
+      
         $.ajax({
             type: "POST",
             url: "<?= $base ?>/index.php/search",
-            data: "message="+$(this).attr("href")+"&page="+$(this).html(),
+            data: "message="+$(this).attr("rel")+"&page="+$(this).html(),
             success: function(html){
               $("#result").html(html);
             },
@@ -53,7 +54,7 @@ $(document).ready(function(){
                 $("#result").html("Loading...")
             }
         });
-        return false;
+        
     });
     
    $(".history").live("mouseover", function() {
@@ -113,13 +114,14 @@ $(document).ready(function(){
     <input type="text" name="username" value="username">
     <input type="password" name="password" value="password">
     </div>
+    <?= form_open("search/result"); ?>
     <div class="top_menu">
         <img src="<?= $base ?>/images/logo.png" class="logo" width=32px">
         <input type="text" id="message" name="message" class="searchbox">
-        <input type="button" value="Search" id="search">
+        <input type="submit" value="Search" id="search">
         <img src="./images/history.png" id="history_onoff" class="select_btn btn">
     </div>
-
+<?= form_close(); ?>
     <div id="wrapper">
         <div id="left">
             <h3>History</h3>
