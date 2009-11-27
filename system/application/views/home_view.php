@@ -31,6 +31,7 @@ $(document).ready(function(){
      }
         return false;
     });
+    ////////////
     
     $("#login_btn").live("click", function(){
         if($("#login_form").is(":hidden")) {
@@ -43,6 +44,7 @@ $(document).ready(function(){
         }
 
     });
+    ////////////
     
     $("#login").live("click",function(){
     
@@ -59,6 +61,11 @@ $(document).ready(function(){
                 $(".popup").fadeOut("fast");
                 $("#login_form").remove();
                 $("#wrapper").css("margin-top","40px");
+              }
+              else
+              {
+                    $(".popup").fadeOut("fast");
+                    $("#err_msg").html("Wrong username or password")
               }
             },
             beforeSend:function(){
@@ -175,6 +182,7 @@ $(document).ready(function(){
     <input type="password" id="pwd" style="display:none" >
     <input type="submit" value="Login" id="login">
     <input type="button" value="Cancel" id="cancel">
+    <span class="err" id="err_msg"></span>
     <?= form_close(); ?>
     </div>
     <?= form_open("search/result"); ?>

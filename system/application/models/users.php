@@ -22,9 +22,57 @@ class Users extends Model {
         
     }
     
-    function login($user,$pwd)
+    function get_totalusr()
     {
+        $query=$this->db->get("user");
+        return $query->num_rows();
+    }
+    
+    function getlist()
+    {
+        $query=$this->db->get("user");
+        return $query->num_rows();
         
+        
+    }
+    
+    function login($user,$pwd,$admin=false)
+    {
+        $this->db->where("username",$user);
+        $query=$this->db->get("user");
+        ////// get slat for password checking
+         if($query->num_rows()>0)
+        {
+            foreach($query->result() as $rows)
+            {
+                //get salt for passwod
+                $salt=$rows->salt;
+            }
+            //////// Check Username and password ///////
+             $password=sha1($salt.$pwd);
+            
+            $this->db->where("username",$user);
+            $this->db->where("password",$password);
+            if($admin) $this->db->where("admin","1");
+            
+            $query=$this->db->get("user");
+            if($query->num_rows()>0)
+            {
+                 foreach($query->result() as $rows)
+                 {
+                    //add all data to session
+                    $newdata = array(
+                       'username'  => $rows->username,
+                       'email'     => $rows->email,
+                       'logged_in' => TRUE,
+                       'admin'=>$rows->admin
+                   );
+                 }
+                 $this->session->set_userdata($newdata);
+                return true;
+            }
+        }
+        return false;
     }
     
     //save user

@@ -1,0 +1,32 @@
+.statics
+{
+    padding:0px;
+}
+
+.left > ul , .right > ul
+{
+    margin:0px;
+    padding:0px;
+}
+.left
+{
+    padding:0px;
+    background-color:#0FF;
+    margin:0px;
+    float:left;
+    width:200px;
+}
+
+.right
+{
+    padding:0px;
+   list-style:none;
+    float:left;
+    width:200px;
+}
+
+.left > ul > li, .right > ul > li {
+    list-style:none;
+     padding:0px;
+     margin:0px;
+}

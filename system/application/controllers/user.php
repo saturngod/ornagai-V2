@@ -10,7 +10,7 @@ class User extends Controller {
         {
             $username=$_POST['name'];
             $pwd=$_POST['pwd'];
-            $this->model->load("users");
+            $this->load->model("users");
             
             $result=$this->users->login($username,$pwd);
             if($result) echo "true";
