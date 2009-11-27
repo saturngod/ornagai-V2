@@ -3,7 +3,6 @@ $data['title']=$title;
 $data['base']=$base;
 $this->load->view("adminheader_view",$data);
 ?>
-<body>
     <div class="statics">
         <div class="left">
         <ul>
@@ -23,4 +22,8 @@ $this->load->view("adminheader_view",$data);
         </ul>
         </div>
     </div>
-</body>
+<?php
+$data['title']=$title;
+$data['base']=$base;
+$this->load->view("adminfooter_view",$data);
+?>

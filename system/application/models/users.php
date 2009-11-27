@@ -31,9 +31,7 @@ class Users extends Model {
     function getlist()
     {
         $query=$this->db->get("user");
-        return $query->num_rows();
-        
-        
+        return $query->result();
     }
     
     function login($user,$pwd,$admin=false)

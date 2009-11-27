@@ -6,11 +6,14 @@ class Admin extends Controller {
 		parent::Controller();
                    $this->load->helper('url');
                    
-                    if(!(($this->session->userdata('logged_in')) && ($this->session->userdata('admin')==1)))
-                    {
-                             redirect("/admin/login");
-                    
-                    }
+                   if($this->uri->segment(2)!='login')
+                   {
+                        if(!(($this->session->userdata('logged_in')) && ($this->session->userdata('admin')==1)))
+                        {
+                                 redirect("/admin/login");
+                        
+                        }
+                   }
 	}
         
         function index()
@@ -71,6 +74,7 @@ class Admin extends Controller {
             
             $this->load->model("users");
             $data['userlist']=$this->users->getlist();
+          $this->load->view("admin_user",$data);
             
 /*            $this->load->library('pagination');
 
