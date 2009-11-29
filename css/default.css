@@ -196,6 +196,25 @@ form{
     outline:none;
 }
 
+#add_word_popup
+{
+    position:absolute;
+    width:160px;
+    top:100px;
+    left:45%;
+     background-color:#DDD;
+     padding:10px;
+     border:1px dashed #AAA;
+     display:none;
+     z-index:101;
+}
+
+#add_word_popup label
+{
+    display:block;
+   
+}
+
 .popup
 {
    

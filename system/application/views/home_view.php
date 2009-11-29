@@ -61,6 +61,7 @@ $(document).ready(function(){
                 $(".popup").fadeOut("fast");
                 $("#login_form").remove();
                 $("#wrapper").css("margin-top","40px");
+                $("#add_btn").show();
               }
               else
               {
@@ -171,9 +172,34 @@ $(document).ready(function(){
         });
                 }
     });
+   
+   $("#cancel_hide").click(function(){
+        $("#add_word_popup").fadeOut("normal");
+        $("#shadow").fadeOut();
+   });
+   
+    $("#add_btn").click(function(){
+        $("#shadow").show();
+         $("#add_word_popup").fadeIn("normal");
+         $("#addword").focus();
+    })
 });
 </script>
 <body>
+    <div id="add_word_popup">
+       <form action="<?= $base ?>/index.php/word/add">
+       <label>Word</label>
+       <input type="text" id="addword" >
+        <label>State</label>
+        <input type="text" id="addstate">
+        <label>Def</label>
+        <input type="text" id="adddef">
+        <label></label><br/>
+        <input type="submit" id="addnewword" value="Add">
+        <input type="button" id="cancel_hide" value="Cancel">
+       </form>
+    </div>
+    <div id="shadow" class="popup"></div>
     <div class="popup"><p><br/><br/><br/><br/><img src="<?= $base ?>/images/load.gif"></p></div>
     <div id="login_form" class="login_frm">
     <?= form_open("user/login"); ?>
@@ -191,7 +217,12 @@ $(document).ready(function(){
         <input type="text" id="message" name="message" class="searchbox">
         <input type="submit" value="Search" id="search">
         <img src="./images/history.png" id="history_onoff" class="select_btn btn">
-            <img src="./images/history.png" id="login_btn" class="btn">
+        <img src="./images/history.png" id="login_btn" class="btn">
+        <? if($login) { ?>
+        <img src="./images/history.png" id="add_btn" class="btn">
+        <? } else { ?>
+        <img src="./images/history.png" id="add_btn" class="btn" style="display:none">
+        <? } ?>
     </div>
 <?= form_close(); ?>
     <div id="wrapper">

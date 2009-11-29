@@ -28,9 +28,9 @@ class Users extends Model {
         return $query->num_rows();
     }
     
-    function getlist()
+    function getlist($start,$pershow)
     {
-        $query=$this->db->get("user");
+        $query=$this->db->get("user",$pershow,$start);
         return $query->result();
     }
     

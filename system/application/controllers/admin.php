@@ -67,26 +67,58 @@ class Admin extends Controller {
             }
         }
         
+        function usr_ban()
+        {
+            //Get user Id
+             $usrid=$this->uri->segment(3);
+             
+             $this->db->where("id",$usrid);
+             $query=$this->db->get("user");
+             //Get Last Record
+             $res=$query->result();
+             $ban=$res[0]->ban;
+             
+            if($ban==0) $data = array("ban"=>1);
+            else  $data = array("ban"=>0);
+           
+            $this->db->where("id",$usrid);
+            $this->db->update("user",$data);
+            redirect("/admin/users/");
+        }
+        
+         function usr_del()
+        {
+            
+        }
+        
         function users()
         {
              $data['base']=$this->config->item('base_url');
             $data['title']="Ornagai :: Users Manager";
-            
+           
             $this->load->model("users");
-            $data['userlist']=$this->users->getlist();
-          $this->load->view("admin_user",$data);
+          
+            $total_users=$this->users->get_totalusr();
             
-/*            $this->load->library('pagination');
+            
+             $per_pg=10;
+             $start=0;
+             if ($this->uri->segment(3) != "" )             $start= $this->uri->segment(3);
+             
+            
+            $data['userlist']=$this->users->getlist($start,$per_pg);
+            $this->load->library('pagination');
 
-
-$config['base_url'] = 'http://localhost/ornagai-v1/index.php/admin/users/';
-$config['total_rows'] = '200';
-$config['per_page'] = '20';
-
-$this->pagination->initialize($config);
-
-echo $this->pagination->create_links();
-*/        
+            $config['base_url'] = $data['base'].'/admin/users/';
+            $config['total_rows'] =$total_users;
+            $config['per_page'] =$per_pg;
+    
+            $this->pagination->initialize($config);
+    
+            $data['paging']= $this->pagination->create_links();
+    
+            $this->load->view("admin_user",$data);
+     
         }
 }
 ?>
