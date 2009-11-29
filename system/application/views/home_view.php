@@ -58,19 +58,20 @@ $(document).ready(function(){
                
               if(html=='true')
               {
-                $(".popup").fadeOut("fast");
-                $("#login_form").remove();
+                $("#loading").fadeOut("fast");
+                //$("#login_form").remove();
+                $("#login_form").html("<a href='#logout'>Logout</a>");
                 $("#wrapper").css("margin-top","40px");
                 $("#add_btn").show();
               }
               else
               {
-                    $(".popup").fadeOut("fast");
+                    $("#loading").fadeOut("fast");
                     $("#err_msg").html("Wrong username or password")
               }
             },
             beforeSend:function(){
-                $(".popup").fadeIn("fast");
+                $("#loading").fadeIn("fast");
             }
         });
          return false;
@@ -182,11 +183,72 @@ $(document).ready(function(){
         $("#shadow").show();
          $("#add_word_popup").fadeIn("normal");
          $("#addword").focus();
-    })
+    });
+    
+    $("#addnewword").click(function(){
+        word=$("#addword").val();
+        
+        state=$("#addstate").val();
+        def=$("#addstate").val();
+  
+        
+         err_flag=false;
+         
+         
+         
+        if(word=="")
+        {
+            err="Word is required";
+            err_flag=true;
+        }
+        
+        if(err_flag==false)
+        {
+            if(state=="")
+            {
+        
+                err="State is required";
+                err_flag=true;
+            }
+        }
+        
+        if(err_flag==false)
+        {
+          if(def=="")
+            {
+          
+            err="Defination is required";
+            err_flag=true;
+            }
+        }
+        
+        if(err_flag)
+        {
+
+            $("#add_err").html(err);
+            return false;
+        }
+     
+        
+          $.ajax({
+            type: "POST",
+            url: "<?= $base ?>/index.php/word/add",
+            data: "word="+word+"&state="+state+"&def="+def,
+            success: function(html){
+              $("#result").html(html);
+               
+            },
+            beforeSend:function(){
+                $("#result").html("Loading...")
+            }
+        });
+          
+    });
 });
 </script>
 <body>
     <div id="add_word_popup">
+        <div class="err" id="add_err"></div>
        <form action="<?= $base ?>/index.php/word/add">
        <label>Word</label>
        <input type="text" id="addword" >
@@ -200,7 +262,7 @@ $(document).ready(function(){
        </form>
     </div>
     <div id="shadow" class="popup"></div>
-    <div class="popup"><p><br/><br/><br/><br/><img src="<?= $base ?>/images/load.gif"></p></div>
+    <div class="popup" id="loading"><p><br/><br/><br/><br/><img src="<?= $base ?>/images/load.gif"></p></div>
     <div id="login_form" class="login_frm">
     <?= form_open("user/login"); ?>
     <input type="text" value="Username" id="username" >
