@@ -235,13 +235,16 @@ $(document).ready(function(){
             url: "<?= $base ?>/index.php/word/add",
             data: "word="+word+"&state="+state+"&def="+def,
             success: function(html){
-              $("#result").html(html);
+                $("#add_word_popup").fadeOut("normal");
+        $("#shadow").fadeOut();
                
             },
             beforeSend:function(){
-                $("#result").html("Loading...")
+                $("#add_err").html("Loading...")
             }
         });
+          
+          return false;
           
     });
 });
