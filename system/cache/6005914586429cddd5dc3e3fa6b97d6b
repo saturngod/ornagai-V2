@@ -1,11 +1,15 @@
-<?php
-$data['base']=$base;
-$this->load->view("header_view.php",$data);
-$this->load->helper('form');
-?>
-<link rel="stylesheet" type="text/css" href="<?= $base ?>/css/jquery.autocomplete.css" />
-<script type="text/javascript" src="<?= $base ?>/js/jquery.bgiframe.min.js"></script>
-<script type="text/javascript" src="<?= $base ?>/js/jquery.autocomplete.js"></script> 
+1259987797TS---><html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>
+            Ornagai :: English <> Myanmar Dictionary </title>
+        <link rel="stylesheet" href="http://localhost/ornagai-v1/css/default.css">
+        <script src="http://localhost/ornagai-v1/js/jquery.js"></script>
+        <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="Private">
+            </head>
+    <link rel="stylesheet" type="text/css" href="http://localhost/ornagai-v1/css/jquery.autocomplete.css" />
+<script type="text/javascript" src="http://localhost/ornagai-v1/js/jquery.bgiframe.min.js"></script>
+<script type="text/javascript" src="http://localhost/ornagai-v1/js/jquery.autocomplete.js"></script> 
 <script>
 var h_id;
 var history_flag;
@@ -25,7 +29,7 @@ $(document).ready(function(){
     {
          $.ajax({
             type: "POST",
-            url: "<?= $base ?>/index.php/search",
+            url: "http://localhost/ornagai-v1/index.php/search",
             data: "message="+$("#message").val(),
             success: function(html){
               $("#result").html(html);
@@ -61,7 +65,7 @@ $(document).ready(function(){
         password=$("#pwd").val();
          $.ajax({
             type: "POST",
-            url: "<?= $base ?>/index.php/user/login",
+            url: "http://localhost/ornagai-v1/index.php/user/login",
             data: "name="+username+"&pwd="+password,
             success: function(html){
                
@@ -106,7 +110,7 @@ $(document).ready(function(){
       
         $.ajax({
             type: "POST",
-            url: "<?= $base ?>/index.php/search",
+            url: "http://localhost/ornagai-v1/index.php/search",
             data: "message="+$(this).attr("rel")+"&page="+$(this).html(),
             success: function(html){
               $("#result").html(html);
@@ -169,7 +173,7 @@ $(document).ready(function(){
                 {
                     $.ajax({
             type: "POST",
-            url: "<?= $base ?>/index.php/search",
+            url: "http://localhost/ornagai-v1/index.php/search",
             data: "message="+$(this).attr("rel"),
             success: function(html){
               $("#result").html(html);
@@ -241,7 +245,7 @@ $(document).ready(function(){
         
           $.ajax({
             type: "POST",
-            url: "<?= $base ?>/index.php/word/add",
+            url: "http://localhost/ornagai-v1/index.php/word/add",
             data: "word="+word+"&state="+state+"&def="+def,
             success: function(html){
                 $("#add_word_popup").fadeOut("normal");
@@ -261,7 +265,7 @@ $(document).ready(function(){
 <body>
     <div id="add_word_popup">
         <div class="err" id="add_err"></div>
-       <form action="<?= $base ?>/index.php/word/add">
+       <form action="http://localhost/ornagai-v1/index.php/word/add">
        <label>Word</label>
        <input type="text" id="addword" >
         <label>State</label>
@@ -274,32 +278,24 @@ $(document).ready(function(){
        </form>
     </div>
     <div id="shadow" class="popup"></div>
-    <div class="popup" id="loading"><p><br/><br/><br/><br/><img src="<?= $base ?>/images/load.gif"></p></div>
+    <div class="popup" id="loading"><p><br/><br/><br/><br/><img src="http://localhost/ornagai-v1/images/load.gif"></p></div>
     <div id="login_form" class="login_frm">
-    <?= form_open("user/login"); ?>
-    <input type="text" value="Username" id="username" >
+    <form action="http://localhost/ornagai-v1/index.php/user/login" method="post">    <input type="text" value="Username" id="username" >
     <input type="text" value="Password" id="txtpwd">
     <input type="password" id="pwd" style="display:none" >
     <input type="submit" value="Login" id="login">
     <input type="button" value="Cancel" id="cancel">
     <span class="err" id="err_msg"></span>
-    <?= form_close(); ?>
-    </div>
-    <?= form_open("search/result"); ?>
-    <div class="top_menu">
-        <img src="<?= $base ?>/images/logo.png" class="logo" width=32px">
+    </form>    </div>
+    <form action="http://localhost/ornagai-v1/index.php/search/result" method="post">    <div class="top_menu">
+        <img src="http://localhost/ornagai-v1/images/logo.png" class="logo" width=32px">
         <input type="text" id="message" name="message" class="searchbox">
         <input type="submit" value="Search" id="search">
         <img src="./images/history.png" id="history_onoff" class="select_btn btn">
         <img src="./images/history.png" id="login_btn" class="btn">
-        <? if($login) { ?>
-        <img src="./images/history.png" id="add_btn" class="btn">
-        <? } else { ?>
-        <img src="./images/history.png" id="add_btn" class="btn" style="display:none">
-        <? } ?>
-    </div>
-<?= form_close(); ?>
-    <div id="wrapper">
+                <img src="./images/history.png" id="add_btn" class="btn" style="display:none">
+            </div>
+</form>    <div id="wrapper">
         <div id="left">
             <h3>History</h3>
         </div>

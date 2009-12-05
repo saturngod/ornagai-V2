@@ -10,7 +10,9 @@ class Word extends Controller {
             $word=$_POST['word'];
             $state=$_POST['state'];
             $def=$_POST['def'];
-            echo $word;
+            $this->load->model('word');
+            $this->word->add($word,$state,$def);
+            
         }
 }
 ?>
