@@ -13,6 +13,7 @@ class Search extends Controller {
             if(isset($_POST['message']) and ($_POST['message']!=""))
             {
                 $q=$_POST['message'];
+		
                 if(isset($_POST['page']))
                 {
                     $page=$_POST['page'];
@@ -27,7 +28,7 @@ class Search extends Controller {
                 if($myanmar)
                 {
 		    $this->load->library("zawgyi");
-		    $this->zawgyi->normalize($q,"|",true);
+		    $q=$this->zawgyi->normalize($q,"|",true);
                 }
                 $data['query']=$this->searchmodel->query($q,$myanmar,$page);
                 $data['result']=$q;
@@ -58,7 +59,9 @@ class Search extends Controller {
 	function autocomplete()
 	{
 		parse_str($_SERVER['QUERY_STRING'],$_GET);
+		
 		$q=$_GET['q'];
+		
 		$this->load->model('searchmodel');
                 $myanmar=$this->searchmodel->detect_langauage($q);
         
@@ -68,10 +71,22 @@ class Search extends Controller {
 		    $this->zawgyi->normalize($q,"|",true);
                 }
 		$query=$this->searchmodel->query($q,$myanmar);
-		foreach($query as $rows)
+		$num_row=$this->searchmodel->query_numrows($q,$myanmar);
+		if($num_row>0)
 		{
-			if($myanmar) echo $rows->def."\n";
-			else			echo $rows->Word."\n";
+			foreach($query as $rows)
+			{
+				if($myanmar)
+				{
+					$def=$rows->def;
+					$def=str_replace("|","",$def);
+					echo $def."\n";
+				}
+				else
+				{
+					echo $rows->Word."\n";
+				}
+			}
 		}
 	}
 }
