@@ -26,8 +26,8 @@ class Search extends Controller {
         
                 if($myanmar)
                 {
-                    $this->load->model('zgnormalize','zgnor');
-                    $q=$this->zgnor->zawgyi($q,"|",true);
+		    $this->load->library("zawgyi");
+		    $this->zawgyi->normalize($q,"|",true);
                 }
                 $data['query']=$this->searchmodel->query($q,$myanmar,$page);
                 $data['result']=$q;
@@ -53,6 +53,26 @@ class Search extends Controller {
                 //header("Location:".$this->config->item('base_url'));
 		echo "Can't Find";
             }
+	}
+	
+	function autocomplete()
+	{
+		parse_str($_SERVER['QUERY_STRING'],$_GET);
+		$q=$_GET['q'];
+		$this->load->model('searchmodel');
+                $myanmar=$this->searchmodel->detect_langauage($q);
+        
+                if($myanmar)
+                {
+		    $this->load->library("zawgyi");
+		    $this->zawgyi->normalize($q,"|",true);
+                }
+		$query=$this->searchmodel->query($q,$myanmar);
+		foreach($query as $rows)
+		{
+			if($myanmar) echo $rows->def."\n";
+			else			echo $rows->Word."\n";
+		}
 	}
 }
 

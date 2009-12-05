@@ -15,7 +15,7 @@ $(document).ready(function(){
     $("#login_form").hide();
     
     
-    $("#message").autocomplete("autocomplete.php", {
+    $("#message").autocomplete("<?= $base ?>/index.php/search/autocomplete", {
 		
 		selectFirst: false
 	});
@@ -202,7 +202,7 @@ $(document).ready(function(){
         word=$("#addword").val();
         
         state=$("#addstate").val();
-        def=$("#addstate").val();
+        def=$("#adddef").val();
   
         
          err_flag=false;
@@ -248,8 +248,9 @@ $(document).ready(function(){
             url: "<?= $base ?>/index.php/word/add",
             data: "word="+word+"&state="+state+"&def="+def,
             success: function(html){
+		alert(html);
                 $("#add_word_popup").fadeOut("normal");
-        $("#shadow").fadeOut();
+		$("#shadow").fadeOut();
                
             },
             beforeSend:function(){

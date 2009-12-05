@@ -41,8 +41,8 @@ $config['index_page'] = "index.php";
 | 'ORIG_PATH_INFO'	Uses the ORIG_PATH_INFO
 |
 */
-$config['uri_protocol']	= "AUTO";
-
+//$config['uri_protocol']	= "AUTO";
+$config['uri_protocol']	= "PATH_INFO";
 /*
 |--------------------------------------------------------------------------
 | URL suffix
@@ -263,7 +263,7 @@ $config['cookie_path']		= "/";
 | COOKIE data is encountered
 |
 */
-$config['global_xss_filtering'] = FALSE;
+$config['global_xss_filtering'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
