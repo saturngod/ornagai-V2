@@ -50,7 +50,8 @@ class Search extends Controller {
             }
             else
             {
-                header("Location:".$this->config->item('base_url'));
+                //header("Location:".$this->config->item('base_url'));
+		echo "Can't Find";
             }
 	}
 }

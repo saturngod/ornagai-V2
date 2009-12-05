@@ -12,22 +12,41 @@ class Word extends Model {
         
         $this->load->library('session');
         
-        /*
-         `Word` ,
-									`state` ,
-									`def` ,
-									`approve`
-        */
-        
         $data = array(
-               'Word' => 'My title' ,
-               'state' => 'My Name' ,
-               'def' => 'My date',
+               'Word' => $word ,
+               'state' => $state ,
+               'def' => $def,
                'approve' => 0,
-               'usr_id' =>$this->session->userdata('item')
+               'usr_id' =>$this->session->userdata('user_id')
             );
 
-$this->db->insert('mytable', $data);
+	$this->db->insert('mytable', $data);
+	
+	
+	//Add Myanmar English Database
+	
+	$arr=preg_split("/။/",$def);
+	
+	foreach ($arr as $val)
+	{
+	    $val=trim(str_replace("(","",$val));
+	    $val=trim(str_replace(")","",$val));
+	    
+	    if($val!="" and $val!=" ")
+	    {
+		$word_val=trim(str_replace("'","\'",$_POST['word']));
+		$val=trim(str_replace("'","\'",$val));
+		    
+		 $this->load->model('zgnormalize','zgnor');
+		$mya_def=$this->zgnor->zawgyi($val,"|",true);
+	    }
+	    
+	}
+	
+       
+        
+	
+	
 
     }
     

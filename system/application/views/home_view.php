@@ -23,13 +23,16 @@ $(document).ready(function(){
         
     if($("#message").val()!="")
     {
+	 message_val=$("#message").val();
+	message_val=message_val.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	
          $.ajax({
             type: "POST",
             url: "<?= $base ?>/index.php/search",
-            data: "message="+$("#message").val(),
+            data: "message="+message_val,
             success: function(html){
               $("#result").html(html);
-              $("#left").append('<div id="history_'+h_id+'" class="history"><a rel="'+$("#message").val()+'" href="#" class="history_result">'+$("#message").val()+'<img rel="history_'+h_id+'" src="./images/remove.png" align="middle" class="sidebar_rm" align="right" /></a></div>');
+              $("#left").append('<div id="history_'+h_id+'" class="history"><a rel="'+message_val+'" href="#" class="history_result">'+message_val+'<img rel="history_'+h_id+'" src="./images/remove.png" align="middle" class="sidebar_rm" align="right" /></a></div>');
                
                 h_id=h_id+1;
             },
@@ -150,7 +153,7 @@ $(document).ready(function(){
        if(history_flag==1)
        {
      
-        $("#history_onoff").removeClass("select_btn");
+        $("#history_onoff").attr("src","images/history_off.png");
         $("#left").hide();
         $("body").css({"background-image":"none"});
         history_flag=0;
@@ -158,7 +161,7 @@ $(document).ready(function(){
        }
        
        else{
-        $("#history_onoff").addClass("select_btn");
+        $("#history_onoff").attr("src","images/history.png");
         $("#left").show();
          $("body").css({"background-image":"url('./images/bg.jpg')"});
         history_flag=1;
@@ -296,15 +299,15 @@ $(document).ready(function(){
     </div>
     <?= form_open("search/result"); ?>
     <div class="top_menu">
-        <img src="<?= $base ?>/images/logo.png" class="logo" width=32px">
+        <img src="<?= $base ?>/images/logo.png" class="logo" >
         <input type="text" id="message" name="message" class="searchbox">
         <input type="submit" value="Search" id="search">
-        <img src="./images/history.png" id="history_onoff" class="select_btn btn">
-        <img src="./images/history.png" id="login_btn" class="btn">
+        <img src="./images/history.png" id="history_onoff" class="btn">
+        <img src="./images/user.png" id="login_btn" class="btn">
         <? if($login) { ?>
-        <img src="./images/history.png" id="add_btn" class="btn">
+        <img src="./images/add.png" id="add_btn" class="btn">
         <? } else { ?>
-        <img src="./images/history.png" id="add_btn" class="btn" style="display:none">
+        <img src="./images/add.png" id="add_btn" class="btn" style="display:none">
         <? } ?>
     </div>
 <?= form_close(); ?>
