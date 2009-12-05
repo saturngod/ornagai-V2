@@ -69,7 +69,7 @@ $(document).ready(function(){
               {
                 $("#loading").fadeOut("fast");
                 //$("#login_form").remove();
-                $("#login_form").html("<a href='#logout'>Logout</a>");
+                $("#login_form").html("<a href='<?= $base ?>/index.php/user/logout' id='logout'>Logout</a> | <a href='#logout' id='change_pwd'>Change Password</a> ");
                 $("#wrapper").css("margin-top","40px");
                 $("#add_btn").show();
               }
@@ -118,9 +118,10 @@ $(document).ready(function(){
     });
     
     $("#username").focus(function(){
+         $(this).css({"color":"#333"});
         if($(this).val()=="Username")
         {
-            $(this).css({"color":"#333"});
+            
             $(this).val("");
            
         }
@@ -276,6 +277,13 @@ $(document).ready(function(){
     <div id="shadow" class="popup"></div>
     <div class="popup" id="loading"><p><br/><br/><br/><br/><img src="<?= $base ?>/images/load.gif"></p></div>
     <div id="login_form" class="login_frm">
+    <? if($login)
+    {
+    ?>
+    <a href='<?= $base ?>/index.php/user/logout' id='logout'>Logout</a> | <a href='#logout' id='change_pwd'>Change Password</a>
+    <?
+    } else {
+    ?>
     <?= form_open("user/login"); ?>
     <input type="text" value="Username" id="username" >
     <input type="text" value="Password" id="txtpwd">
@@ -284,6 +292,7 @@ $(document).ready(function(){
     <input type="button" value="Cancel" id="cancel">
     <span class="err" id="err_msg"></span>
     <?= form_close(); ?>
+    <? } ?>
     </div>
     <?= form_open("search/result"); ?>
     <div class="top_menu">

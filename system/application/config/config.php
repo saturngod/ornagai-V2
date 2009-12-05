@@ -11,7 +11,7 @@
 |	http://example.com/
 |
 */
-$config['base_url']	= "http://localhost/ornagai-v1";
+$config['base_url']	= "http://localhost/ornagai-V2";
 
 /*
 |--------------------------------------------------------------------------

@@ -34,6 +34,18 @@ class Users extends Model {
         return $query->result();
     }
     
+    function logout()
+    {
+         $newdata = array(
+                        'user_id'=>'',
+                       'username'  =>'',
+                       'email'     => '',
+                       'logged_in' => FALSE,
+                       'admin'=>''
+                   );
+
+        $this->session->unset_userdata($newdata );
+    }
     function login($user,$pwd,$admin=false)
     {
         $this->db->where("username",$user);
@@ -60,6 +72,7 @@ class Users extends Model {
                  {
                     //add all data to session
                     $newdata = array(
+                        'user_id'=>$rows->id,
                        'username'  => $rows->username,
                        'email'     => $rows->email,
                        'logged_in' => TRUE,
