@@ -7,6 +7,10 @@ body{
    font-size:12px;
 }
 
+a
+{
+    outline:none;
+}
 
 .top_menu
 {
@@ -191,6 +195,17 @@ form{
     padding:3px;
 }
 
+.login_frm a, .login_frm a:link
+{
+    text-decoration:none;
+    color:#7789AF;
+}
+
+.login_frm a:hover
+{
+    color:#A0B4E0;
+}
+
 .page_nav
 {
     outline:none;
@@ -236,3 +251,9 @@ form{
     color:red;
 }
 
+.res_img
+{
+    padding-left:4px;
+    border:0px;
+    outline:none;
+}

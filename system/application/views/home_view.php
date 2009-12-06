@@ -253,7 +253,7 @@ $(document).ready(function(){
             url: "<?= $base ?>/index.php/word/add",
             data: "word="+word+"&state="+state+"&def="+def,
             success: function(html){
-		alert(html);
+		
                 $("#add_word_popup").fadeOut("normal");
 		$("#shadow").fadeOut();
                

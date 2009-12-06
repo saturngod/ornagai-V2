@@ -1,8 +1,12 @@
 <div class="result">
 <?php
+ $voice=$base.'/images/voice.png';
+$approve=$base.'/images/approve.png';
 foreach ($query  as $row)
 {
     echo "<div class='result'>";
+    
+    echo "<div id='speech_".$row->id."' style='visibility:hidden;height:0px;'>".$row->Word."</div>";
     if(!$mm)
     {
         echo str_replace($result,"<font color='#0090E1'>".$result."</font>",$row->Word);   
@@ -10,6 +14,14 @@ foreach ($query  as $row)
     else{
         echo $row->Word;
     }
+   
+   if($row->approve==0)
+   {
+	 echo "<img src='".$approve."' alt='approve' class='res_img' >";
+   }
+    echo '<a href="javascript:void(0);" onclick="get_id(\'speech_'.$row->id.'\',\'en\',\'mlfm\');">';
+    echo "<img src='".$voice."' alt='voice' class='res_img' >";
+    echo "</a>";
     echo "<br>";
     echo "<b><font color='#7082AA'>".$row->state."</font></b>";
     echo "<br>";
