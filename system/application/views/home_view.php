@@ -5,7 +5,13 @@ $this->load->helper('form');
 ?>
 <link rel="stylesheet" type="text/css" href="<?= $base ?>/css/jquery.autocomplete.css" />
 <script type="text/javascript" src="<?= $base ?>/js/jquery.bgiframe.min.js"></script>
-<script type="text/javascript" src="<?= $base ?>/js/jquery.autocomplete.js"></script> 
+<script type="text/javascript" src="<?= $base ?>/js/jquery.autocomplete.js"></script>
+<!-- Tooltip -->
+<script src="<?= $base ?>/js/jquery.tooltip.min.js"></script>
+<script src="<?= $base ?>/js/jquery.delegate.js"></script>
+<script src="<?= $base ?>/js/jquery.dimensions.js"></script>
+
+<link rel="stylesheet" type="text/css" href="<?= $base ?>/css/jquery.tooltip.css" />
 <script>
 var h_id;
 var history_flag;
@@ -14,7 +20,9 @@ h_id=1;
 $(document).ready(function(){
     $("#login_form").hide();
     
-    
+    $("#top_menu *").tooltip({
+	showURL: false 
+	});
     $("#message").autocomplete("<?= $base ?>/index.php/search/autocomplete", {
 		
 		selectFirst: false
@@ -47,10 +55,13 @@ $(document).ready(function(){
     
     $("#login_btn").live("click", function(){
         if($("#login_form").is(":hidden")) {
+	    $("#login_btn").attr("src","<?= $base ?>/images/user.png");
             $("#login_form").slideDown("fast");
             $("#wrapper").css("margin-top","0px");
         }
         else{
+	    
+	    $("#login_btn").attr("src","<?= $base ?>/images/user_off.png");
             $("#login_form").slideUp("fast");
             $("#wrapper").css("margin-top","40px");
         }
@@ -299,17 +310,19 @@ $(document).ready(function(){
     <input type="password" id="pwd" style="display:none" >
     <input type="submit" value="Login" id="login">
     <input type="button" value="Cancel" id="cancel">
-    <span class="err" id="err_msg"></span>
+    <span class="err" id="err_msg"></span> &nbsp;
+    <a href="<?= $base ?>/index.php/register">Not a member</a> | 
+    <a href="<?= $base ?>/index.php/register">Forgot Password</a>
     <?= form_close(); ?>
     <? } ?>
     </div>
     <?= form_open("search/result"); ?>
-    <div class="top_menu">
+    <div id="top_menu" class="top_menu">
         <img src="<?= $base ?>/images/logo.png" class="logo" >
         <input type="text" id="message" name="message" class="searchbox">
         <input type="submit" value="Search" id="search">
-        <img src="./images/history.png" id="history_onoff" class="btn">
-        <img src="./images/user.png" id="login_btn" class="btn">
+        <img src="./images/history.png" id="history_onoff" class="btn" title="history" >
+        <img src="./images/user_off.png" id="login_btn" class="btn" title="Users">
         <? if($login) { ?>
         <img src="./images/add.png" id="add_btn" class="btn">
         <? } else { ?>
