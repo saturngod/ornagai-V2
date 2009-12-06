@@ -193,7 +193,12 @@ $(document).ready(function(){
    });
    
     $("#add_btn").click(function(){
-        $("#shadow").show();
+	
+	$("#add_err").html("");
+	$("#addword").val("");
+	$("#addstate").val("");
+	$("#adddef").val("");
+        $("#shadow").fadeIn("normal");
          $("#add_word_popup").fadeIn("normal");
          $("#addword").focus();
     });
