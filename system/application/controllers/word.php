@@ -8,6 +8,7 @@ class Word extends Controller {
         
         function add()
         {
+	
            $word=$_POST['word'];
             $state=$_POST['state'];
             $def=$_POST['def'];

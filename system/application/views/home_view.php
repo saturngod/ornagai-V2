@@ -8,8 +8,6 @@ $this->load->helper('form');
 <script type="text/javascript" src="<?= $base ?>/js/jquery.autocomplete.js"></script>
 <!-- Tooltip -->
 <script src="<?= $base ?>/js/jquery.tooltip.min.js"></script>
-<script src="<?= $base ?>/js/jquery.delegate.js"></script>
-<script src="<?= $base ?>/js/jquery.dimensions.js"></script>
 
 <link rel="stylesheet" type="text/css" href="<?= $base ?>/css/jquery.tooltip.css" />
 <script>
@@ -23,6 +21,8 @@ $(document).ready(function(){
     $("#top_menu *").tooltip({
 	showURL: false 
 	});
+    
+    
     $("#message").autocomplete("<?= $base ?>/index.php/search/autocomplete", {
 		
 		selectFirst: false
@@ -198,6 +198,18 @@ $(document).ready(function(){
                 }
     });
    
+   $("#forget_password").click(function(){
+	
+	$("#shadow").fadeIn();
+	$("#forget_popup").fadeIn("normal");
+        
+   });
+
+    $("#forget_cancel_hide").click(function(){
+        $("#forget_popup").fadeOut("normal");
+        $("#shadow").fadeOut();
+   });
+      
    $("#cancel_hide").click(function(){
         $("#add_word_popup").fadeOut("normal");
         $("#shadow").fadeOut();
@@ -215,8 +227,8 @@ $(document).ready(function(){
     });
     
     $("#addnewword").click(function(){
-        word=$("#addword").val();
-        
+	
+        word=$("#addword").val(); 
         state=$("#addstate").val();
         def=$("#adddef").val();
   
@@ -224,7 +236,7 @@ $(document).ready(function(){
          err_flag=false;
          
          
-         
+        
         if(word=="")
         {
             err="Word is required";
@@ -235,7 +247,6 @@ $(document).ready(function(){
         {
             if(state=="")
             {
-        
                 err="State is required";
                 err_flag=true;
             }
@@ -280,6 +291,16 @@ $(document).ready(function(){
 });
 </script>
 <body>
+    <div id="forget_popup">
+        <div class="err" id="forget_err"></div>
+       <form action="<?= $base ?>/index.php/user/forgetpwd">
+       <label>Email</label>
+       <input type="text" id="forg_email" style="width:165px;" >
+        <input type="submit" id="forget_send" value="Send">
+        <input type="button" id="forget_cancel_hide" value="Cancel">
+       </form>
+    </div>
+    
     <div id="add_word_popup">
         <div class="err" id="add_err"></div>
        <form action="<?= $base ?>/index.php/word/add">
@@ -312,7 +333,7 @@ $(document).ready(function(){
     <input type="button" value="Cancel" id="cancel">
     <span class="err" id="err_msg"></span> &nbsp;
     <a href="<?= $base ?>/index.php/register">Not a member</a> | 
-    <a href="<?= $base ?>/index.php/register">Forgot Password</a>
+    <a href="#" id="forget_password">Forgot Password</a>
     <?= form_close(); ?>
     <? } ?>
     </div>
@@ -324,9 +345,9 @@ $(document).ready(function(){
         <img src="./images/history.png" id="history_onoff" class="btn" title="history" >
         <img src="./images/user_off.png" id="login_btn" class="btn" title="Users">
         <? if($login) { ?>
-        <img src="./images/add.png" id="add_btn" class="btn">
+        <img src="./images/add.png" id="add_btn" class="btn" title="Add New Word">
         <? } else { ?>
-        <img src="./images/add.png" id="add_btn" class="btn" style="display:none">
+        <img src="./images/add.png" id="add_btn" class="btn" title="Add New Word" style="display:none">
         <? } ?>
     </div>
 <?= form_close(); ?>

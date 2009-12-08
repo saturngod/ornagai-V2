@@ -1,4 +1,11 @@
-<div class="result">
+<script>
+$(document).ready(function(){
+  $("#res_list *").tooltip({
+	showURL: false 
+	});
+});
+</script>
+<div id="res_list" class="result">
 <?php
  $voice=$base.'/images/voice.png';
 $approve=$base.'/images/approve.png';
@@ -17,10 +24,10 @@ foreach ($query  as $row)
    
    if($row->approve==0)
    {
-	 echo "<img src='".$approve."' alt='approve' class='res_img' >";
+	 echo "<img src='".$approve."' alt='approve' class='res_img' title='waiting to approve' >";
    }
     echo '<a href="javascript:void(0);" onclick="get_id(\'speech_'.$row->id.'\',\'en\',\'mlfm\');">';
-    echo "<img src='".$voice."' alt='voice' class='res_img' >";
+    echo "<img src='".$voice."' alt='voice' class='res_img' title='click to speech' >";
     echo "</a>";
     echo "<br>";
     echo "<b><font color='#7082AA'>".$row->state."</font></b>";

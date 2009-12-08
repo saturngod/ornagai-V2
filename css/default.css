@@ -230,6 +230,19 @@ form{
    
 }
 
+#forget_popup
+{
+    position:absolute;
+    width:200px;
+    top:100px;
+    left:45%;
+     background-color:#DDD;
+     padding:10px;
+     border:1px dashed #AAA;
+    display:none;
+     z-index:101;
+}
+
 .popup
 {
    
@@ -256,4 +269,5 @@ form{
     padding-left:4px;
     border:0px;
     outline:none;
+    cursor:pointer;
 }
