@@ -52,7 +52,24 @@ $(document).ready(function(){
         return false;
     });
     ////////////
-    
+    $("#forget_send").live("click",function(){
+	
+	 $.ajax({
+            type: "POST",
+            url: "<?= $base ?>/index.php/register/forgotpwd",
+            data: "email="+email,
+            success: function(html){
+		
+		$("#forget_popup").fadeOut("normal");
+		$("#shadow").fadeOut();	
+	    },
+	    beforeSend:function(){
+               $("#foget_message").html("Loading...");
+            }
+	 });
+	    
+	return false;
+    });
     $("#login_btn").live("click", function(){
         if($("#login_form").is(":hidden")) {
 	    $("#login_btn").attr("src","<?= $base ?>/images/user.png");
@@ -294,10 +311,12 @@ $(document).ready(function(){
     <div id="forget_popup">
         <div class="err" id="forget_err"></div>
        <form action="<?= $base ?>/index.php/user/forgetpwd">
-       <label>Email</label>
+       <label>Email : </label>
        <input type="text" id="forg_email" style="width:165px;" >
+	<div class="break">
         <input type="submit" id="forget_send" value="Send">
         <input type="button" id="forget_cancel_hide" value="Cancel">
+	    </div>
        </form>
     </div>
     

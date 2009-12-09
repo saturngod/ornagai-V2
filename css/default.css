@@ -233,7 +233,7 @@ form{
 #forget_popup
 {
     position:absolute;
-    width:200px;
+    width:210px;
     top:100px;
     left:45%;
      background-color:#DDD;
@@ -243,6 +243,12 @@ form{
      z-index:101;
 }
 
+.break
+{
+    display:block;
+    padding-top:5px;
+    padding-left:35px;
+}
 .popup
 {
    
