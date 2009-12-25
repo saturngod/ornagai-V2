@@ -60,21 +60,25 @@ $(document).ready(function(){
             url: "<?= $base ?>/index.php/register/forgotpwd",
             data: "email="+email,
             success: function(html){
-            	
+            	$("#loading").fadeOut("normal");
 				if(html!="false")
 				{
 					$("#forget_popup").fadeOut("normal");
 					$("#shadow").fadeOut();	
 					//Will change with jquery popup soon
-					alert("Check Your Email,please");
+					//alert("Check Your Email,please");
 				}
 				else
 				{
-					$("#foget_message").html("Email Address Not Found");
+					$("#forget_popup").fadeIn("fast");
+					$("#forget_message").html("Email Address Not Found");
 				}
 	    },
 	    beforeSend:function(){
-               $("#foget_message").html("Loading...");
+               //$("#forget_message").html("Loading...");
+               $("#forget_popup").fadeOut("fast");
+                $("#loading").fadeIn("normal");
+
         }
 	 });
 	    
@@ -228,6 +232,7 @@ $(document).ready(function(){
    $("#forget_password").click(function(){
 	
 	$("#shadow").fadeIn();
+	$("#forget_message").html("");
 	$("#forget_popup").fadeIn("normal");
         
    });
@@ -320,14 +325,15 @@ $(document).ready(function(){
 <body>
     <div id="forget_popup">
         <div class="err" id="forget_err"></div>
-       <!-- <form action="<?= $base ?>/index.php/user/forgetpwd"> -->
+       <form action="<?= $base ?>/index.php/user/forgetpwd">
+       <div id="forget_message" class="err"></div>
        <label>Email : </label>
        <input type="text" id="forg_email" style="width:165px;" >
 	<div class="break">
         <input type="submit" id="forget_send" value="Send">
         <input type="button" id="forget_cancel_hide" value="Cancel">
 	    </div>
-       <!-- </form> -->
+       </form>
     </div>
     
     <div id="add_word_popup">

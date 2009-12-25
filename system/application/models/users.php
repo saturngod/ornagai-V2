@@ -136,14 +136,14 @@ class Users extends Model {
 		$pwd=sha1($salt.$new_pwd);
 		
 		
-		$data = array(
+		/*$data = array(
                'password' => $pwd,
                'salt' => $salt
             );
 
 		$this->db->where('username', $username);
 		$this->db->update('user', $data); 
-	
+	*/
 				
     	$message="Username : ".$username."</br>";
     	$message .= "Password : ".$new_pwd;
