@@ -54,5 +54,18 @@ class Register extends Controller {
             $data['title']="Ornagai :: Thank You For Register";
             $this->load->view("thankyou_view",$data);
         }
+        function forgotpwd()
+        {
+        	$email=$_POST['email'];
+        	$this->load->model("users");
+        	if($this->users->check_email($email))
+        	{
+        		$this->users->forget_send_mail($email);
+        	}
+        	else
+        	{
+  				echo "false";
+        	}
+        }
 }
 ?>

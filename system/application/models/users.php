@@ -103,5 +103,77 @@ class Users extends Model {
 
         $this->db->insert('user', $data); 
     }
+    
+    function check_email($email)
+    {
+    	$this->db->where("email",$email);
+    	$query=$this->db->get("user");
+    	if($query->num_rows()>0)
+    	{
+    		return true;
+    	}
+    	else
+    	{
+    		return false;
+    	}
+    }
+    
+    function forget_send_mail($email)
+    {
+    	$username=$this->getnamebymail($email);
+		
+
+    	$headers  = 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+		// Additional headers
+		$headers .= 'To:'.$username.' <'.$email.'>'. "\r\n";
+		$headers .= 'From: Ornagai <no-reply@ornagai.com>' . "\r\n";
+		
+		//Generate Text for new pwd
+		$new_pwd=$this->generate_txt();
+		$salt=MD5(mt_rand(0,999));
+		$pwd=sha1($salt.$new_pwd);
+		
+		
+		$data = array(
+               'password' => $pwd,
+               'salt' => $salt
+            );
+
+		$this->db->where('username', $username);
+		$this->db->update('user', $data); 
+	
+				
+    	$message="Username : ".$username."</br>";
+    	$message .= "Password : ".$new_pwd;
+    	
+    	mail($email, "Forgot password from Ornagai", $message, $headers);
+    }
+    
+    function getnamebymail($email)
+    {
+    	$this->db->select('username');
+    	$this->db->where("email",$email);
+    	$query=$this->db->get("user");
+    	
+    	if($query->num_rows > 0)
+    	{
+    		$row = $query->first_row();
+    		return $row->username;
+    	}
+    	
+    }
+    
+    function generate_txt()
+    {
+    	$pwd=chr(rand(97,122));
+    	$pwd.=chr(rand(65,90));
+    	$pwd.=rand(0,9);
+    	$pwd.=chr(rand(65,122));
+    	$pwd.=rand(0,9);
+    	return $pwd;
+    	
+    }
 }
 ?>
