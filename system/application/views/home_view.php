@@ -228,7 +228,48 @@ $(document).ready(function(){
         });
                 }
     });
+    
+   $("#current_pwd").keyup(function(){
+   	
+   	pwd=$(this).val();
+   	alert(pwd);
+   	return false;
+   	/// Forget Pwd
+   	$.ajax({
+            type: "POST",
+            url: "<?= $base ?>/index.php/user/changepwd",
+            data: "pwd="+pwd,
+            success: function(html){
+            	$("#loading").fadeOut("normal");
+				if(html!="false")
+				{
+					$("#forget_popup").fadeOut("normal");
+					$("#shadow").fadeOut();	
+					//Will change with jquery popup soon
+					//alert("Check Your Email,please");
+				}
+				else
+				{
+					$("#forget_popup").fadeIn("fast");
+					$("#forget_message").html("Email Address Not Found");
+				}
+	    },
+	    beforeSend:function(){
+               //$("#forget_message").html("Loading...");
+               $("#forget_popup").fadeOut("fast");
+                $("#loading").fadeIn("normal");
+
+        }
+	 });
+   	/////
+   });
+   $("#conf_pwd").keyup(function(){
    
+   });
+   $("#chpwd_cancel_hide").click(function(){
+   	$("#chpwd_popup").fadeOut();
+   	$("#shadow").fadeOut();
+   });
    $("#forget_password").click(function(){
 	
 	$("#shadow").fadeIn();
@@ -257,6 +298,13 @@ $(document).ready(function(){
          $("#add_word_popup").fadeIn("normal");
          $("#addword").focus();
     });
+    
+    $("#change_pwd").live("click",function(){
+	    $("#shadow").fadeIn("fast");
+    	$("#chpwd_popup").fadeIn();
+    	
+    });
+
     
     $("#addnewword").click(function(){
 	
@@ -320,20 +368,42 @@ $(document).ready(function(){
           return false;
           
     });
+    
+        
+    
 });
 </script>
 <body>
+
     <div id="forget_popup">
         <div class="err" id="forget_err"></div>
        <form action="<?= $base ?>/index.php/user/forgetpwd">
        <div id="forget_message" class="err"></div>
        <label>Email : </label>
        <input type="text" id="forg_email" style="width:165px;" >
-	<div class="break">
+		<div class="break">
         <input type="submit" id="forget_send" value="Send">
         <input type="button" id="forget_cancel_hide" value="Cancel">
 	    </div>
        </form>
+    </div>
+    
+    <div id="chpwd_popup">
+    	 <div class="err" id="forget_err"></div>
+       <form action="<?= $base ?>/index.php/user/changepwd">
+       <div id="chpwd_message" class="err"></div>
+       <label>Current Password : </label>
+       <input type="password" id="current_pwd" style="width:165px;" >
+       <label>New Password : </label>
+       <input type="password" id="new_pwd" style="width:165px;" >
+       <label>Confirm Password : </label>
+       <input type="password" id="conf_pwd" style="width:165px;" >
+		<div class="break">
+        <input type="submit" id="chpwd_send" value="Send">
+        <input type="button" id="chpwd_cancel_hide" value="Cancel">
+	    </div>
+       </form>
+
     </div>
     
     <div id="add_word_popup">
@@ -350,8 +420,13 @@ $(document).ready(function(){
         <input type="button" id="cancel_hide" value="Cancel">
        </form>
     </div>
+    
     <div id="shadow" class="popup"></div>
-    <div class="popup" id="loading"><p><br/><br/><br/><br/><img src="<?= $base ?>/images/load.gif"></p></div>
+    
+    <div class="popup" id="loading">
+    	<p><br/><br/><br/><br/><img src="<?= $base ?>/images/load.gif"></p>
+    </div>
+    
     <div id="login_form" class="login_frm">
     <? if($login)
     {

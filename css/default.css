@@ -252,7 +252,7 @@ form{
 .popup
 {
    
-   position: absolute;
+   position: fixed;
    width: 100%;
    opacity: 0.9;
    top:0px;
@@ -263,6 +263,24 @@ form{
    font-size: 20px;
    text-align: center;
    display:none; 
+}
+
+#chpwd_popup
+{
+	position:absolute;
+    width:165px;
+    top:100px;
+    left:45%;
+     background-color:#DDD;
+     padding:10px;
+     border:1px dashed #AAA;
+    display:none;
+     z-index:101;
+}
+
+#chpwd_popup label
+{
+	display:block;
 }
 
 .err
