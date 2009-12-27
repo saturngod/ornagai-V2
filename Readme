@@ -1,11 +1,11 @@
 Ornagai is a Online English To Myanmar, Myanmar To English Dictionary.
 All of the english to myanmar word from MZ dictionary.
 
-MySQL Query for seach by
+MySQL Query for search by
 Charles Reace (http://charles-reace.com)
 
 Using
 --PHP
---CodeIgniter Framework
+--CodeIgniter Framework 1.7
 --Jquery 1.3
 --MySQL
