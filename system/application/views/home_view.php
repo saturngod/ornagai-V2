@@ -214,58 +214,88 @@ $(document).ready(function(){
                 if($(this).attr("rel")!="")
                 {
                     $.ajax({
-            type: "POST",
-            url: "<?= $base ?>/index.php/search",
-            data: "message="+$(this).attr("rel"),
-            success: function(html){
-              $("#result").html(html);
-               
-                h_id=h_id+1;
-            },
-            beforeSend:function(){
-                $("#result").html("Loading...")
-            }
-        });
+            			type: "POST",
+            			url: "<?= $base ?>/index.php/search",
+            			data: "message="+$(this).attr("rel"),
+            			success: function(html){
+              				$("#result").html(html);
+               				h_id=h_id+1;
+            			},
+            			beforeSend:function(){
+                			$("#result").html("Loading...")
+            			}
+        			});
                 }
-    });
+   });
     
-   $("#current_pwd").keyup(function(){
-   	
-   	pwd=$(this).val();
-   	alert(pwd);
-   	return false;
-   	/// Forget Pwd
-   	$.ajax({
-            type: "POST",
-            url: "<?= $base ?>/index.php/user/changepwd",
-            data: "pwd="+pwd,
-            success: function(html){
-            	$("#loading").fadeOut("normal");
-				if(html!="false")
-				{
-					$("#forget_popup").fadeOut("normal");
-					$("#shadow").fadeOut();	
-					//Will change with jquery popup soon
-					//alert("Check Your Email,please");
-				}
-				else
-				{
-					$("#forget_popup").fadeIn("fast");
-					$("#forget_message").html("Email Address Not Found");
-				}
-	    },
-	    beforeSend:function(){
-               //$("#forget_message").html("Loading...");
-               $("#forget_popup").fadeOut("fast");
-                $("#loading").fadeIn("normal");
-
+   $("#chpwd_send").click(function(){
+   		
+   		if($("#new_pwd").val()!=$("#conf_pwd").val())
+   		{
+   			$("#chpwd_err").html("Not Same");
+   		}
+   		else
+   		{
+   			curr_pwd=$("#current_pwd").val();
+   			new_pwd=$("#new_pwd").val();
+   			conf_pwd=$("#conf_pwd").val();
+   			
+   			//// Change Password
+   			$.ajax({
+            		type: "POST",
+            		url: "<?= $base ?>/index.php/user/changepwd",
+            		data: "currpwd="+curr_pwd+"&newpwd="+new_pwd,
+            		success: function(html){
+            			if(html=='false')
+            			{
+            				$("#chpwd_err").html("Current Password Wrong");
+            				return false;
+            			}
+            			
+            			//alert Box will replace in there
+            			$("#chpwd_popup").fadeOut();
+						$("#shadow").fadeOut();
+              				
+            		},
+            		beforeSend:function(){
+                			$("#chpwd_err").html("Loading...")
+            			}
+        	});
+        	
+        	
         }
-	 });
-   	/////
+
+   		return false;
    });
-   $("#conf_pwd").keyup(function(){
    
+   $("#new_pwd").keyup(function(){
+   		if($("#conf_pwd").val()!="")
+   		{
+   			if($("#new_pwd").val()!=$("#conf_pwd").val())
+   			{
+   				$("#chpwd_err").html("Not Same");
+   			}
+   			else
+   			{
+   				$("#chpwd_err").html("");
+   			}
+   		}
    });
+   
+   $("#conf_pwd").keyup(function(){
+   		if($("#conf_pwd").val()!="")
+   		{
+   			if($("#new_pwd").val()!=$("#conf_pwd").val())
+   			{
+   				$("#chpwd_err").html("Not Same");
+   			}
+   			else
+   			{
+   				$("#chpwd_err").html("");
+   			}
+   		}   
+   });
+   
    $("#chpwd_cancel_hide").click(function(){
    	$("#chpwd_popup").fadeOut();
    	$("#shadow").fadeOut();
@@ -389,15 +419,15 @@ $(document).ready(function(){
     </div>
     
     <div id="chpwd_popup">
-    	 <div class="err" id="forget_err"></div>
+    	 <div class="err" id="chpwd_err"></div>
        <form action="<?= $base ?>/index.php/user/changepwd">
        <div id="chpwd_message" class="err"></div>
        <label>Current Password : </label>
-       <input type="password" id="current_pwd" style="width:165px;" >
+       <input type="password" id="current_pwd" style="width:170px;" >
        <label>New Password : </label>
-       <input type="password" id="new_pwd" style="width:165px;" >
+       <input type="password" id="new_pwd" style="width:170px;" >
        <label>Confirm Password : </label>
-       <input type="password" id="conf_pwd" style="width:165px;" >
+       <input type="password" id="conf_pwd" style="width:170px;" >
 		<div class="break">
         <input type="submit" id="chpwd_send" value="Send">
         <input type="button" id="chpwd_cancel_hide" value="Cancel">

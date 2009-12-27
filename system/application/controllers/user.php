@@ -24,5 +24,18 @@ class User extends Controller {
 		$this->load->helper('url');
 		redirect('');
 	}
+	
+	function changepwd()
+	{
+		$this->load->model("users");
+		$currpwd=$_POST['currpwd'];
+		$newpwd=$_POST['newpwd'];
+		$uid=$this->session->userdata('user_id');
+		$res=$this->users->changepwd($uid,$currpwd,$newpwd);
+		if(!$res)
+		{
+			echo "false";
+		}
+	}
 }
 ?>

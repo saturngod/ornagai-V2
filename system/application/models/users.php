@@ -118,6 +118,39 @@ class Users extends Model {
     	}
     }
     
+    function changepwd($uid,$currpwd,$newpwd)
+    {
+    	$this->db->where("id",$uid);
+    	$query=$this->db->get("user");
+    	if($query->num_rows > 0)
+    	{
+    		$row = $query->first_row();
+    		$salt=$row->salt;
+    		$pwd=sha1($salt.$currpwd);
+    		if($pwd==$row->password)
+    		{
+    			$pwd=sha1($salt.$newpwd);
+    			$data = array(
+               'password' => $pwd
+            	);
+
+				$this->db->where('id', $uid);
+				$this->db->update('user', $data);
+				return true;
+    		}
+    		else
+    		{
+    			return false;
+    		}
+    		//return $row->username;
+    	}
+    	else
+    	{
+    		return "false";
+    	}
+    	
+    }
+    
     function forget_send_mail($email)
     {
     	$username=$this->getnamebymail($email);
@@ -142,8 +175,8 @@ class Users extends Model {
             );
 
 		$this->db->where('username', $username);
-		$this->db->update('user', $data); 
-	
+		$this->db->update('user', $data);
+		
 				
     	$message="Username : ".$username."</br>";
     	$message .= "Password : ".$new_pwd;
