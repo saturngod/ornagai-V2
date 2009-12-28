@@ -98,6 +98,7 @@ class Users extends Model {
                'username' => $username ,
                'salt' => $salt ,
                'password' => $pwd,
+               'email'=>$email,
                'join_date' =>$join_date
             );
 
