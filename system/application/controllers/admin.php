@@ -24,7 +24,12 @@ class Admin extends Controller {
                 $data['base']=$this->config->item('base_url');
                 $data['title']="Ornagai :: Admin Dashboard";
                 $this->load->model("users");
+                $this->load->model("words");
                 $data['total_users']=$this->users->get_totalusr();
+                $word=$this->words->get_en_unapprove();
+                $data['en_unapprove']=$word->num_rows();
+                $word=$this->words->get_my_unapprove();
+                $data['my_unapprove']=$word->num_rows();
                 $this->load->view("admin_dashboard_view",$data);
                 //$data['total']
                 //total user
@@ -35,6 +40,17 @@ class Admin extends Controller {
             {
                  redirect("/admin/login");
             }
+        }
+        
+        function enunapprove()
+        {
+        	$this->load->model('words');
+        	$data['res']=$this->words->get_en_unapprove();
+        	$data['base']=$this->config->item('base_url');
+            $data['title']="Ornagai :: English Unapprove Word";
+        	$this->load->view('admin_en_unapprove',$data);
+        	
+        	
         }
         
         function login()
