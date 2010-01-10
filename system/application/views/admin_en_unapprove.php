@@ -3,27 +3,20 @@ $data['title']=$title;
 $data['base']=$base;
 $this->load->view("adminheader_view",$data);
 ?>
-    <div class="statics">
-        <div class="left">
-        <ul>
-            <li><a href="<?= $base ?>/index.php/admin/users">Users</a></li>
-            <li><a href="<?= $base ?>/index.php/admin/enunapprove">Unapprove English Word</a></li>
-            <li>Unapprove Myanmar Word</li>
-            <li>Approve</li>
-            <li>Total</li>
-        </ul>
-        </div>
-        
-        <div class="right">
-        <ul>
-            <li><?= $total_users ?></li>
-            <li><?= $en_unapprove ?></li>
-            <li><?= $my_unapprove ?></li>
-            <li>Approve</li>
-            <li>Total</li>
-        </ul>
-        </div>
-    </div>
+<div id="unapprove">
+<?php
+foreach ($query->result() as $row)
+{
+	echo $row->Word;
+	echo "|";
+	echo $row->state;
+	echo "|";
+	echo $row->def;
+	echo "|";
+	echo $row->username;
+}
+?>
+</div>
 <?php
 $data['title']=$title;
 $data['base']=$base;

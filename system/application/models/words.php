@@ -53,6 +53,7 @@ class Words extends Model {
     function get_en_unapprove()
     {
     	$this->db->where("approve",0);
+    	$this->db->join('user', 'user.id = dblist.usr_id');
     	$result=$this->db->get("dblist");
     	return $result;
     }
