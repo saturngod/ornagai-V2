@@ -147,6 +147,12 @@ function zawgyi_normalize($string,$cb="|",$syllable=true)
 	
 	$j=$j+1;
 	
+	$pattern[$j]="/(ဲ)(ြ)/";
+	$replacement[$j]="$2$1";
+	
+	$j=$j+1;
+	
+	
 	$pattern[$j]="/(၁|၂|၃|၄|၅|၆|၇|၈|၉)ဝ/";
 	$replacement[$j]="$1၀";
 	
