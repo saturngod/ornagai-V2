@@ -1,5 +1,8 @@
 <?php
-header("Content-type:charset=utf-8");
+///// Merge the word
+// portable adj သယ္ရလြယ္ေသာ။
+// portable adj ခရီးေဆာင္။
+// အဲဒါကို protable adj သယ္ရလြယ္ေသာ။ ခရီးေဆာင္။
 $eff_row=0;
 include('config.php');
 connectdb();
@@ -29,6 +32,8 @@ $sql="Select * from dblist";
 
 $result=mysql_query($sql);
 
+
+
 if(!$result)
 {
 	  echo "Could not successfully run query ($sql) from DB: " . mysql_error();
@@ -48,16 +53,16 @@ else
 		$row['state']=str_replace("'","\'",$row['state']);
 		$row['def']=str_replace("'","\'",$row['def']);
 		
-		$sql2="select * from `tmptable` where Word='".$row['Word']."' And state='".$row['state']."'";
-		$res=mysql_query($sql2);
+		$sql2="select * from `tmptable` where `Word`='".$row['Word']."' And `state`='".$row['state']."'";
+		$result2=mysql_query($sql2);
 		
-		if(!$res)
+		if(!$result2)
 		{
 		  echo "Could not successfully run query ($sql2) from DB: " . mysql_error();
     	  exit;
 		}
 
-		if (mysql_num_rows($res) == 0)
+		if (mysql_num_rows($result2) == 0)
 		{
 			$sql3="Insert Into `tmptable`(
 				`id`,
@@ -71,14 +76,18 @@ else
 		}
 		else
 		{
-			if(substr($res['def'],-1)=='။')
-			{
-				$def=$res['def'];
+		
+			
+			while ($row2 = mysql_fetch_assoc($result2)) {
+				$def=$row2['def'];
 			}
-			else
+			
+			if(substr($def,-3)!='။')
 			{
-				$def=$res['def']." ။ ";
+				$def=$def." ။ ";
 			}
+			
+			
 			$sql3="
 			UPDATE `tmptable` SET `def` = '".$def.$row['def']."' WHERE `Word` ='".$row['Word']."' And `state` ='".$row['state']."'";
 			
@@ -96,6 +105,7 @@ else
 		{
 		
 			echo "OK....".$row['Word']."\n";
+			
 
 		}
 		
