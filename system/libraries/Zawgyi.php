@@ -155,6 +155,11 @@ class Zawgyi {
 	
 	$j=$j+1;
 	
+	$pattern[$j]="/(ဲ)(ြ)/";
+	$replacement[$j]="$2$1";
+	
+	$j=$j+1;
+	
 	$pattern[$j]="/ိ(".$low_char.")/";
 	$replacement[$j]="$1ိ";
 	
