@@ -38,7 +38,7 @@ while ($row = mysql_fetch_assoc($result)) {
 			$val=trim(str_replace("'","\'",$val));
 			$val2=substr($val,0,1);
 			if($val2=="'") $val=substr($val,1);
-	 		$query.="(NULL , '".$word_val."', '".$row['state']."',". $val."', '".$row['approve']."' ), ";
+	 		$query.="(NULL , '".$word_val."', '".$row['state']."','". $val."', '".$row['approve']."' ), ";
 
 		}
 	}

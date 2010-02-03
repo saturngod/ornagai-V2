@@ -30,3 +30,18 @@
      padding:0px;
      margin:0px;
 }
+
+.approve_list , .approve_list ul 
+{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+
+.approve_list ul li
+{
+	float: left;
+	margin: 0px;
+	padding-right: 5px;
+}
