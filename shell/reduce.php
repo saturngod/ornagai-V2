@@ -14,6 +14,7 @@ CREATE TABLE `tmptable` (
 `state` VARCHAR( 10 ) NOT NULL ,
 `def` TEXT NOT NULL ,
 `approve` VARCHAR( 1 ) NOT NULL DEFAULT '0' ,
+`usr_id` int(11) NOT NULL DEFAULT '0',
 INDEX ( `Word` )
 ) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
@@ -69,9 +70,10 @@ else
 				`Word`,
 				`state`,
 				`def`,
-				`approve`)
+				`approve`,
+				`usr_id`)
 			Values( NULL,";
-			$sql3.="'".$row['Word']."','".$row['state']."','".str_replace("​","",$row['def'])."','".$row['approve']."');";
+			$sql3.="'".$row['Word']."','".$row['state']."','".str_replace("​","",$row['def'])."','".$row['approve']."','".$row['usr_id']."');";
 			
 		}
 		else
