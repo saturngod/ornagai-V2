@@ -31,17 +31,15 @@
      margin:0px;
 }
 
-.approve_list , .approve_list ul 
+
+.table_header
 {
-	list-style: none;
-	margin: 0px;
-	padding: 0px;
+	background-color: #FFEEEE;
 }
 
-
-.approve_list ul li
+.table_admin td
 {
-	float: left;
-	margin: 0px;
-	padding-right: 5px;
+border: 0px;
+padding-left: 5px;
+padding-right: 5px;
 }
