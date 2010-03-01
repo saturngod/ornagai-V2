@@ -1,2 +1,1 @@
-<script>
 $(document).ready(function(){

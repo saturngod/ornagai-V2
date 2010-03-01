@@ -2,20 +2,30 @@
 $data['title']=$title;
 $data['base']=$base;
 $this->load->view("adminheader_view",$data);
+?>
+<script>
+<?
 $this->load->view("jquery_start");
 ?>
 
+$("#approve").click(function(){
+	$('.enword:checked').each(function(index) {
+    	alert($(this).attr("value"));
+  });
+
+});
 
 <?php
 $this->load->view("jquery_end");
 ?>
+</script>
 <div id="unapprove">
 
 <a href="#" id="approve">Approve</a>
 <table border="0" cellpadding="0" cellspacing="0" class="table_admin">
 <tr class="table_header">
 <td>
-<input type=checkbox id="chk_all" value='' />
+<input type=checkbox checked="checked" id="chk_all" value='' />
 </td>
 <td>
 Word
