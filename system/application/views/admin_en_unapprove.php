@@ -10,7 +10,10 @@ $this->load->view("jquery_start");
 
 $("#approve").click(function(){
 	$('.enword:checked').each(function(index) {
-    	alert($(this).attr("value"));
+    	tr_id=$(this).val();
+    	$("#row_"+tr_id).fadeOut("fast");
+    	//$("#row_"+tr_id).remove();
+
   });
 
 });
@@ -25,7 +28,7 @@ $this->load->view("jquery_end");
 <table border="0" cellpadding="0" cellspacing="0" class="table_admin">
 <tr class="table_header">
 <td>
-<input type=checkbox checked="checked" id="chk_all" value='' />
+<input type="checkbox" id="chk_all" value='' />
 </td>
 <td>
 Word
@@ -43,7 +46,7 @@ Username
 <?php
 foreach ($query->result() as $row)
 {
-	echo "<tr>";
+	echo "<tr id='row_".$row->word_id."'>";
 	echo "<td>";
 	echo "<input class='enword' type=checkbox value=".$row->word_id." />";
 	echo "</td>";
