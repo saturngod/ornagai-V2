@@ -2,6 +2,12 @@
 $data['title']=$title;
 $data['base']=$base;
 $this->load->view("adminheader_view",$data);
+$this->load->view("jquery_start");
+?>
+
+
+<?php
+$this->load->view("jquery_end");
 ?>
 <div id="unapprove">
 

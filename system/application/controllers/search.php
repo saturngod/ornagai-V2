@@ -9,7 +9,11 @@ class Search extends Controller {
 	
 	function index()
 	{
+
+			
             $data['base']=$this->config->item('base_url');
+            
+            
             if(isset($_POST['message']) and ($_POST['message']!=""))
             {
                 $q=$_POST['message'];
