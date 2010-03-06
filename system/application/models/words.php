@@ -68,6 +68,13 @@ class Words extends Model {
     	return $result;
     }
     
+    function en_approve($id)
+    {	
+    	$data = array('approve' => 1);
+    	$this->db->where("id",$id);
+    	$this->db->update('dblist',$data);	
+    }
+    
     
 }
 ?>

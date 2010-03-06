@@ -109,7 +109,7 @@ class Admin extends Controller {
         
         function users()
         {
-             $data['base']=$this->config->item('base_url');
+            $data['base']=$this->config->item('base_url');
             $data['title']="Ornagai :: Users Manager";
            
             $this->load->model("users");
@@ -125,7 +125,7 @@ class Admin extends Controller {
             $data['userlist']=$this->users->getlist($start,$per_pg);
             $this->load->library('pagination');
 
-            $config['base_url'] = $data['base'].'/admin/users/';
+            $config['base_url'] = $data['base'].'/index.php/admin/users/';
             $config['total_rows'] =$total_users;
             $config['per_page'] =$per_pg;
     
@@ -135,6 +135,13 @@ class Admin extends Controller {
     
             $this->load->view("admin_user",$data);
      
+        }
+        
+        function enapprove()
+        {
+        	$id=$_POST['enid'];
+        	$this->load->model("words");
+        	$this->words->en_approve($id);
         }
 }
 ?>

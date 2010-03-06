@@ -11,7 +11,18 @@ $this->load->view("jquery_start");
 $("#approve").click(function(){
 	$('.enword:checked').each(function(index) {
     	tr_id=$(this).val();
-    	$("#row_"+tr_id).fadeOut("fast");
+    	$check=$(this);
+    	$.ajax({
+    		  url: '<?= $base ?>/index.php/admin/enapprove',
+    		  type: "POST",
+    		  data: "enid="+tr_id,
+    		  success: function(data) {
+        	
+        		$check.attr("checked",false);
+    			$("#row_"+tr_id).fadeOut("fast");
+    		  }
+    		});
+    	
     	//$("#row_"+tr_id).remove();
 
   });
