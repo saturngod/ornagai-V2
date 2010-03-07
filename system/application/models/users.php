@@ -20,6 +20,7 @@ class Users extends Model {
             return false;
         }
         
+        
     }
     
     function get_totalusr()
@@ -195,8 +196,8 @@ class Users extends Model {
     	{
     		$row = $query->first_row();
     		return $row->username;
+    		
     	}
-    	
     }
     
     function generate_txt()

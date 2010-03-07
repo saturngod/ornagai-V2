@@ -14,7 +14,7 @@ class User extends Controller {
             
             $result=$this->users->login($username,$pwd);
             if($result) echo "true";
-            else            echo "false";
+            else        echo "false";
         }
 	
 	function logout()

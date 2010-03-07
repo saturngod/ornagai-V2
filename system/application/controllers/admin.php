@@ -48,6 +48,23 @@ class Admin extends Controller {
         	$data['query']=$this->words->get_en_unapprove();
         	$data['base']=$this->config->item('base_url');
             $data['title']="Ornagai :: English Unapprove Word";
+            
+            $this->load->model("words");
+            $total_words=$this->words->get_unapprove_total();
+            
+            $per_pg=15;
+            $start=0;
+            if ($this->uri->segment(3) != "" )	$start= $this->uri->segment(3);
+            $data['wordlist']=$this->words->get_enunapprove_list($start,$per_pg);
+            $this->load->library('pagination');
+            $config['base_url']=$data['base'].'/index.php/admin/enunapprove';
+            $config['total_rows']=$total_words;
+            $config['per_page']=$per_pg;
+            
+            $this->pagination->initialize($config);
+             
+            $data['paging']=$this->pagination->create_links();
+            
         	$this->load->view('admin_en_unapprove',$data);
         	
         	

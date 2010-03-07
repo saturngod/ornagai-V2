@@ -55,7 +55,7 @@ Username
 </td>
 </tr>
 <?php
-foreach ($query->result() as $row)
+foreach ($wordlist as $row)
 {
 	echo "<tr id='row_".$row->word_id."'>";
 	echo "<td>";
@@ -77,6 +77,7 @@ foreach ($query->result() as $row)
 }
 ?>
 </table>
+<?php echo $paging; ?>
 </div>
 <?php
 $data['title']=$title;

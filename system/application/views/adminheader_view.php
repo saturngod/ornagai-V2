@@ -6,4 +6,5 @@
         <link rel="stylesheet" href="<?= $base ?>/css/admin.css">
         <script src="<?= $base ?>/js/jquery.js"></script>
     </head>
-    
+    <body>
+    <a href="<?= $base?>/index.php/admin">Home</a>
