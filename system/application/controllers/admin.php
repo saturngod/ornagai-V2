@@ -41,7 +41,7 @@ class Admin extends Controller {
         function enunapprove()
         {
         	$this->load->model('words');
-        	$data['query']=$this->words->get_en_unapprove();
+        	
         	$data['base']=$this->config->item('base_url');
             $data['title']="Ornagai :: English Unapprove Word";
             
