@@ -26,8 +26,8 @@ class Admin extends Controller {
                 $this->load->model("users");
                 $this->load->model("words");
                 $data['total_users']=$this->users->get_totalusr();
-                $word=$this->words->get_en_unapprove();
-                $data['en_unapprove']=$word->num_rows();
+               
+                $data['en_unapprove']=$this->words->get_unapprove_total();
                 $word=$this->words->get_my_unapprove();
                 $data['my_unapprove']=$word->num_rows();
                 $this->load->view("admin_dashboard_view",$data);
@@ -111,11 +111,6 @@ class Admin extends Controller {
             $this->db->where("id",$usrid);
             $this->db->update("user",$data);
             redirect("/admin/users/");
-        }
-        
-         function usr_del()
-        {
-            
         }
         
         function users()
