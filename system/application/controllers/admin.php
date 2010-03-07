@@ -31,10 +31,6 @@ class Admin extends Controller {
                 $word=$this->words->get_my_unapprove();
                 $data['my_unapprove']=$word->num_rows();
                 $this->load->view("admin_dashboard_view",$data);
-                //$data['total']
-                //total user
-                //total unapprove word
-                //total approve word
             }
             else
             {
@@ -89,9 +85,7 @@ class Admin extends Controller {
                     redirect("/admin/index");
                 else
                     redirect("/admin/login/err");
-                    
-                
-                
+                     
             }
             else
             {

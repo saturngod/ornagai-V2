@@ -50,12 +50,6 @@ class Words extends Model {
 		}
     }
     
-    function get_en_unapprove()
-    {
-    	
-    }
-    
-    
     function get_my_unapprove()
     {
     	$this->db->where("approve",0);
