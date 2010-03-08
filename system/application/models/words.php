@@ -60,7 +60,8 @@ class Words extends Model {
     function en_approve($id)
     {	
     	$data = array('approve' => 1);
-    	$this->db->where("id",$id);
+    	$id=spliti(',',$id);
+    	$this->db->where_in("id",$id);
     	$this->db->update('dblist',$data);	
     	
     }

@@ -9,24 +9,29 @@ $this->load->view("jquery_start");
 ?>
 
 $("#approve").click(function(){
+	var tr_id=0;
+	var index=0;
+	var tr_id_list = new Array();
+	
 	$('.enword:checked').each(function(index) {
-    	tr_id=$(this).val();
-    	$check=$(this);
-    	$.ajax({
+		index=index+1;
+    	tr_id=tr_id+","+$(this).val();
+    	
+    	tr_id_list[index]=$(this).val();
+    });
+
+	$.ajax({
     		  url: '<?= $base ?>/index.php/admin/enapprove',
     		  type: "POST",
     		  data: "enid="+tr_id,
     		  success: function(data) {
-        	
-        		$check.attr("checked",false);
-    			$("#row_"+tr_id).fadeOut("fast");
+        		for(i=1;i<=index+1;i++)
+        		{
+        			$("#row_"+tr_id_list[i]).fadeOut("fast");
+        		}
     		  }
-    		});
-    	
-    	//$("#row_"+tr_id).remove();
-
-  });
-
+    });
+    		
 });
 
 <?php
