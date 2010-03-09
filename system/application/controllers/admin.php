@@ -28,8 +28,8 @@ class Admin extends Controller {
                 $data['total_users']=$this->users->get_totalusr();
                
                 $data['en_unapprove']=$this->words->get_unapprove_total();
-                $word=$this->words->get_my_unapprove();
-                $data['my_unapprove']=$word->num_rows();
+                
+                $data['my_unapprove']=$this->words->get_my_unapprove_total();
                 $this->load->view("admin_dashboard_view",$data);
             }
             else
@@ -48,11 +48,13 @@ class Admin extends Controller {
             $this->load->model("words");
             $total_words=$this->words->get_unapprove_total();
             
-            $per_pg=15;
+            $per_pg=10;
             $start=0;
             if ($this->uri->segment(3) != "" )	$start= $this->uri->segment(3);
             $data['wordlist']=$this->words->get_enunapprove_list($start,$per_pg);
+            
             $this->load->library('pagination');
+            
             $config['base_url']=$data['base'].'/index.php/admin/enunapprove';
             $config['total_rows']=$total_words;
             $config['per_page']=$per_pg;
@@ -61,9 +63,44 @@ class Admin extends Controller {
              
             $data['paging']=$this->pagination->create_links();
             
-        	$this->load->view('admin_en_unapprove',$data);
+        	$this->load->view('admin_unapprove_list',$data);
         	
         	
+        }
+
+        //Myanmar Unapprove
+        function myunapprove()
+        {
+        	$this->load->model('words');
+
+        	$data['base']=$this->config->item('base_url');
+            $data['title']="Ornagai :: Myanmar Unapprove Word";
+
+            $this->load->model("words");
+            $total_words=$this->words->get_my_unapprove_total();
+          
+            $per_pg=10;
+            $start=0;
+            
+            if ($this->uri->segment(3) != "" )	$start= $this->uri->segment(3);
+          	
+            
+            $data['wordlist']=$this->words->get_myunapprove_list($start,$per_pg);
+            
+            $this->load->library('pagination');
+            
+            $config['base_url']=$data['base'].'/index.php/admin/myunapprove';
+            $config['total_rows']=$total_words;
+            $config['per_page']=$per_pg;
+
+            $this->pagination->initialize($config);
+
+			
+            $data['paging']=$this->pagination->create_links();
+			
+        	$this->load->view('admin_unapprove_list',$data);
+
+
         }
         
         function login()

@@ -8,7 +8,7 @@ $this->load->view("adminheader_view",$data);
         <ul>
             <li><a href="<?= $base ?>/index.php/admin/users">Users</a></li>
             <li><a href="<?= $base ?>/index.php/admin/enunapprove">Unapprove English Word</a></li>
-            <li>Unapprove Myanmar Word</li>
+            <li><a href="<?= $base ?>/index.php/admin/myunapprove">Unapprove Myanmar Word</a></li>
             <li>Approve</li>
             <li>Total</li>
         </ul>

@@ -74,11 +74,28 @@ class Words extends Model {
     	return $query->num_rows;
     }
 
+    function get_my_unapprove_total()
+    {
+    	$this->db->where("approve",0);
+    	$query=$this->db->get("mydblist");
+    	return $query->num_rows;
+    }
+
     function get_enunapprove_list($start,$pershow)
     {
     	$this->db->select('dblist.id as word_id,Word,state,def,approve,usr_id,username');
 		$this->db->from('dblist');
     	$this->db->join('user', 'dblist.usr_id=user.id');
+    	$this->db->where("approve",0);
+    	$query=$this->db->get("",$pershow,$start);
+        return $query->result();
+    }
+    
+    function get_myunapprove_list($start,$pershow)
+    {
+    	$this->db->select('mydblist.id as word_id,Word,state,def,approve,usr_id,username');
+    	$this->db->from('mydblist');
+    	$this->db->join('user', 'mydblist.usr_id=user.id');
     	$this->db->where("approve",0);
     	$query=$this->db->get("",$pershow,$start);
         return $query->result();
