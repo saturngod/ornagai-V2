@@ -25,9 +25,7 @@ class Home extends Controller {
             		$this->load->view("redirect_home",$data);
 
             	}
-
-
-            	
+	
             }
             $data['login']=$this->session->userdata('logged_in');              
 			$this->load->view('home_view',$data);

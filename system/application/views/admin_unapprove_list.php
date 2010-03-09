@@ -21,9 +21,9 @@ $("#approve").click(function(){
     });
 
 	$.ajax({
-    		  url: '<?= $base ?>/index.php/admin/enapprove',
+    		  url: '<?= $base ?>/index.php/admin/<?= $controller ?>',
     		  type: "POST",
-    		  data: "enid="+tr_id,
+    		  data: "id="+tr_id,
     		  success: function(data) {
         		for(i=1;i<=index+1;i++)
         		{

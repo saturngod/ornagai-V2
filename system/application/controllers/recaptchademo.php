@@ -8,7 +8,7 @@ class Recaptchademo extends Controller {
 	}
 	
 	function index()
-  {
+  	{
     $this->load->library('recaptcha');
     $this->load->library('form_validation');
     $this->load->helper('form');

@@ -44,7 +44,7 @@ class Admin extends Controller {
         	
         	$data['base']=$this->config->item('base_url');
             $data['title']="Ornagai :: English Unapprove Word";
-            
+            $data['controller']= 'enapprove';
             $this->load->model("words");
             $total_words=$this->words->get_unapprove_total();
             
@@ -75,6 +75,7 @@ class Admin extends Controller {
 
         	$data['base']=$this->config->item('base_url');
             $data['title']="Ornagai :: Myanmar Unapprove Word";
+            $data['controller']= 'myapprove';
 
             $this->load->model("words");
             $total_words=$this->words->get_my_unapprove_total();
@@ -152,20 +153,19 @@ class Admin extends Controller {
         
         function users()
         {
-            $data['base']=$this->config->item('base_url');
-            $data['title']="Ornagai :: Users Manager";
+           	$data['base']=$this->config->item('base_url');
+           	$data['title']="Ornagai :: Users Manager";
            
-            $this->load->model("users");
+           	$this->load->model("users");
           
-            $total_users=$this->users->get_totalusr();
+           	$total_users=$this->users->get_totalusr();
             
             
-             $per_pg=10;
-             $start=0;
-             if ($this->uri->segment(3) != "" )             $start= $this->uri->segment(3);
-             
-            
-            $data['userlist']=$this->users->getlist($start,$per_pg);
+            $per_pg=10;
+            $start=0;
+            if ($this->uri->segment(3) != "" )             $start= $this->uri->segment(3);
+          
+          	$data['userlist']=$this->users->getlist($start,$per_pg);
             $this->load->library('pagination');
 
             $config['base_url'] = $data['base'].'/index.php/admin/users/';
@@ -182,9 +182,16 @@ class Admin extends Controller {
         
         function enapprove()
         {
-        	$id=$_POST['enid'];
+        	$id=$_POST['id'];
         	$this->load->model("words");
         	$this->words->en_approve($id);
+        }
+        
+        function myapprove()
+        {
+        	$id=$_POST['id'];
+        	$this->load->model("words");
+        	$this->words->my_approve($id);
         }
 }
 ?>

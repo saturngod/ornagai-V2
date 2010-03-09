@@ -66,6 +66,15 @@ class Words extends Model {
     	
     }
     
+    function my_approve($id)
+    {	
+    	$data = array('approve' => 1);
+    	$id=spliti(',',$id);
+    	$this->db->where_in("id",$id);
+    	$this->db->update('mydblist',$data);	
+    	
+    }
+    
     
     function get_unapprove_total()
     {
