@@ -12,17 +12,10 @@ $base.="/touch";
         <script src="<?= $base ?>/jqtouch/jqtouch.min.js" type="application/x-javascript" charset="utf-8"></script>
         <link rel="apple-touch-icon" href="<?= $base ?>/images/logo.png" />
         <link rel="apple-touch-startup-image" href="<?= $base ?>/images/startup.png" />
-        <script src="cufon-yui.js" type="text/javascript"></script>
-        <script src="Vegur_300.font.js" type="text/javascript"></script>
-        <script type="text/javascript">
-        			//load Zawgyi
-        			Cufon.replace('a',{ fontFamily: 'Zawgyi-One' });
-       	</script>
+        <script src="<?= $base ?>/embed/cufon-yui.js" type="text/javascript"></script>
+        <script src="<?= $base ?>/embed/Zawgyi-One_400.font.js" type="text/javascript"></script>
         <script type="text/javascript" charset="utf-8">
             var jQT = new $.jQTouch({
-                icon: '<?= $base ?>/images/logo.png',
-                addGlossToIcon: false,
-                startupScreen: '<?= $base ?>/images/startup.png',
                 statusBar: 'black',
                 preloadImages: [
                     '<?= $base ?>/themes/apple/img/backButton.png',

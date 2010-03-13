@@ -5,7 +5,7 @@ $this->load->view("touch_head",$data)
 ?>
 <form id="ajax_search" action="<?= $base ?>/index.php/touch/search" method="POST" class="form">
     <div class="toolbar">
-        <h1>Ornagai Touch</h1>
+        <h1>Ornagai</h1>
     </div>
     <ul class="rounded">
         <li><input type="text" name="search" value="" placeholder="Search" /></li>
