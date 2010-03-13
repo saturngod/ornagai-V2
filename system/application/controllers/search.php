@@ -16,7 +16,7 @@ class Search extends Controller {
             
             if(isset($_POST['message']) and ($_POST['message']!=""))
             {
-                $q=$_POST['message'];
+                $q=trim($_POST['message']);
 		
                 if(isset($_POST['page']))
                 {
