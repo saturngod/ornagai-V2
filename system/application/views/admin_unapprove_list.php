@@ -12,14 +12,18 @@ $("#approve").click(function(){
 	var tr_id=0;
 	var index=0;
 	var tr_id_list = new Array();
+	var $chkbox_list= new Array();
 	
+	//Collect checkbox checked list
 	$('.enword:checked').each(function(index) {
 		index=index+1;
     	tr_id=tr_id+","+$(this).val();
     	
     	tr_id_list[index]=$(this).val();
+    	$chkbox_list[index]=$(this);
     });
 
+	//Approve word
 	$.ajax({
     		  url: '<?= $base ?>/index.php/admin/<?= $controller ?>',
     		  type: "POST",
@@ -27,6 +31,8 @@ $("#approve").click(function(){
     		  success: function(data) {
         		for(i=1;i<=index+1;i++)
         		{
+        			//uncheck for refresh
+        			$chkbox_list[i].attr("checked",false);
         			$("#row_"+tr_id_list[i]).fadeOut("fast");
         		}
     		  }
@@ -42,23 +48,23 @@ $this->load->view("jquery_end");
 
 <a href="#" id="approve">Approve</a>
 <table border="0" cellpadding="0" cellspacing="0" class="table_admin">
-<tr class="table_header">
-<td>
-<input type="checkbox" id="chk_all" value='' />
-</td>
-<td>
-Word
-</td>
-<td>
-State
-</td>
-<td>
-Defination
-</td>
-<td>
-Username
-</td>
-</tr>
+	<tr class="table_header">
+		<td>
+			<input type="checkbox" id="chk_all" value='' />
+		</td>
+		<td>
+			Word
+		</td>
+		<td>
+			State
+		</td>
+		<td>
+			Defination
+		</td>
+		<td>
+			Username
+		</td>
+	</tr>
 <?php
 foreach ($wordlist as $row)
 {

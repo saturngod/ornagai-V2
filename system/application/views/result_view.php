@@ -7,7 +7,7 @@ $(document).ready(function(){
 </script>
 <div id="res_list" class="result">
 <?php
- $voice=$base.'/images/voice.png';
+$voice=$base.'/images/voice.png';
 $approve=$base.'/images/approve.png';
 foreach ($query  as $row)
 {

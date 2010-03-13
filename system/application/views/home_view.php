@@ -477,7 +477,6 @@ $(document).ready(function(){
     </div>
     <?= form_open("search/result"); ?>
     <div id="top_menu" class="top_menu">
-        <img src="<?= $base ?>/images/logo.png" class="logo" >
         <input type="text" id="message" name="message" class="searchbox">
         <input type="submit" value="Search" id="search">
         <img src="./images/history.png" id="history_onoff" class="btn" title="history" >
