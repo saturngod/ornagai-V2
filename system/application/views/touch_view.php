@@ -10,10 +10,10 @@ $this->load->view("touch_head",$data)
     <ul class="rounded">
         <li><input type="text" name="search" value="" placeholder="Search" /></li>
     </ul>
-    <a style="margin:0 10px;color:rgba(0,0,0,.9)" href="#" class="submit whiteButton">Search</a>
+    <a style="margin:0 10px;color:rgba(0,0,0,.9)" id="search" href="#" class="submit whiteButton">Search</a>
     <ul class="rounded">
     	<li><a href="http://blog.ornagai.com">Ornagai Blog</a></li>
-    	<li><a href="http://github.com/saturngod/ornagai-V2">Sourcecdoe</a></li>
+    	<li><a href="http://github.com/saturngod/ornagai-V2">Sourcecode</a></li>
     </ul>
 </form>
 <?php

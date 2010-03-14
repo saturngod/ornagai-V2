@@ -1,3 +1,6 @@
+<?php
+sleep(5);
+?>
 <div id="edge">
     <div class="toolbar">
         <h1><?= $title ?></h1>
