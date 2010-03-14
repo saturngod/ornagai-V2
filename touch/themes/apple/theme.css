@@ -120,6 +120,10 @@ body.landscape .toolbar > h1 {
     text-shadow: rgba(255, 255, 255, 0.7) 0 1px 0;
 }
 
+
+
+
+
 .grayButton {
     -webkit-border-image: url(img/grayButton.png) 0 12 0 12;
     color: #FFFFFF;
@@ -183,7 +187,7 @@ ul li a, li.img a + a {
     color: #000;
     text-decoration: none;
     text-overflow: ellipsis;
-    white-space: nowrap;
+   /* white-space: nowrap;*/
     overflow: hidden;
     display: block;
     padding: 12px 10px 12px 10px;
@@ -194,6 +198,13 @@ ul li a, li.img a + a {
 ul li a.active {
     background: #194fdb url(img/selection.png) 0 0 repeat-x;
     color: #fff;
+}
+
+ul li a.zg
+{
+	background: none !important;
+	color: #000;
+	
 }
 
 ul li a.button {
