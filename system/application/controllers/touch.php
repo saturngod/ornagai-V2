@@ -11,7 +11,7 @@ class Touch extends Controller {
 	{
 			$data['base']=$this->config->item('base_url');
             $data['login']=$this->session->userdata('logged_in');
-            $data['title']="Ornagai";            
+            $data['title']="Ornagai::Touch";            
 			$this->load->view('touch_view',$data);
 
 	}
