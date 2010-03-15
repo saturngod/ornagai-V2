@@ -495,5 +495,6 @@ $(document).ready(function(){
         <div id="result"></div>
         <div class="history_result"></div>
     </div>
-</body>
-</html>
+<?php
+$this->load->view("footer_view");
+?>
