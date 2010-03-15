@@ -16,7 +16,7 @@ class Home extends Controller {
 			$android = strpos($_SERVER['HTTP_USER_AGENT'],"Android");
 		
 			if ($iphone == true || $android==true)  {
-				redirect("/touch");
+				redirect("/touch/");
 				exit();
 			}
 			

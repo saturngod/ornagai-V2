@@ -330,7 +330,6 @@ $config['proxy_ips'] = '';
 |-----------------
 */
 $config['google_analytics_id']='UA-2358448-18';
-$config['google_analytics_id_touch']='UA-2358448-18';
 
 /* End of file config.php */
 /* Location: ./system/application/config/config.php */
