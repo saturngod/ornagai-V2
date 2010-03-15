@@ -16,7 +16,7 @@ $base.="/touch";
         <script src="<?= $base ?>/embed/Zawgyi-One_400.font.js" type="text/javascript"></script>
         <script type="text/javascript" charset="utf-8">
             var jQT = new $.jQTouch({
-                statusBar: 'black',
+                statusBar: 'default',
                 preloadImages: [
                     '<?= $base ?>/themes/apple/img/backButton.png',
                     '<?= $base ?>/themes/apple/img/back_button_clicked.png',
