@@ -11,9 +11,11 @@ $this->load->view("touch_head",$data)
         <li><input type="text" name="search" value="" placeholder="Search" /></li>
     </ul>
     <a style="margin:0 10px;color:rgba(0,0,0,.9)" id="search" href="#" class="submit whiteButton">Search</a>
+    
+    <h2>External Links</h2>
     <ul class="rounded">
-    	<li><a href="http://blog.ornagai.com">Ornagai Blog</a></li>
-    	<li><a href="http://github.com/saturngod/ornagai-V2">Sourcecode</a></li>
+        <li class="arrow"><a href="http://blog.ornagai.com" target="_blank">Ornagai Blog</a></li>
+        <li class="arrow"><a href="http://github.com/saturngod/ornagai-V2" target="_blank">Sourcecode</a></li>
     </ul>
 </form>
 <?php
