@@ -329,7 +329,8 @@ $config['proxy_ips'] = '';
 |Google Analystic
 |-----------------
 */
-$config['google_analytics_id']='UA-2358448-18';
+$config['google_uacct']='UA-2358448-18';
+$config['google_uacct_m']='MO-2358448-20';
 
 /* End of file config.php */
 /* Location: ./system/application/config/config.php */

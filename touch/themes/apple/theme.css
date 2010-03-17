@@ -120,7 +120,12 @@ body.landscape .toolbar > h1 {
     text-shadow: rgba(255, 255, 255, 0.7) 0 1px 0;
 }
 
-
+.whiteButton:active{
+	-webkit-border-image: url(img/blueButton.png) 0 5 0 5;
+	 color: #FFFFFF !important;
+	  border-width: 0 5px;
+	text-shadow: rgba(255, 255, 255, 0.7) 0 1px 0;
+}
 
 
 
