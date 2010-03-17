@@ -7,7 +7,7 @@ $base.="/touch";
         <meta charset="UTF-8" />
         <title><?= $title ?></title>
         <style type="text/css" media="screen">@import "<?= $base ?>/jqtouch/jqtouch.min.css";</style>
-        <style type="text/css" media="screen">@import "<?= $base ?>/themes/apple/theme.min.css";</style>
+        <style type="text/css" media="screen">@import "<?= $base ?>/themes/<?= $theme ?>/theme.min.css";</style>
         <script src="<?= $base ?>/jqtouch/jquery.1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="<?= $base ?>/jqtouch/jqtouch.min.js" type="application/x-javascript" charset="utf-8"></script>
         <link rel="apple-touch-icon" href="<?= $base ?>/images/logo.png" />
@@ -18,12 +18,12 @@ $base.="/touch";
             var jQT = new $.jQTouch({
                 statusBar: 'default',
                 preloadImages: [
-                    '<?= $base ?>/themes/apple/img/backButton.png',
-                    '<?= $base ?>/themes/apple/img/back_button_clicked.png',
-                    '<?= $base ?>/themes/apple/img/button_clicked.png',
-                    '<?= $base ?>/themes/apple/img/grayButton.png',
-                    '<?= $base ?>/themes/apple/img/whiteButton.png',
-                    '<?= $base ?>/themes/apple/img/loading.gif'
+                    '<?= $base ?>/themes/<?= $theme ?>/img/backButton.png',
+                    '<?= $base ?>/themes/<?= $theme ?>/img/back_button_clicked.png',
+                    '<?= $base ?>/themes/<?= $theme ?>/img/button_clicked.png',
+                    '<?= $base ?>/themes/<?= $theme ?>/img/grayButton.png',
+                    '<?= $base ?>/themes/<?= $theme ?>/img/whiteButton.png',
+                    '<?= $base ?>/themes/<?= $theme ?>/img/loading.gif'
                     ]
             });
 

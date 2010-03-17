@@ -11,9 +11,16 @@ class Touch extends Controller {
 	{
 			$data['base']=$this->config->item('base_url');
             $data['login']=$this->session->userdata('logged_in');
-            $data['title']="Ornagai::Touch";            
+            $data['title']="Ornagai::Touch";      
+            //Check Mobile
+            
+            $iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+            $data['theme']='jqt';
+            	if ($iphone == true)  {
+					$data['theme']='apple';
+            	}
+            	      
 			$this->load->view('touch_view',$data);
-
 	}
 	
 	function search()

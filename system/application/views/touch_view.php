@@ -1,6 +1,7 @@
 <?php
 $data['title']=$title;
 $data['base']=$base;
+$data['theme']=$theme;
 $this->load->view("touch_head",$data)
 ?>
 <form id="ajax_search" action="<?= $base ?>/index.php/touch/search" method="POST" class="form">
