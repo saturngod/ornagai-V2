@@ -36,7 +36,5 @@ ul li a.zg
 		echo "color: #FFF";
 	}
 	?>
-	
-	
 }
 </style>

@@ -94,7 +94,7 @@ $(document).ready(function(){
 	    
 	    $("#login_btn").attr("src","<?= $base ?>/images/user_off.png");
             $("#login_form").slideUp("fast");
-            $("#wrapper").css("margin-top","40px");
+            $("#wrapper").css("margin-top","26px");
         }
 
     });

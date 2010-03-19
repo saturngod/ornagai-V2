@@ -684,3 +684,14 @@ ul.individual li a:hover {
     border-top: 1px solid rgba(76, 86, 108, .3);
     font-weight: bold;
 }
+
+.sep
+{
+	background:url("img/list-header.png") repeat-x scroll left top transparent;
+	color:#FFFFFF;
+	/*text-indent:12px;*/
+	text-shadow:0 0 2px #333333;
+	padding: 5px;
+	margin: 0px;
+}
+
