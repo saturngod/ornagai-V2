@@ -2,7 +2,6 @@
 $data['title']=$title;
 $data['base']=$base;
 $this->load->view("header_view",$data);
-
 ?>
 <style>
 /* Clear The Background Image */
@@ -10,6 +9,7 @@ body{
     background-image:none;
     background-color:#ccc;
 }
+
 #register_wrapper
 {
     margin:0px auto;
@@ -22,6 +22,7 @@ body{
     margin-top:10px;
     background-color:#fff;
 }
+
 #register_wrapper h2
 {
     text-align:center;
@@ -52,6 +53,7 @@ input[type=text]:focus,input[type=password]:focus
     color:#0090E1;
     
 }
+
 #recaptcha_response_field
 {
     height:20px;

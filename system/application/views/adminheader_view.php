@@ -7,4 +7,7 @@
         <script src="<?= $base ?>/js/jquery.js"></script>
     </head>
     <body>
-    <a href="<?= $base?>/index.php/admin">Home</a>
+    <!-- need to implement admin menu -->
+    <ul>
+    	<li><a href="<?= $base?>/index.php/admin">Home</a></li>
+    </ul>
