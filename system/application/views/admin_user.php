@@ -7,7 +7,6 @@ $this->load->view("adminheader_view",$data);
 $(document).ready(function(){
 	$(".delete").click(function(){
 		var id=$(this).attr("rel");
-		///////////
 		$.ajax({
 		    type: "POST",
 		    url: $(this).attr("href"),
@@ -21,7 +20,6 @@ $(document).ready(function(){
 		    }
 		});
 		 return false;
-		///////////	
 	});
 });
 </script>
