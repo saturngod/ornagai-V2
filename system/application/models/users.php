@@ -94,7 +94,7 @@ class Users extends Model {
         $email=$data['email'];
         $salt=MD5(mt_rand(0,999));
         $pwd=sha1($salt.$data['password']);
-        $join_date=date("d m y");
+        $join_date=date("Y-m-d");
         $data = array(
                'username' => $username ,
                'salt' => $salt ,
