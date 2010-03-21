@@ -1,4 +1,9 @@
 <?php
+if(!isset($argv))
+{
+	echo "NEED SHELL ACCESS";
+	exit();
+}
 $host="localhost";
 $usr="root";
 $pwd="root";
