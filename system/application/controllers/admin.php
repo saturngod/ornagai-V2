@@ -180,6 +180,13 @@ class Admin extends Controller {
      
         }
         
+        function usr_del()
+        {
+        	$usrid=$this->uri->segment(3);
+        	$this->load->model("users");
+        	$this->users->del($usrid);
+        }
+        
         function enapprove()
         {
         	$id=$_POST['id'];

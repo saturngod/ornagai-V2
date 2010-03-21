@@ -106,6 +106,11 @@ class Users extends Model {
         $this->db->insert('user', $data); 
     }
     
+    function del($id)
+    {
+    	$this->db->delete('user', array('id' => $id)); 
+    }
+    
     function check_email($email)
     {
     	$this->db->where("email",$email);

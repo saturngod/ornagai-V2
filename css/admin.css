@@ -43,3 +43,19 @@ border: 0px;
 padding-left: 5px;
 padding-right: 5px;
 }
+
+.popup
+{
+   
+   position: fixed;
+   width: 100%;
+   opacity: 0.9;
+   top:0px;
+   min-height:200px;
+   height:100%;
+   z-index: 100;
+   background: #FFFFFF;
+   font-size: 20px;
+   text-align: center;
+   display:none; 
+}

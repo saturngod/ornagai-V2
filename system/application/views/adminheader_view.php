@@ -7,6 +7,9 @@
         <script src="<?= $base ?>/js/jquery.js"></script>
     </head>
     <body>
+    <div class="popup" id="loading">
+    	<p><br/><br/><br/><br/><img src="<?= $base ?>/images/load.gif"></p>
+    </div>
     <!-- need to implement admin menu -->
     <ul>
     	<li><a href="<?= $base?>/index.php/admin">Home</a></li>
