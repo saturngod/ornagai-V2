@@ -115,7 +115,7 @@ $(document).ready(function(){
                 $("#loading").fadeOut("fast");
                 //$("#login_form").remove();
                 $("#login_form").html("<a href='<?= $base ?>/index.php/user/logout' id='logout'>Logout</a> | <a href='#logout' id='change_pwd'>Change Password</a> ");
-                $("#wrapper").css("margin-top","40px");
+               
                 $("#add_btn").show();
               }
               else
