@@ -16,7 +16,7 @@ foreach ($query  as $row)
     echo "<div id='speech_".$row->id."' style='visibility:hidden;height:0px;'>".$row->Word."</div>";
     if(!$mm)
     {
-        echo str_replace($result,"<font color='#0090E1'>".$result."</font>",$row->Word);   
+        echo str_replace($result,"<span class='bluesel'>".$result."</span>",$row->Word);   
     }
     else{
         echo $row->Word;
@@ -30,7 +30,7 @@ foreach ($query  as $row)
     echo "<img src='".$voice."' alt='voice' class='res_img' title='click to speech' >";
     echo "</a>";
     echo "<br>";
-    echo "<b><font color='#7082AA'>".$row->state."</font></b>";
+    echo "<b><span class='bluesel'>".$row->state."</span></b>";
     echo "<br>";
     if(!$mm)
     {
@@ -38,7 +38,7 @@ foreach ($query  as $row)
     }
     else{
         $result=str_replace("|","",$result);
-         echo str_replace($result,"<font color='#0090E1'>".$result."</font>", str_replace("|","",$row->def));
+         echo str_replace($result,"<span class='bluesel'>".$result."</span>", str_replace("|","",$row->def));
     }
     echo "</div>";
 }

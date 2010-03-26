@@ -109,5 +109,17 @@ class Words extends Model {
     	$query=$this->db->get("",$pershow,$start);
         return $query->result();
     }
+    
+    function get_en_total()
+    {
+    	$query=$this->db->get("dblist");
+    	return $query->num_rows;
+    }
+    
+    function get_mm_total()
+    {
+    	$query=$this->db->get("mydblist");
+    	return $query->num_rows;
+    }
 }
 ?>

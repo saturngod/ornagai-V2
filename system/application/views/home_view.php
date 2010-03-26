@@ -492,7 +492,14 @@ $(document).ready(function(){
         <div id="left">
             <h3>History</h3>
         </div>
-        <div id="result"></div>
+        <div id="result">
+        	<div id="res_list" class="result">
+        		<span class="bluesel">Total English To Myanmar Word :</span> <?= $entotal ?>
+        	</div>
+        	<div id="res_list" class="result">
+        		<span class="bluesel">Total Myanmar To English Word :</span> <?= $mmtotal ?>
+        	</div>
+        </div>
         <div class="history_result"></div>
     </div>
 <?php

@@ -38,6 +38,14 @@ class Home extends Controller {
             	}
 	
             }
+            
+            //Total En mm word
+            $this->load->model("words");
+            $data['entotal']=$this->words->get_en_total();
+            $data['mmtotal']=$this->words->get_mm_total();
+            
+            
+            
             $data['login']=$this->session->userdata('logged_in');              
 			$this->load->view('home_view',$data);
 
