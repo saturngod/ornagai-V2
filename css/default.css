@@ -284,6 +284,11 @@ form{
 	display:block;
 }
 
+.bluesel
+{
+	color: #0090e1;
+}
+
 .err
 {
     color:red;
@@ -295,9 +300,4 @@ form{
     border:0px;
     outline:none;
     cursor:pointer;
-}
-
-.bluesel
-{
-	color: #0090e1;
 }
