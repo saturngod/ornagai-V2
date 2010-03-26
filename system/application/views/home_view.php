@@ -16,20 +16,20 @@ var history_flag;
 history_flag=1;
 h_id=1;
 
-function resultsize()
+function resultsize(subwidth)
 {
 	width=$(window).width();
-	$("#result").css("width", (width-225)+"px");
+	$("#result").css("width", (width-subwidth)+"px");
 }
 $(document).ready(function(){
     $("#login_form").hide();
     
     //call resize the result (right side)
-    resultsize();
+    resultsize(225);
     // Window Size changes
     $(window).resize(function(){
     	
-   		resultsize();
+   		resultsize(225);
     	
     });
    
@@ -211,17 +211,18 @@ $(document).ready(function(){
        {
      
         $("#history_onoff").attr("src","images/history_off.png");
-        $("#left").hide();
+        $("#left").fadeOut("fast");
         $("body").css({"background-image":"none"});
         history_flag=0;
-      
+        resultsize(0);
        }
        
        else{
         $("#history_onoff").attr("src","images/history.png");
-        $("#left").show();
+        $("#left").fadeIn("fast");
          $("body").css({"background-image":"url('./images/bg.jpg')"});
         history_flag=1;
+        resultsize(225);
        }
     })
    $(".history_result").live("click", function() {
