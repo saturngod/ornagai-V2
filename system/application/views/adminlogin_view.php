@@ -49,8 +49,8 @@ input[type=text],input[type=password]
 
 input[type=text]:focus,input[type=password]:focus
 {
-    background-color:#D4DDE6;
-    color:#0090E1;
+    background-color:#97C6EE;
+    color:#FFF;
     
 }
 

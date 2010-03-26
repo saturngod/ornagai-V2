@@ -3,6 +3,8 @@ $data['title']=$title;
 $data['base']=$base;
 $this->load->view("adminheader_view",$data);
 ?>
+<link rel="stylesheet" href="<?= $base ?>/css/jq_style.css" type="text/css" />
+<script src="<?= $base ?>/js/jq_box.js" type="text/javascript"></script>
 <script>
 $(document).ready(function(){
 	$(".delete").click(function(){
@@ -20,6 +22,34 @@ $(document).ready(function(){
 		    }
 		});
 		 return false;
+	});
+	
+	$(".edit").click(function(){
+		
+		$.ajax({
+		    type: "POST",
+		    url: $(this).attr("href"),
+		    success: function(respond){
+		      $("#loading").fadeOut("fast");
+		      $().jqbox({
+		      html:respond,
+		      width:500,
+		      height:200,
+		      confirmbox:true,
+		      onyes:"yesevent()",
+		      onno:"noevent()",
+		      yestxt: "Save",
+		      notxt:"Cancel"
+		      });
+		      
+		      
+		    },
+		    beforeSend:function(){
+		        $("#loading").fadeIn("fast");
+		    }
+		});
+				
+				return false;
 	});
 });
 </script>
@@ -47,7 +77,7 @@ foreach ($userlist as $user)
     echo $user->ban;
     echo "</td>";
      echo "<td>";
-    echo  "<a href='{$base}/index.php/admin/usr_edit/{$user->id}' >Edit</a> | ";
+    echo  "<a class='edit' href='{$base}/index.php/admin/usr_edit/{$user->id}' >Edit</a> | ";
     if($user->ban==0) echo  "<a href='{$base}/index.php/admin/usr_ban/{$user->id}' >Ban </a> | ";
     else echo "<a href='{$base}/index.php/admin/usr_ban/{$user->id}' >Unban </a> | ";
     echo  "<a class='delete' rel='{$user->id}' href='{$base}/index.php/admin/usr_del/{$user->id}' >Delete</a>";

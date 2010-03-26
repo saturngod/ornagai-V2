@@ -4,7 +4,8 @@
         <title>
             <?= (isset($title)) ? $title : "Ornagai :: English <> Myanmar Dictionary" ?> </title>
         <link rel="stylesheet" href="<?= $base ?>/css/admin.css">
-        <script src="<?= $base ?>/js/jquery.js"></script>
+        <script src="<?= $base ?>/js/jquery.js" type="text/javascript"></script>
+        <script src="<?= $base ?>/js/jq_box.min.js" type="text/javascript"></script>
     </head>
     <body>
     <div class="popup" id="loading">

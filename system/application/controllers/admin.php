@@ -173,7 +173,7 @@ class Admin extends Controller {
             $config['per_page'] =$per_pg;
     
             $this->pagination->initialize($config);
-    
+    		
             $data['paging']= $this->pagination->create_links();
     
             $this->load->view("admin_user",$data);
@@ -187,6 +187,13 @@ class Admin extends Controller {
         	$this->users->del($usrid);
         }
         
+        function usr_edit()
+        {
+        	$usrid=$this->uri->segment(3);
+        	$this->load->model("users");
+        	$data['usrinfo']=$this->users->info($usrid);
+        	$this->load->view("admin_usr_edit",$data);
+        }
         function enapprove()
         {
         	$id=$_POST['id'];
