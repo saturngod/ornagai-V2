@@ -1,4 +1,11 @@
 <?php
+/*
+* Words Model
+* @author saturngod <saturngod@gmail.com>
+* @version 2.0
+* @package Ornagai
+* @category Model
+*/
 class Words extends Model {
     
     function Words()
@@ -7,6 +14,12 @@ class Words extends Model {
         parent::Model();
     }
     
+    /*
+    * Add new word
+    * @param string $word
+    * @param string $state
+    * @param string $def
+    */
     function add($word,$state,$def)
     {
         

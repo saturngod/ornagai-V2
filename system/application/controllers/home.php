@@ -1,12 +1,25 @@
 <?php
-
+/*
+* Starting Home Page of dictionary
+* @author saturngod <saturngod@gmail.com>
+* @version 2.0
+* @package Ornagai
+* @category Controller
+* @todo need to check HTTPS
+*/
 class Home extends Controller {
 
+	/*
+	* Intalize Home Page
+	*/
 	function Home()
 	{
 		parent::Controller();	
 	}
 	
+	/*
+	* Index page call home_view View
+	*/
 	function index()
 	{
 			$data['base']=$this->config->item('base_url');
@@ -24,11 +37,7 @@ class Home extends Controller {
 			if($_SERVER['HTTP_HOST']!="localhost")
             {
             	$portocol="http://";
-            	/*if($_SERVER['HTTPS'] == on)
-            	{
-            		$portocol="https://";
-            	}
-            	*/
+           		
             	if($portocol.$_SERVER['HTTP_HOST']!=$data['base'])
             	{
             		

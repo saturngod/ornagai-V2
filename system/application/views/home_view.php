@@ -15,9 +15,24 @@ var h_id;
 var history_flag;
 history_flag=1;
 h_id=1;
+
+function resultsize()
+{
+	width=$(window).width();
+	$("#result").css("width", (width-225)+"px");
+}
 $(document).ready(function(){
     $("#login_form").hide();
     
+    //call resize the result (right side)
+    resultsize();
+    // Window Size changes
+    $(window).resize(function(){
+    	
+   		resultsize();
+    	
+    });
+   
     $("#top_menu *").tooltip({
 	showURL: false 
 	});
