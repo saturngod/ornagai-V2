@@ -106,6 +106,12 @@ class Users extends Model {
         $this->db->insert('user', $data); 
     }
     
+    function update($id,$data)
+    {
+    	$this->db->where('id', $id);
+    	$this->db->update('user', $data); 
+    }
+    
     function del($id)
     {
     	$this->db->delete('user', array('id' => $id)); 
@@ -214,6 +220,21 @@ class Users extends Model {
     	$pwd.=rand(0,9);
     	return $pwd;
     	
+    }
+    
+    /* Get User information
+    /* @param integer $id
+    /* @return array $result
+    */
+    function info($id)
+    {
+		$this->db->where('id',$id);
+		$query=$this->db->get("user");
+		foreach($query->result() as $user)
+		{
+			$result=$user;
+		}
+		return $result;
     }
 }
 ?>

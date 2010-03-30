@@ -5,6 +5,11 @@ $this->load->view("adminheader_view",$data);
 ?>
 <link rel="stylesheet" href="<?= $base ?>/css/jq_style.css" type="text/css" />
 <script src="<?= $base ?>/js/jq_box.js" type="text/javascript"></script>
+<style>
+label{
+	display: block;
+}
+</style>
 <script>
 $(document).ready(function(){
 	$(".delete").click(function(){
@@ -37,7 +42,6 @@ $(document).ready(function(){
 		      height:200,
 		      confirmbox:true,
 		      onyes:"yesevent()",
-		      onno:"noevent()",
 		      yestxt: "Save",
 		      notxt:"Cancel"
 		      });
@@ -52,6 +56,25 @@ $(document).ready(function(){
 				return false;
 	});
 });
+
+function yesevent()
+{
+
+	$.ajax({
+	    type: "POST",
+	    url: "<?= $base ?>/index.php/admin/user_update",
+	    data: "id="+$("#userid").val()+"&username="+$("#username").val()+"&email="+$("#email").val()+"&join_date="+$("#date").val()+"&ban="+$("#ban").attr("checked"),
+	   	success: function(respond){
+	   		$("#tr_"+$("#userid").val()).html("<td>"+$("#username").val()+"</td><td>"+$("#email").val()+"</td><td>"+$("#date").val()+"</td><td>"+$("#ban").attr("checked")+"</td>");
+	   		$("#loading").fadeOut("fast");
+	   	},
+	   	beforeSend:function(){
+	   		$("#loading").fadeIn("fast");
+	   	}
+	});
+	
+}
+
 </script>
 <?php
 echo "<table width='100%'>";

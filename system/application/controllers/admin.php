@@ -191,8 +191,9 @@ class Admin extends Controller {
         {
         	$usrid=$this->uri->segment(3);
         	$this->load->model("users");
-        	$data['usrinfo']=$this->users->info($usrid);
-        	$this->load->view("admin_usr_edit",$data);
+        	$data['userinfo']=$this->users->info($usrid);
+        	
+        	$this->load->view("admin_user_edit",$data);
         }
         function enapprove()
         {
@@ -206,6 +207,24 @@ class Admin extends Controller {
         	$id=$_POST['id'];
         	$this->load->model("words");
         	$this->words->my_approve($id);
+        }
+        
+        function user_update()
+        {
+        	$ban=0;
+   			if($_POST['ban']=="true")
+   			{
+   				$ban=1;
+   			}
+        	$data = array(
+        	       'username' => $_POST['username'] ,
+        	       'email'=>$_POST['email'],
+        	       'join_date' =>$_POST['join_date'],
+        	       'ban'=>$ban
+        	    );
+        	
+        	$this->load->model("users");
+        	$this->users->update($_POST['id'],$data);
         }
 }
 ?>
