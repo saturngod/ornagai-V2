@@ -3,6 +3,12 @@ $data['title']=$title;
 $data['base']=$base;
 $this->load->view("adminheader_view",$data);
 ?>
+<script>
+<?php $this->load->view("jquery_start") ?>
+$(".left ul li:even").css("background-color", "#D4DDE6");
+$(".right ul li:even").css("background-color", "#D4DDE6");
+<?php $this->load->view("jquery_end") ?>
+</script>
     <div class="statics">
         <div class="left">
         <ul>
@@ -21,10 +27,10 @@ $this->load->view("adminheader_view",$data);
             <li><?= $total_users ?></li>
             <li><?= $en_unapprove ?></li>
             <li><?= $my_unapprove ?></li>
-            <li>EN Approve</li>
-            <li>EN Total</li>
-            <li>MM Approve</li>
-            <li>MM Total</li>
+            <li><?= $en_total-$en_unapprove ?></li>
+            <li><?= $en_total ?></li>
+            <li><?= $my_total - $my_unapprove  ?></li>
+            <li><?= $my_total ?></li>
         </ul>
         </div>
     </div>

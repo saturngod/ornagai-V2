@@ -113,8 +113,22 @@ class Users extends Model {
     }
     
     function del($id)
+    { 		
+    	$this->db->where_in("id",$id);
+    	$this->db->delete('user');
+    }
+    	
+    function ban($id)
     {
-    	$this->db->delete('user', array('id' => $id)); 
+   		$this->db->where_in("id",$id);
+    	$this->db->update("user",array("ban"=>1));    	
+    }
+    
+    function unban($id)
+    {
+    	$this->db->where_in("id",$id);
+    	$this->db->update("user",array("ban"=>0));
+    
     }
     
     function check_email($email)

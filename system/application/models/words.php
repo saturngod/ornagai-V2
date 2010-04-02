@@ -73,19 +73,30 @@ class Words extends Model {
     function en_approve($id)
     {	
     	$data = array('approve' => 1);
-    	$id=spliti(',',$id);
     	$this->db->where_in("id",$id);
     	$this->db->update('dblist',$data);	
+    	
+    }
+    
+    function en_remove($id)
+    {	
+    	$this->db->where_in("id",$id);
+    	$this->db->delete('dblist');	
     	
     }
     
     function my_approve($id)
     {	
     	$data = array('approve' => 1);
-    	$id=spliti(',',$id);
     	$this->db->where_in("id",$id);
     	$this->db->update('mydblist',$data);	
     	
+    }
+    
+    function my_remove($id)
+    {	
+    	$this->db->where_in("id",$id);
+    	$this->db->delete('mydblist');
     }
     
     

@@ -3,8 +3,6 @@ $data['title']=$title;
 $data['base']=$base;
 $this->load->view("adminheader_view",$data);
 ?>
-<link rel="stylesheet" href="<?= $base ?>/css/jq_style.css" type="text/css" />
-<script src="<?= $base ?>/js/jq_box.js" type="text/javascript"></script>
 <style>
 label{
 	display: block;
@@ -12,6 +10,8 @@ label{
 </style>
 <script>
 $(document).ready(function(){
+
+	//User Delete From Link
 	$(".delete").click(function(){
 		var id=$(this).attr("rel");
 		$.ajax({
@@ -29,6 +29,7 @@ $(document).ready(function(){
 		 return false;
 	});
 	
+	//User Edit From Link
 	$(".edit").click(function(){
 		
 		$.ajax({
@@ -55,6 +56,95 @@ $(document).ready(function(){
 				
 				return false;
 	});
+	
+	//Ban User From List
+	$(".ban").click(function(){
+	
+	});
+	
+	// Delete User List get from checkbox
+	$("#delete").click(function(){
+		
+		$("#loading").fadeIn("fast");
+		var tr_id=0;
+		var index=0;
+		var tr_id_list = new Array();
+		var $chkbox_list= new Array();
+		
+		//Collect checkbox checked list
+		$('.usrchk:checked').each(function() {
+			index=index+1;
+			tr_id=tr_id+","+$(this).val();
+			
+			tr_id_list[index]=$(this).val();
+			$chkbox_list[index]=$(this);
+			
+		});
+		alert(index);
+		//Delete User
+		$.ajax({
+				  url: '<?= $base ?>/index.php/admin/usr_del',
+				  type: "POST",
+				  data: "id="+tr_id,
+				  success: function(data) {
+		    		for(i=1;i<=index+1;i++)
+		    		{
+		    			//uncheck for refresh
+		    			
+		    			$chkbox_list[i].attr("checked",false);
+		    			$("#tr_"+tr_id_list[i]).fadeOut("fast");
+		    			$("#tr_"+tr_id_list[i]).remove();
+		    			$("#loading").fadeOut("fast");
+		    		}
+				  }
+		});
+		
+		return false;
+		
+	});
+	
+	
+	// Delete User List get from checkbox
+	$("#ban").click(function(){
+		
+		$("#loading").fadeIn("fast");
+		var tr_id=0;
+		var index=0;
+		var tr_id_list = new Array();
+		var $chkbox_list= new Array();
+		
+		//Collect checkbox checked list
+		$('.usrchk:checked').each(function() {
+			index=index+1;
+			tr_id=tr_id+","+$(this).val();
+			
+			tr_id_list[index]=$(this).val();
+			$chkbox_list[index]=$(this);
+			
+		});
+		alert(index);
+		//Delete User
+		$.ajax({
+				  url: '<?= $base ?>/index.php/admin/usr_ban',
+				  type: "POST",
+				  data: "id="+tr_id,
+				  success: function(data) {
+		    		for(i=1;i<=index+1;i++)
+		    		{
+		    			//uncheck for refresh
+		    			
+		    			$chkbox_list[i].attr("checked",false);
+		    			$("#tr_"+tr_id_list[i]).fadeOut("fast");
+		    			alert($("#tdban_"+tr_id_list[i]).html());
+		    			$("#loading").fadeOut("fast");
+		    		}
+				  }
+		});
+		
+		return false;
+		
+	});
+	
 });
 
 function yesevent()
@@ -65,7 +155,18 @@ function yesevent()
 	    url: "<?= $base ?>/index.php/admin/user_update",
 	    data: "id="+$("#userid").val()+"&username="+$("#username").val()+"&email="+$("#email").val()+"&join_date="+$("#date").val()+"&ban="+$("#ban").attr("checked"),
 	   	success: function(respond){
-	   		$("#tr_"+$("#userid").val()).html("<td>"+$("#username").val()+"</td><td>"+$("#email").val()+"</td><td>"+$("#date").val()+"</td><td>"+$("#ban").attr("checked")+"</td>");
+	   		//Change update
+	   		$("#tdusr_"+$("#userid").val()).html($("#username").val());
+	   		$("#tdmail_"+$("#userid").val()).html($("#email").val());
+	   		$("#tddate_"+$("#userid").val()).html($("#date").val());
+	   		
+	   		ban="NO";
+	   		if($("#ban").attr("checked")==true)
+	   		{
+	   			ban="YES";
+	   		}
+	   		
+	   		$("#tdban_"+$("#userid").val()).html(ban);
 	   		$("#loading").fadeOut("fast");
 	   	},
 	   	beforeSend:function(){
@@ -76,33 +177,40 @@ function yesevent()
 }
 
 </script>
+<div class="btnbar">
+	<input type="button" id="delete" value="Delete" />
+	<input type="button" id="ban" value="Ban" />
+</div>
+<table border="0" cellpadding="0" cellspacing="0" class="table_admin" width="100%">
+	<tr class="table_header">
+		<td><input type="checkbox" id="chk_all" /></td>
+		<td>Username</td>
+		<td>Email</td>
+		<td>Join Date</td>
+		<td>Ban</td>
+		<td>Action</td>
+	</tr>
 <?php
-echo "<table width='100%'>";
-echo "<tr>";
-echo "<td>Username</td>";
-echo "<td>Email</td>";
-echo "<td>Join Date</td>";
-echo "<td>Ban</td>";
-echo "<td>Action</td>";
 foreach ($userlist as $user)
 {
     echo "<tr id='tr_{$user->id}'>";
-    echo "<td>";
+    echo "<td><input class='usrchk' type='checkbox' value={$user->id} /></td>";
+    echo "<td id='tdusr_{$user->id}'>";
     echo $user->username;
     echo "</td>";
-    echo "<td>";
+    echo "<td id='tdmail_{$user->id}'>";
     echo $user->email;
     echo "</td>";
-    echo "<td>";
+    echo "<td id='tddate_{$user->id}'>";
     echo $user->join_date;
     echo "</td>";
-    echo "<td>";
-    echo $user->ban;
+    echo "<td id='tdban_{$user->id}'>";
+    echo ($user->ban==0) ? "NO" : "YES";
     echo "</td>";
      echo "<td>";
     echo  "<a class='edit' href='{$base}/index.php/admin/usr_edit/{$user->id}' >Edit</a> | ";
-    if($user->ban==0) echo  "<a href='{$base}/index.php/admin/usr_ban/{$user->id}' >Ban </a> | ";
-    else echo "<a href='{$base}/index.php/admin/usr_ban/{$user->id}' >Unban </a> | ";
+    if($user->ban==0) echo  "<a class='ban' href='{$base}/index.php/admin/usr_ban/{$user->id}' >Ban </a> | ";
+    else echo "<a class='unban' href='{$base}/index.php/admin/usr_unban/{$user->id}' >Unban </a> | ";
     echo  "<a class='delete' rel='{$user->id}' href='{$base}/index.php/admin/usr_del/{$user->id}' >Delete</a>";
     echo "</td>";
     echo "</tr>";

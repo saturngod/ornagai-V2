@@ -1,3 +1,8 @@
+body
+{
+	padding: 0px;
+	margin: 0px;
+}
 .statics
 {
     padding:0px;
@@ -11,10 +16,16 @@
 .left
 {
     padding:0px;
-    background-color:#0FF;
     margin:0px;
     float:left;
     width:200px;
+    font-weight: bold;
+}
+
+a , a:visited
+{
+	text-decoration: none;
+	color: #333;
 }
 
 .right
@@ -58,4 +69,51 @@ padding-right: 5px;
    font-size: 20px;
    text-align: center;
    display:none; 
+}
+
+.admin_menu_wrapper
+{
+	width: 100%;
+	background-color: #CCC;
+	padding: 0px;
+	margin: 0px;
+}
+
+.admin_menu
+{
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+.admin_menu li
+{
+	display: inline;
+	border-right: 1px #444 solid;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+input[type=button],input[type=submit],input[type=reset]
+{
+    
+    background-color:#E9E9E9;
+    border:1px solid #5C5C5C;
+    -moz-border-radius: 2em;  
+    -webkit-border-radius: 2em;
+    margin-left:5px;
+    outline:none;
+    -moz-outline-style: none;
+
+}
+
+input[type=button]:hover,input[type=submit]:hover,input[type=reset]:hover
+{
+    background-color:#97C6EE;
+    color: #FFF;
+}
+
+.btnbar
+{
+	padding: 5px;
 }

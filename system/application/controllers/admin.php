@@ -28,8 +28,10 @@ class Admin extends Controller {
                 $data['total_users']=$this->users->get_totalusr();
                
                 $data['en_unapprove']=$this->words->get_unapprove_total();
+                $data['en_total']=$this->words->get_en_total();
                 
                 $data['my_unapprove']=$this->words->get_my_unapprove_total();
+                $data['my_total']=$this->words->get_mm_total();
                 $this->load->view("admin_dashboard_view",$data);
             }
             else
@@ -44,7 +46,8 @@ class Admin extends Controller {
         	
         	$data['base']=$this->config->item('base_url');
             $data['title']="Ornagai :: English Unapprove Word";
-            $data['controller']= 'enapprove';
+            $data['controller_approve']= 'enapprove';
+            $data['controller_remove']= 'enremove';
             $this->load->model("words");
             $total_words=$this->words->get_unapprove_total();
             
@@ -75,7 +78,8 @@ class Admin extends Controller {
 
         	$data['base']=$this->config->item('base_url');
             $data['title']="Ornagai :: Myanmar Unapprove Word";
-            $data['controller']= 'myapprove';
+            $data['controller_approve']= 'myapprove';
+            $data['controller_remove']= 'myremove';
 
             $this->load->model("words");
             $total_words=$this->words->get_my_unapprove_total();
@@ -135,20 +139,33 @@ class Admin extends Controller {
         function usr_ban()
         {
             //Get user Id
-             $usrid=$this->uri->segment(3);
-             
-             $this->db->where("id",$usrid);
-             $query=$this->db->get("user");
-             //Get Last Record
-             $res=$query->result();
-             $ban=$res[0]->ban;
-             
-            if($ban==0) $data = array("ban"=>1);
-            else  $data = array("ban"=>0);
-           
-            $this->db->where("id",$usrid);
-            $this->db->update("user",$data);
-            redirect("/admin/users/");
+            if($this->uri->segment(3)!="")
+            {
+            	$usrid=$this->uri->segment(3);
+            }
+            else
+            {
+            	$usrid=spliti(",",$_POST['id']);
+            } 
+            
+            $this->load->model("users");
+            $this->users->ban($usrid);
+        }
+        
+        function usr_unban()
+        {
+            //Get user Id
+            if($this->uri->segment(3)!="")
+            {
+            	$usrid=$this->uri->segment(3);
+            }
+            else
+            {
+            	$usrid=spliti(",",$_POST['id']);
+            } 
+            
+            $this->load->model("users");
+            $this->users->unban($usrid);
         }
         
         function users()
@@ -182,7 +199,14 @@ class Admin extends Controller {
         
         function usr_del()
         {
-        	$usrid=$this->uri->segment(3);
+        	if($this->uri->segment(3)!="")
+        	{
+        		$usrid=$this->uri->segment(3);
+        	}
+        	else
+        	{
+        		$usrid=spliti(',',$_POST['id']);
+        	}
         	$this->load->model("users");
         	$this->users->del($usrid);
         }
@@ -197,14 +221,56 @@ class Admin extends Controller {
         }
         function enapprove()
         {
-        	$id=$_POST['id'];
+        	if($this->uri->segment(3)!="")
+        	{
+        		$id=$this->uri->segment(3);
+        	}
+        	else
+        	{
+        		$id=spliti(',',$_POST['id']);
+        	}
         	$this->load->model("words");
         	$this->words->en_approve($id);
         }
         
+        function enremove()
+        {
+        	if($this->uri->segment(3)!="")
+        	{
+        		$id=$this->uri->segment(3);
+        	}
+        	else
+        	{
+        		$id=spliti(',',$_POST['id']);
+        	}
+        	$this->load->model("words");
+        	$this->words->en_remove($id);
+        }
+        
+        function myremove()
+        {
+        	if($this->uri->segment(3)!="")
+        	{
+        		$id=$this->uri->segment(3);
+        	}
+        	else
+        	{
+        		$id=spliti(',',$_POST['id']);
+        	}
+        	$this->load->model("words");
+        	$this->words->my_remove($id);
+        }
+        
         function myapprove()
         {
-        	$id=$_POST['id'];
+        	if($this->uri->segment(3)!="")
+        	{
+        		$id=$this->uri->segment(3);
+        	}
+        	else
+        	{
+        		$id=spliti(',',$_POST['id']);
+        	}
         	$this->load->model("words");
         	$this->words->my_approve($id);
         }
