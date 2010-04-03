@@ -59,7 +59,19 @@ $(document).ready(function(){
 	
 	//Ban User From List
 	$(".ban").click(function(){
-	
+		$.ajax({
+		    type: "POST",
+		    url: $(this).attr("href"),
+		    success: function(respond){
+		      $("#loading").fadeOut("fast"); 
+		      
+		    },
+		    beforeSend:function(){
+		        $("#loading").fadeIn("fast");
+		    }
+		});
+				
+				return false;
 	});
 	
 	// Delete User List get from checkbox

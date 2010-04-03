@@ -45,7 +45,7 @@ a , a:visited
 
 .table_header
 {
-	background-color: #FFEEEE;
+	background-color: #D4DDE6;
 }
 
 .table_admin td
@@ -53,6 +53,12 @@ a , a:visited
 border: 0px;
 padding-left: 5px;
 padding-right: 5px;
+}
+
+.table_header th
+{
+	border-top: 1px solid #7082AA;
+	border-bottom: 1px solid #E2E9F6;
 }
 
 .popup

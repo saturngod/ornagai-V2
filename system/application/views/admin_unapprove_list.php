@@ -97,24 +97,24 @@ $this->load->view("jquery_end");
 </div>
 <table border="0" cellpadding="0" cellspacing="0" class="table_admin" width="100%">
 	<tr class="table_header">
-		<td>
+		<th style="text-align:left">
 			<input type="checkbox" id="chk_all" value='' />
-		</td>
-		<td>
+		</th>
+		<th>
 			Word
-		</td>
-		<td>
+		</th>
+		<th>
 			State
-		</td>
-		<td>
+		</th>
+		<th>
 			Defination
-		</td>
-		<td>
+		</th>
+		<th>
 			Username
-		</td>
-		<td>
+		</th>
+		<th>
 			Action
-		</td>
+		</th>
 	</tr>
 <?php
 foreach ($wordlist as $row)
