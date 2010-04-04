@@ -47,6 +47,24 @@ $("#approve").click(function(){
     		
 });
 
+$(".approve,.remove").click(function(){
+	id=$(this).attr("rel");
+	$.ajax({
+	    type: "POST",
+	    url: $(this).attr("href"),
+	    success: function(respond){
+	    	$("#row_"+id).fadeOut("fast");
+	    	$("#row_"+id).remove();
+	      	$("#loading").fadeOut("fast");
+	    },
+	    beforeSend:function(){
+	        $("#loading").fadeIn("fast");
+	    }
+	});
+			
+			return false;
+});
+
 $("#remove").click(function(){
 	$("#loading").fadeIn("fast");
 	var tr_id=0;
@@ -83,6 +101,7 @@ $("#remove").click(function(){
     return false;
     		
 });
+
 
 
 <?php
@@ -136,9 +155,9 @@ foreach ($wordlist as $row)
 	echo $row->username;
 	echo "</td>";
 	echo "<td>";
-	echo "<a class='approve' href='{$base}/index.php/admin/{$controller_approve}/{$row->word_id}'>Approve</a>";
+	echo "<a class='approve' rel='{$row->word_id}' href='{$base}/index.php/admin/{$controller_approve}/{$row->word_id}'>Approve</a>";
 	echo " | ";
-	echo "<a class='remove' href='{$base}/index.php/admin/{$controller_remove}/{$row->word_id}'>Remove</a>";
+	echo "<a class='remove' rel='{$row->word_id}' href='{$base}/index.php/admin/{$controller_remove}/{$row->word_id}'>Remove</a>";
 	echo " | ";
 	echo "<a href='#'>Edit</a>";
 	echo "</td>";
