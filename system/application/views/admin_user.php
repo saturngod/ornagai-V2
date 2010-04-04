@@ -74,6 +74,24 @@ $(document).ready(function(){
 				return false;
 	});
 	
+	//Unban User From List
+	//Ban User From List
+	$(".unban").click(function(){
+		$.ajax({
+		    type: "POST",
+		    url: $(this).attr("href"),
+		    success: function(respond){
+		      $("#loading").fadeOut("fast"); 
+		      
+		    },
+		    beforeSend:function(){
+		        $("#loading").fadeIn("fast");
+		    }
+		});
+				
+				return false;
+	});
+	
 	// Delete User List get from checkbox
 	$("#delete").click(function(){
 		
@@ -92,7 +110,7 @@ $(document).ready(function(){
 			$chkbox_list[index]=$(this);
 			
 		});
-		alert(index);
+	
 		//Delete User
 		$.ajax({
 				  url: '<?= $base ?>/index.php/admin/usr_del',
@@ -134,7 +152,7 @@ $(document).ready(function(){
 			$chkbox_list[index]=$(this);
 			
 		});
-		alert(index);
+		
 		//Delete User
 		$.ajax({
 				  url: '<?= $base ?>/index.php/admin/usr_ban',
@@ -146,8 +164,8 @@ $(document).ready(function(){
 		    			//uncheck for refresh
 		    			
 		    			$chkbox_list[i].attr("checked",false);
-		    			$("#tr_"+tr_id_list[i]).fadeOut("fast");
-		    			alert($("#tdban_"+tr_id_list[i]).html());
+		    			//$("#tr_"+tr_id_list[i]).fadeOut("fast");
+		    			$("#tdban_"+tr_id_list[i]).html("Ban");
 		    			$("#loading").fadeOut("fast");
 		    		}
 				  }

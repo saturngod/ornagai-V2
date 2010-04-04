@@ -136,9 +136,9 @@ foreach ($wordlist as $row)
 	echo $row->username;
 	echo "</td>";
 	echo "<td>";
-	echo "<a href='{$base}/index.php/admin/{$controller_approve}/{$row->word_id}'>Approve</a>";
+	echo "<a class='approve' href='{$base}/index.php/admin/{$controller_approve}/{$row->word_id}'>Approve</a>";
 	echo " | ";
-	echo "<a href='{$base}/index.php/admin/{$controller_remove}/{$row->word_id}'>Remove</a>";
+	echo "<a class='remove' href='{$base}/index.php/admin/{$controller_remove}/{$row->word_id}'>Remove</a>";
 	echo " | ";
 	echo "<a href='#'>Edit</a>";
 	echo "</td>";
