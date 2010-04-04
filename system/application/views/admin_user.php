@@ -58,13 +58,14 @@ $(document).ready(function(){
 	});
 	
 	//Ban User From List
-	$(".ban").click(function(){
+	$(".ban").live("click",function(){
+		id=$(this).attr("rel");
 		$.ajax({
 		    type: "POST",
 		    url: $(this).attr("href"),
 		    success: function(respond){
-		      $("#loading").fadeOut("fast"); 
-		      
+		    	$("#spban_"+id).html("<a class='unban' rel='"+id+"' href='<?= $base ?>/index.php/admin/usr_unban/"+id+"' >Unban </a> | ");
+		      	$("#loading").fadeOut("fast");
 		    },
 		    beforeSend:function(){
 		        $("#loading").fadeIn("fast");
@@ -76,12 +77,15 @@ $(document).ready(function(){
 	
 	//Unban User From List
 	//Ban User From List
-	$(".unban").click(function(){
+	$(".unban").live("click",function(){
+		id=$(this).attr("rel");
+		
 		$.ajax({
 		    type: "POST",
 		    url: $(this).attr("href"),
 		    success: function(respond){
-		      $("#loading").fadeOut("fast"); 
+		   		$("#spban_"+id).html("<a class='ban' rel='"+id+"' href='<?= $base ?>/index.php/admin/usr_ban/"+id+"' >Ban </a> | ");
+		    	$("#loading").fadeOut("fast"); 
 		      
 		    },
 		    beforeSend:function(){
@@ -134,7 +138,7 @@ $(document).ready(function(){
 	});
 	
 	
-	// Delete User List get from checkbox
+	// Ban User List get from checkbox
 	$("#ban").click(function(){
 		
 		$("#loading").fadeIn("fast");
@@ -153,7 +157,7 @@ $(document).ready(function(){
 			
 		});
 		
-		//Delete User
+		//Ban User
 		$.ajax({
 				  url: '<?= $base ?>/index.php/admin/usr_ban',
 				  type: "POST",
@@ -164,8 +168,53 @@ $(document).ready(function(){
 		    			//uncheck for refresh
 		    			
 		    			$chkbox_list[i].attr("checked",false);
-		    			//$("#tr_"+tr_id_list[i]).fadeOut("fast");
-		    			$("#tdban_"+tr_id_list[i]).html("Ban");
+		    			id=tr_id_list[i];
+
+		    			$("#spban_"+id).html("<a class='unban' rel='"+id+"' href='<?= $base ?>/index.php/admin/usr_unban/"+id+"' >Unban </a> | ");
+		    			
+		    			$("#loading").fadeOut("fast");
+		    		}
+				  }
+		});
+		
+		return false;
+		
+	});
+	
+	// UnBan User List get from checkbox
+	$("#unban").click(function(){
+		
+		$("#loading").fadeIn("fast");
+		var tr_id=0;
+		var index=0;
+		var tr_id_list = new Array();
+		var $chkbox_list= new Array();
+		
+		//Collect checkbox checked list
+		$('.usrchk:checked').each(function() {
+			index=index+1;
+			tr_id=tr_id+","+$(this).val();
+			
+			tr_id_list[index]=$(this).val();
+			$chkbox_list[index]=$(this);
+			
+		});
+		
+		//Ban User
+		$.ajax({
+				  url: '<?= $base ?>/index.php/admin/usr_unban',
+				  type: "POST",
+				  data: "id="+tr_id,
+				  success: function(data) {
+		    		for(i=1;i<=index+1;i++)
+		    		{
+		    			//uncheck for refresh
+		    			
+		    			$chkbox_list[i].attr("checked",false);
+		    			id=tr_id_list[i];
+
+		    			$("#spban_"+id).html("<a class='ban' rel='"+id+"' href='<?= $base ?>/index.php/admin/usr_ban/"+id+"' >Ban </a> | ");
+		    			
 		    			$("#loading").fadeOut("fast");
 		    		}
 				  }
@@ -196,7 +245,7 @@ function yesevent()
 	   			ban="YES";
 	   		}
 	   		
-	   		$("#tdban_"+$("#userid").val()).html(ban);
+	   		
 	   		$("#loading").fadeOut("fast");
 	   	},
 	   	beforeSend:function(){
@@ -210,6 +259,7 @@ function yesevent()
 <div class="btnbar">
 	<input type="button" id="delete" value="Delete" />
 	<input type="button" id="ban" value="Ban" />
+	<input type="button" id="unban" value="Unban" />
 </div>
 <table border="0" cellpadding="0" cellspacing="0" class="table_admin" width="100%">
 	<tr class="table_header">
@@ -217,7 +267,6 @@ function yesevent()
 		<td>Username</td>
 		<td>Email</td>
 		<td>Join Date</td>
-		<td>Ban</td>
 		<td>Action</td>
 	</tr>
 <?php
@@ -234,13 +283,13 @@ foreach ($userlist as $user)
     echo "<td id='tddate_{$user->id}'>";
     echo $user->join_date;
     echo "</td>";
-    echo "<td id='tdban_{$user->id}'>";
-    echo ($user->ban==0) ? "NO" : "YES";
     echo "</td>";
-     echo "<td>";
-    echo  "<a class='edit' href='{$base}/index.php/admin/usr_edit/{$user->id}' >Edit</a> | ";
-    if($user->ban==0) echo  "<a class='ban' href='{$base}/index.php/admin/usr_ban/{$user->id}' >Ban </a> | ";
-    else echo "<a class='unban' href='{$base}/index.php/admin/usr_unban/{$user->id}' >Unban </a> | ";
+    echo "<td>";
+    echo "<a class='edit' href='{$base}/index.php/admin/usr_edit/{$user->id}' >Edit</a> | ";
+    echo " <span id='spban_{$user->id}'>"; 
+    if($user->ban==0) echo  "<a class='ban' rel='{$user->id}' href='{$base}/index.php/admin/usr_ban/{$user->id}' >Ban </a> | ";
+    else echo "<a rel='{$user->id}' class='unban' href='{$base}/index.php/admin/usr_unban/{$user->id}' >Unban </a> | ";
+    echo "</span>";
     echo  "<a class='delete' rel='{$user->id}' href='{$base}/index.php/admin/usr_del/{$user->id}' >Delete</a>";
     echo "</td>";
     echo "</tr>";
