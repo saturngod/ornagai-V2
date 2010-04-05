@@ -1,8 +1,8 @@
 @font-face {
 	font-family: 'Zawgyi-OneRegular';
-	src: url('../embed/ezawgyi.svg#Zawgyi-One') format('svg');
+	src: local('Zawgyi-One'), local('Zawgyi-One'), url('../embed/ezawgyi.svg#Zawgyi-One') format('svg');
 }
-*, body, h1, h2, h3, h4, h5, h6, strong, b, table,zg,input,a { 
+*, body, h1, h2, h3, h4, h5, h6, strong, b, table,input,a { 
 	letter-spacing: normal;
 	line-height:normal; 
 	font-weight: normal; 

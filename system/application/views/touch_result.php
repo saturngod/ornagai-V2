@@ -8,3 +8,33 @@ foreach ($query  as $row)
 <?php
 }
 ?>
+<script type="text/javascript">
+			//load Zawgyi
+			Cufon.DOM.ready(function() {
+    			Cufon.replace('.zg');
+    		});
+</script>
+<style>
+.zg
+{
+	font-family: Zawgyi-one;
+}
+ul li a, li.img a + a {
+	white-space: normal !important;
+}
+ul li a.zg
+{
+	background: none !important;
+	
+	<?php
+	if($theme=='iphone')
+	{
+		echo "color: #000";
+	}
+	else
+	{
+		echo "color: #FFF";
+	}
+	?>
+}
+</style>
