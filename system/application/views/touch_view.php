@@ -58,7 +58,7 @@ $this->load->view("touch_head",$data);
     </script>
     <style>
     /* progress loading */
-    #progress { -webkit-border-radius: 10px; background-color: rgba(0,0,0,.7); color: white; font-size: 18px; font-weight: bold; height: 80px; left: 60px; line-height: 80px; margin: 0 auto; position: absolute; text-align: center; top: 120px; width: 200px;
+    #progress { -webkit-border-radius: 10px; background-color: rgba(0,0,0,.7); color: white; font-size: 18px; font-weight: bold; height: 80px; left: 60px; line-height: 80px; margin: 0 auto; position: absolute; text-align: center; top: 120px; width: 200px;display: none;
     }
     </style>
 </form>
