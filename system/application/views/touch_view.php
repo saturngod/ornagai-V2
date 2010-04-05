@@ -5,7 +5,7 @@ $data['theme']=$theme;
 $this->load->view("touch_head",$data);
 ?>
 <form id="search_frm">
-	<div id="progress"><img src='<?= $base ?>/touch/images/search.gif'>&nbsp;Searching...</div>
+	<div id="progress"><img src='<?php echo $base ?>/touch/images/search.gif'>&nbsp;Searching...</div>
     <div class="toolbar">
         <h1>Ornagai</h1>
     </div>
@@ -36,13 +36,13 @@ $this->load->view("touch_head",$data);
     function search()
     {
     	//search
-    	//url="<?= $base ?>/index.php/touch/search";
+    	//url="<?php echo $base ?>/index.php/touch/search";
     	//alert($("#query").val());
     	$("#progress").fadeIn();
     	//$("#relist").html("<li class='sep'>hi</li>");
     	$.ajax({
     	  type: "POST",
-    	  url:"<?= $base ?>/index.php/touch/search",
+    	  url:"<?php echo $base ?>/index.php/touch/search",
     	  data:"search="+$("#query").val(),
     	  success: function(html){
     	  	$("#relist").html(html);
@@ -52,8 +52,7 @@ $this->load->view("touch_head",$data);
     	  beforeSend: function() {
     	  	$("#progress").fadeIn("fast");
     	  }
-    	 });
-    	
+    	 });  	
     }
     </script>
     <style>
@@ -65,7 +64,7 @@ $this->load->view("touch_head",$data);
 
 <div id="result">
     <div class="toolbar">
-        <h1><?= $title ?></h1>
+        <h1><?php echo $title ?></h1>
         <a href="#" class="back">Back</a>
     </div>
     <ul id="relist" class="edgetoedge">

@@ -64,7 +64,7 @@ $(document).ready(function(){
 		    type: "POST",
 		    url: $(this).attr("href"),
 		    success: function(respond){
-		    	$("#spban_"+id).html("<a class='unban' rel='"+id+"' href='<?= $base ?>/index.php/admin/usr_unban/"+id+"' >Unban </a> | ");
+		    	$("#spban_"+id).html("<a class='unban' rel='"+id+"' href='<?php echo $base ?>/index.php/admin/usr_unban/"+id+"' >Unban </a> | ");
 		      	$("#loading").fadeOut("fast");
 		    },
 		    beforeSend:function(){
@@ -84,7 +84,7 @@ $(document).ready(function(){
 		    type: "POST",
 		    url: $(this).attr("href"),
 		    success: function(respond){
-		   		$("#spban_"+id).html("<a class='ban' rel='"+id+"' href='<?= $base ?>/index.php/admin/usr_ban/"+id+"' >Ban </a> | ");
+		   		$("#spban_"+id).html("<a class='ban' rel='"+id+"' href='<?php echo $base ?>/index.php/admin/usr_ban/"+id+"' >Ban </a> | ");
 		    	$("#loading").fadeOut("fast"); 
 		      
 		    },
@@ -117,7 +117,7 @@ $(document).ready(function(){
 	
 		//Delete User
 		$.ajax({
-				  url: '<?= $base ?>/index.php/admin/usr_del',
+				  url: '<?php echo $base ?>/index.php/admin/usr_del',
 				  type: "POST",
 				  data: "id="+tr_id,
 				  success: function(data) {
@@ -159,7 +159,7 @@ $(document).ready(function(){
 		
 		//Ban User
 		$.ajax({
-				  url: '<?= $base ?>/index.php/admin/usr_ban',
+				  url: '<?php echo $base ?>/index.php/admin/usr_ban',
 				  type: "POST",
 				  data: "id="+tr_id,
 				  success: function(data) {
@@ -170,7 +170,7 @@ $(document).ready(function(){
 		    			$chkbox_list[i].attr("checked",false);
 		    			id=tr_id_list[i];
 
-		    			$("#spban_"+id).html("<a class='unban' rel='"+id+"' href='<?= $base ?>/index.php/admin/usr_unban/"+id+"' >Unban </a> | ");
+		    			$("#spban_"+id).html("<a class='unban' rel='"+id+"' href='<?php echo $base ?>/index.php/admin/usr_unban/"+id+"' >Unban </a> | ");
 		    			
 		    			$("#loading").fadeOut("fast");
 		    		}
@@ -202,7 +202,7 @@ $(document).ready(function(){
 		
 		//Ban User
 		$.ajax({
-				  url: '<?= $base ?>/index.php/admin/usr_unban',
+				  url: '<?php echo $base ?>/index.php/admin/usr_unban',
 				  type: "POST",
 				  data: "id="+tr_id,
 				  success: function(data) {
@@ -213,7 +213,7 @@ $(document).ready(function(){
 		    			$chkbox_list[i].attr("checked",false);
 		    			id=tr_id_list[i];
 
-		    			$("#spban_"+id).html("<a class='ban' rel='"+id+"' href='<?= $base ?>/index.php/admin/usr_ban/"+id+"' >Ban </a> | ");
+		    			$("#spban_"+id).html("<a class='ban' rel='"+id+"' href='<?php echo $base ?>/index.php/admin/usr_ban/"+id+"' >Ban </a> | ");
 		    			
 		    			$("#loading").fadeOut("fast");
 		    		}
@@ -231,7 +231,7 @@ function yesevent()
 
 	$.ajax({
 	    type: "POST",
-	    url: "<?= $base ?>/index.php/admin/user_update",
+	    url: "<?php echo $base ?>/index.php/admin/user_update",
 	    data: "id="+$("#userid").val()+"&username="+$("#username").val()+"&email="+$("#email").val()+"&join_date="+$("#date").val()+"&ban="+$("#ban").attr("checked"),
 	   	success: function(respond){
 	   		//Change update

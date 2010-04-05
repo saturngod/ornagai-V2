@@ -75,8 +75,8 @@ input[type=text]:focus,input[type=password]:focus
 </style>
 <div id="register_wrapper">
 <h2>Register</h2>
-<?= (isset($err) ? $err : ""); ?>
-<form action="<?= $base?>/index.php/register" method="post">
+<?php echo (isset($err) ? $err : ""); ?>
+<form action="<?php echo $base?>/index.php/register" method="post">
     <label>User Name <span class="require">*</span></label>
     <input type="text" id="username" name="username"> <span id="usr_verify" class="verify"></span>
     <label>Email <span class="require">*</span></label> 
@@ -86,7 +86,7 @@ input[type=text]:focus,input[type=password]:focus
     <label>Confirm Password <span class="require">*</span></label>
     <input type="password" id="conf_password" name="conf_password"><span id="confrimpwd_verify" class="verify"></span>
     <label>Verify <span class="require">*</span></label>
-    <span class="require"><?= form_error('recaptcha_response_field') ?></span>
+    <span class="require"><?php echo form_error('recaptcha_response_field') ?></span>
     <? echo $recaptcha ?>
     <label></label>
     <input id="register" type="submit" value="Register">
@@ -111,12 +111,12 @@ $(document).ready(function(){
          
             if(isValidEmailAddress(email))
             {
-               $("#email_verify").css({ "background-image": "url('<?= $base ?>/images/yes.png')" });
+               $("#email_verify").css({ "background-image": "url('<?php echo $base ?>/images/yes.png')" });
                email_con=true;
                register_show();
             } else {
                
-                $("#email_verify").css({ "background-image": "url('<?= $base ?>/images/no.png')" });
+                $("#email_verify").css({ "background-image": "url('<?php echo $base ?>/images/no.png')" });
                 email_con=false;
                 register_show();
             }
@@ -138,14 +138,14 @@ $(document).ready(function(){
         {
             if($("#conf_password").val()!=$("#password").val())
             {
-                $("#confrimpwd_verify").css({ "background-image": "url('<?= $base ?>/images/no.png')" }); 
-                $("#password_verify").css({ "background-image": "url('<?= $base ?>/images/no.png')" });
+                $("#confrimpwd_verify").css({ "background-image": "url('<?php echo $base ?>/images/no.png')" }); 
+                $("#password_verify").css({ "background-image": "url('<?php echo $base ?>/images/no.png')" });
                 pwd=false;
                 register_show();
             }
             else{
-                $("#confrimpwd_verify").css({ "background-image": "url('<?= $base ?>/images/yes.png')" }); 
-                $("#password_verify").css({ "background-image": "url('<?= $base ?>/images/yes.png')" });
+                $("#confrimpwd_verify").css({ "background-image": "url('<?php echo $base ?>/images/yes.png')" }); 
+                $("#password_verify").css({ "background-image": "url('<?php echo $base ?>/images/yes.png')" });
                 pwd=true;
                 register_show();
             }
@@ -158,14 +158,14 @@ $(document).ready(function(){
         {
             if($("#conf_password").val()!=$("#password").val())
             {
-                $("#confrimpwd_verify").css({ "background-image": "url('<?= $base ?>/images/no.png')" }); 
-                $("#password_verify").css({ "background-image": "url('<?= $base ?>/images/no.png')" });
+                $("#confrimpwd_verify").css({ "background-image": "url('<?php echo $base ?>/images/no.png')" }); 
+                $("#password_verify").css({ "background-image": "url('<?php echo $base ?>/images/no.png')" });
                 pwd=false;
                 register_show();
             }
             else{
-                $("#confrimpwd_verify").css({ "background-image": "url('<?= $base ?>/images/yes.png')" }); 
-                $("#password_verify").css({ "background-image": "url('<?= $base ?>/images/yes.png')" });
+                $("#confrimpwd_verify").css({ "background-image": "url('<?php echo $base ?>/images/yes.png')" }); 
+                $("#password_verify").css({ "background-image": "url('<?php echo $base ?>/images/yes.png')" });
                 pwd=true;
                 register_show();
             }
@@ -176,18 +176,18 @@ $(document).ready(function(){
         
         $.ajax({
             type: "POST",
-            url: "<?= $base ?>/index.php/register/checkusr",
+            url: "<?php echo $base ?>/index.php/register/checkusr",
             data: "name="+$("#username").val(),
             success: function(msg){
        
                 if(msg=="false")//user already exist
                 {
-                    $("#usr_verify").css({ "background-image": "url('<?= $base ?>/images/yes.png')" });
+                    $("#usr_verify").css({ "background-image": "url('<?php echo $base ?>/images/yes.png')" });
                     usr=true;
                     register_show();
                 }
                 else{
-                    $("#usr_verify").css({ "background-image": "url('<?= $base ?>/images/no.png')" });
+                    $("#usr_verify").css({ "background-image": "url('<?php echo $base ?>/images/no.png')" });
                     usr=false;
                     register_show();
                 }

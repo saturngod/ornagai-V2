@@ -1,6 +1,6 @@
 <label>Word</label>
-<input type="word" name="" value="<?= $wordinfo->Word ?>" />
+<input type="word" name="" value="<?php echo $wordinfo->Word ?>" />
 <label>State</label>
-<input type="state" name="" value="<?= $wordinfo->state ?>" />
+<input type="state" name="" value="<?php echo $wordinfo->state ?>" />
 <label>Def</label>
-<input type="def" name="" value="<?= $wordinfo->def ?>" />
+<input type="def" name="" value="<?php echo $wordinfo->def ?>" />

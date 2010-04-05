@@ -3,13 +3,13 @@ $data['base']=$base;
 $this->load->view("header_view.php",$data);
 $this->load->helper('form');
 ?>
-<link rel="stylesheet" type="text/css" href="<?= $base ?>/css/jquery.autocomplete.css" />
-<script type="text/javascript" src="<?= $base ?>/js/jquery.bgiframe.min.js"></script>
-<script type="text/javascript" src="<?= $base ?>/js/jquery.autocomplete.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo $base ?>/css/jquery.autocomplete.css" />
+<script type="text/javascript" src="<?php echo $base ?>/js/jquery.bgiframe.min.js"></script>
+<script type="text/javascript" src="<?php echo $base ?>/js/jquery.autocomplete.js"></script>
 <!-- Tooltip -->
-<script src="<?= $base ?>/js/jquery.tooltip.min.js"></script>
+<script src="<?php echo $base ?>/js/jquery.tooltip.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="<?= $base ?>/css/jquery.tooltip.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $base ?>/css/jquery.tooltip.css" />
 <script>
 var h_id;
 var history_flag;
@@ -38,7 +38,7 @@ $(document).ready(function(){
 	});
     
     
-    $("#message").autocomplete("<?= $base ?>/index.php/search/autocomplete", {
+    $("#message").autocomplete("<?php echo $base ?>/index.php/search/autocomplete", {
 		
 		selectFirst: false
 	});
@@ -51,7 +51,7 @@ $(document).ready(function(){
 	
          $.ajax({
             type: "POST",
-            url: "<?= $base ?>/index.php/search",
+            url: "<?php echo $base ?>/index.php/search",
             data: "message="+message_val,
             success: function(html){
               $("#result").html(html);
@@ -72,7 +72,7 @@ $(document).ready(function(){
 	email=$("#forg_email").val();
 	 $.ajax({
             type: "POST",
-            url: "<?= $base ?>/index.php/register/forgotpwd",
+            url: "<?php echo $base ?>/index.php/register/forgotpwd",
             data: "email="+email,
             success: function(html){
             	$("#loading").fadeOut("normal");
@@ -101,13 +101,13 @@ $(document).ready(function(){
     });
     $("#login_btn").live("click", function(){
         if($("#login_form").is(":hidden")) {
-	    $("#login_btn").attr("src","<?= $base ?>/images/user.png");
+	    $("#login_btn").attr("src","<?php echo $base ?>/images/user.png");
             $("#login_form").slideDown("fast");
             $("#wrapper").css("margin-top","0px");
         }
         else{
 	    
-	    $("#login_btn").attr("src","<?= $base ?>/images/user_off.png");
+	    $("#login_btn").attr("src","<?php echo $base ?>/images/user_off.png");
             $("#login_form").slideUp("fast");
             $("#wrapper").css("margin-top","26px");
         }
@@ -121,7 +121,7 @@ $(document).ready(function(){
         password=$("#pwd").val();
          $.ajax({
             type: "POST",
-            url: "<?= $base ?>/index.php/user/login",
+            url: "<?php echo $base ?>/index.php/user/login",
             data: "name="+username+"&pwd="+password,
             success: function(html){
                
@@ -129,7 +129,7 @@ $(document).ready(function(){
               {
                 $("#loading").fadeOut("fast");
                 //$("#login_form").remove();
-                $("#login_form").html("<a href='<?= $base ?>/index.php/user/logout' id='logout'>Logout</a> | <a href='#logout' id='change_pwd'>Change Password</a> ");
+                $("#login_form").html("<a href='<?php echo $base ?>/index.php/user/logout' id='logout'>Logout</a> | <a href='#logout' id='change_pwd'>Change Password</a> ");
                
                 $("#add_btn").show();
               }
@@ -166,7 +166,7 @@ $(document).ready(function(){
       
         $.ajax({
             type: "POST",
-            url: "<?= $base ?>/index.php/search",
+            url: "<?php echo $base ?>/index.php/search",
             data: "message="+$(this).attr("rel")+"&page="+$(this).html(),
             success: function(html){
               $("#result").html(html);
@@ -231,7 +231,7 @@ $(document).ready(function(){
                 {
                     $.ajax({
             			type: "POST",
-            			url: "<?= $base ?>/index.php/search",
+            			url: "<?php echo $base ?>/index.php/search",
             			data: "message="+$(this).attr("rel"),
             			success: function(html){
               				$("#result").html(html);
@@ -259,7 +259,7 @@ $(document).ready(function(){
    			//// Change Password
    			$.ajax({
             		type: "POST",
-            		url: "<?= $base ?>/index.php/user/changepwd",
+            		url: "<?php echo $base ?>/index.php/user/changepwd",
             		data: "currpwd="+curr_pwd+"&newpwd="+new_pwd,
             		success: function(html){
             			if(html=='false')
@@ -398,7 +398,7 @@ $(document).ready(function(){
         
           $.ajax({
             type: "POST",
-            url: "<?= $base ?>/index.php/word/add",
+            url: "<?php echo $base ?>/index.php/word/add",
             data: "word="+word+"&state="+state+"&def="+def,
             success: function(html){
 		
@@ -421,7 +421,7 @@ $(document).ready(function(){
 
     <div id="forget_popup">
         <div class="err" id="forget_err"></div>
-       <form action="<?= $base ?>/index.php/user/forgetpwd">
+       <form action="<?php echo $base ?>/index.php/user/forgetpwd">
        <div id="forget_message" class="err"></div>
        <label>Email : </label>
        <input type="text" id="forg_email" style="width:165px;" >
@@ -434,7 +434,7 @@ $(document).ready(function(){
     
     <div id="chpwd_popup">
     	 <div class="err" id="chpwd_err"></div>
-       <form action="<?= $base ?>/index.php/user/changepwd">
+       <form action="<?php echo $base ?>/index.php/user/changepwd">
        <div id="chpwd_message" class="err"></div>
        <label>Current Password : </label>
        <input type="password" id="current_pwd" style="width:170px;" >
@@ -452,7 +452,7 @@ $(document).ready(function(){
     
     <div id="add_word_popup">
         <div class="err" id="add_err"></div>
-       <form action="<?= $base ?>/index.php/word/add">
+       <form action="<?php echo $base ?>/index.php/word/add">
        <label>Word</label>
        <input type="text" id="addword" >
         <label>State</label>
@@ -468,30 +468,30 @@ $(document).ready(function(){
     <div id="shadow" class="popup"></div>
     
     <div class="popup" id="loading">
-    	<p><br/><br/><br/><br/><img src="<?= $base ?>/images/load.gif"></p>
+    	<p><br/><br/><br/><br/><img src="<?php echo $base ?>/images/load.gif"></p>
     </div>
     
     <div id="login_form" class="login_frm">
     <? if($login)
     {
     ?>
-    <a href='<?= $base ?>/index.php/user/logout' id='logout'>Logout</a> | <a href='#logout' id='change_pwd'>Change Password</a>
+    <a href='<?php echo $base ?>/index.php/user/logout' id='logout'>Logout</a> | <a href='#logout' id='change_pwd'>Change Password</a>
     <?
     } else {
     ?>
-    <?= form_open("user/login"); ?>
+    <?php echo form_open("user/login"); ?>
     <input type="text" value="Username" id="username" >
     <input type="text" value="Password" id="txtpwd">
     <input type="password" id="pwd" style="display:none" >
     <input type="submit" value="Login" id="login">
     <input type="button" value="Cancel" id="cancel">
     <span class="err" id="err_msg"></span> &nbsp;
-    <a href="<?= $base ?>/index.php/register">Not a member</a> | 
+    <a href="<?php echo $base ?>/index.php/register">Not a member</a> | 
     <a href="#" id="forget_password">Forgot Password</a>
-    <?= form_close(); ?>
+    <?php echo form_close(); ?>
     <? } ?>
     </div>
-    <?= form_open("search/result"); ?>
+    <?php echo form_open("search/result"); ?>
     <div id="top_menu" class="top_menu">
         <input type="text" id="message" name="message" class="searchbox">
         <input type="submit" value="Search" id="search">
@@ -503,17 +503,17 @@ $(document).ready(function(){
         <img src="./images/add.png" id="add_btn" class="btn" title="Add New Word" style="display:none">
         <? } ?>
     </div>
-<?= form_close(); ?>
+<?php echo form_close(); ?>
     <div id="wrapper">
         <div id="left">
             <h3>History</h3>
         </div>
         <div id="result">
         	<div id="res_list" class="result">
-        		<span class="bluesel">Total English To Myanmar Word :</span> <?= $entotal ?>
+        		<span class="bluesel">Total English To Myanmar Word :</span> <?php echo $entotal ?>
         	</div>
         	<div id="res_list" class="result">
-        		<span class="bluesel">Total Myanmar To English Word :</span> <?= $mmtotal ?>
+        		<span class="bluesel">Total Myanmar To English Word :</span> <?php echo $mmtotal ?>
         	</div>
         </div>
         <div class="history_result"></div>

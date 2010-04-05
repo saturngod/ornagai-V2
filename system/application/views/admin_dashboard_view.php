@@ -12,9 +12,9 @@ $(".right ul li:even").css("background-color", "#D4DDE6");
     <div class="statics">
         <div class="left">
         <ul>
-            <li><a href="<?= $base ?>/index.php/admin/users">Users</a></li>
-            <li><a href="<?= $base ?>/index.php/admin/enunapprove">Unapprove English Word</a></li>
-            <li><a href="<?= $base ?>/index.php/admin/myunapprove">Unapprove Myanmar Word</a></li>
+            <li><a href="<?php echo $base ?>/index.php/admin/users">Users</a></li>
+            <li><a href="<?php echo $base ?>/index.php/admin/enunapprove">Unapprove English Word</a></li>
+            <li><a href="<?php echo $base ?>/index.php/admin/myunapprove">Unapprove Myanmar Word</a></li>
             <li>EN Approve</li>
             <li>EN Total</li>
             <li>EN Approve</li>
@@ -24,13 +24,13 @@ $(".right ul li:even").css("background-color", "#D4DDE6");
         
         <div class="right">
         <ul>
-            <li><?= $total_users ?></li>
-            <li><?= $en_unapprove ?></li>
-            <li><?= $my_unapprove ?></li>
-            <li><?= $en_total-$en_unapprove ?></li>
-            <li><?= $en_total ?></li>
-            <li><?= $my_total - $my_unapprove  ?></li>
-            <li><?= $my_total ?></li>
+            <li><?php echo $total_users ?></li>
+            <li><?php echo $en_unapprove ?></li>
+            <li><?php echo $my_unapprove ?></li>
+            <li><?php echo $en_total-$en_unapprove ?></li>
+            <li><?php echo $en_total ?></li>
+            <li><?php echo $my_total - $my_unapprove  ?></li>
+            <li><?php echo $my_total ?></li>
         </ul>
         </div>
     </div>

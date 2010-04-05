@@ -83,8 +83,8 @@ input[type=text]:focus,input[type=password]:focus
 }
 </style>
 <div id="register_wrapper">
-<?= (isset($err) ? "<div class='err'>".$err."</div>" : ""); ?>
-<form action="<?= $base?>/index.php/admin/login" method="post">
+<?php echo (isset($err) ? "<div class='err'>".$err."</div>" : ""); ?>
+<form action="<?php echo $base?>/index.php/admin/login" method="post">
     <label>User Name </label>
     <input type="text" id="username" name="username">
     <label>Password </label>

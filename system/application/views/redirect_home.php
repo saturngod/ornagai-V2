@@ -1,3 +1,3 @@
 <script>
-window.location="<?= $base ?>"
+window.location="<?php echo $base ?>"
 </script>

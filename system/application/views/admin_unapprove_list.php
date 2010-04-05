@@ -29,7 +29,7 @@ $("#approve").click(function(){
 
 	//Approve word
 	$.ajax({
-    		  url: '<?= $base ?>/index.php/admin/<?= $controller_approve ?>',
+    		  url: '<?php echo $base ?>/index.php/admin/<?php echo $controller_approve ?>',
     		  type: "POST",
     		  data: "id="+tr_id,
     		  success: function(data) {
@@ -69,7 +69,7 @@ $(".edit").click(function(){
 	
 	$.ajax({
 	    type: "POST",
-	    data: "type=<?= $type ?>",
+	    data: "type=<?php echo $type ?>",
 	    url: $(this).attr("href"),
 	    success: function(respond){
 	    	
@@ -110,7 +110,7 @@ $("#remove").click(function(){
 
 	//Remove word
 	$.ajax({
-    		  url: '<?= $base ?>/index.php/admin/<?= $controller_remove ?>',
+    		  url: '<?php echo $base ?>/index.php/admin/<?php echo $controller_remove ?>',
     		  type: "POST",
     		  data: "id="+tr_id,
     		  success: function(data) {

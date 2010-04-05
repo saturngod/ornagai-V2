@@ -29,5 +29,5 @@ body{
 </style>
 <div id="register_wrapper">
 <h2>Registration Completed.</h2>
-<p>Thank you for register. <br/> Go to the <a href="<?= $base ?>">home page</a></p>
+<p>Thank you for register. <br/> Go to the <a href="<?php echo $base ?>">home page</a></p>
 </div>
