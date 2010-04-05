@@ -145,5 +145,27 @@ class Words extends Model {
     	$query=$this->db->get("mydblist");
     	return $query->num_rows;
     }
+    
+    function en_info($id)
+    {
+    	$this->db->where('id',$id);
+    	$query=$this->db->get("dblist");
+    	foreach($query->result() as $enword)
+    	{
+    		$result=$enword;
+    	}
+    	return $result;
+    }
+    
+    function my_info($id)
+    {
+    	$this->db->where('id',$id);
+    	$query=$this->db->get("mydblist");
+    	foreach($query->result() as $enword)
+    	{
+    		$result=$enword;
+    	}
+    	return $result;
+    }
 }
 ?>

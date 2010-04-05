@@ -4,7 +4,7 @@ $data['base']=$base;
 $this->load->view("adminheader_view",$data);
 ?>
 <script>
-<?
+<?php
 $this->load->view("jquery_start");
 ?>
 
@@ -65,6 +65,33 @@ $(".approve,.remove").click(function(){
 			return false;
 });
 
+$(".edit").click(function(){
+	
+	$.ajax({
+	    type: "POST",
+	    data: "type=<?= $type ?>",
+	    url: $(this).attr("href"),
+	    success: function(respond){
+	    	
+	    	$().jqbox({
+	    	html:respond,
+	    	width:500,
+	    	height:200,
+	    	confirmbox:true,
+	    	onyes:"yesevent()",
+	    	yestxt: "Save",
+	    	notxt:"Cancel"
+	    	});
+	    	
+	   		$("#loading").fadeOut("fast");
+	    },
+	    beforeSend:function(){
+	        $("#loading").fadeIn("fast");
+	    }
+	});
+			
+	return false;
+});
 $("#remove").click(function(){
 	$("#loading").fadeIn("fast");
 	var tr_id=0;
@@ -107,6 +134,11 @@ $("#remove").click(function(){
 <?php
 $this->load->view("jquery_end");
 ?>
+
+function yesevent()
+{
+	alert("TEST");
+}
 </script>
 <div id="unapprove">
 
@@ -159,7 +191,7 @@ foreach ($wordlist as $row)
 	echo " | ";
 	echo "<a class='remove' rel='{$row->word_id}' href='{$base}/index.php/admin/{$controller_remove}/{$row->word_id}'>Remove</a>";
 	echo " | ";
-	echo "<a href='#'>Edit</a>";
+	echo "<a class='edit' href='{$base}/index.php/admin/word_edit/{$row->word_id}' >Edit</a>";
 	echo "</td>";
 	echo "</tr>";
 }

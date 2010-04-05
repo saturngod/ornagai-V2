@@ -236,9 +236,10 @@ class Users extends Model {
     	
     }
     
-    /* Get User information
-    /* @param integer $id
-    /* @return array $result
+    /**
+    * Get User information
+    * @param integer $id
+    * @return array $result
     */
     function info($id)
     {

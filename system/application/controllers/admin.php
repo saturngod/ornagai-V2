@@ -65,7 +65,7 @@ class Admin extends Controller {
             $this->pagination->initialize($config);
              
             $data['paging']=$this->pagination->create_links();
-            
+            $data['type']='en';
         	$this->load->view('admin_unapprove_list',$data);
         	
         	
@@ -102,7 +102,7 @@ class Admin extends Controller {
 
 			
             $data['paging']=$this->pagination->create_links();
-			
+			$data['type']='my';
         	$this->load->view('admin_unapprove_list',$data);
 
 
@@ -168,57 +168,7 @@ class Admin extends Controller {
             $this->users->unban($usrid);
         }
         
-        function users()
-        {
-           	$data['base']=$this->config->item('base_url');
-           	$data['title']="Ornagai :: Users Manager";
-           
-           	$this->load->model("users");
-          
-           	$total_users=$this->users->get_totalusr();
-            
-            
-            $per_pg=10;
-            $start=0;
-            if ($this->uri->segment(3) != "" )             $start= $this->uri->segment(3);
-          
-          	$data['userlist']=$this->users->getlist($start,$per_pg);
-            $this->load->library('pagination');
-
-            $config['base_url'] = $data['base'].'/index.php/admin/users/';
-            $config['total_rows'] =$total_users;
-            $config['per_page'] =$per_pg;
-    
-            $this->pagination->initialize($config);
-    		
-            $data['paging']= $this->pagination->create_links();
-    
-            $this->load->view("admin_user",$data);
-     
-        }
         
-        function usr_del()
-        {
-        	if($this->uri->segment(3)!="")
-        	{
-        		$usrid=$this->uri->segment(3);
-        	}
-        	else
-        	{
-        		$usrid=spliti(',',$_POST['id']);
-        	}
-        	$this->load->model("users");
-        	$this->users->del($usrid);
-        }
-        
-        function usr_edit()
-        {
-        	$usrid=$this->uri->segment(3);
-        	$this->load->model("users");
-        	$data['userinfo']=$this->users->info($usrid);
-        	
-        	$this->load->view("admin_user_edit",$data);
-        }
         function enapprove()
         {
         	if($this->uri->segment(3)!="")
@@ -273,6 +223,69 @@ class Admin extends Controller {
         	}
         	$this->load->model("words");
         	$this->words->my_approve($id);
+        }
+        
+        function word_edit()
+        {
+        	$id=$this->uri->segment(3);
+        	$type=$_POST['type'];
+        	$this->load->model("words");
+        	if($type=="en")	$data['wordinfo']=$this->words->en_info($id);
+        	else 			$data['wordinfo']=$this->words->my_info($id);
+        	$this->load->view("admin_word_edit",$data);
+        	
+        }
+        
+        function users()
+        {
+           	$data['base']=$this->config->item('base_url');
+           	$data['title']="Ornagai :: Users Manager";
+           
+           	$this->load->model("users");
+          
+           	$total_users=$this->users->get_totalusr();
+            
+            
+            $per_pg=10;
+            $start=0;
+            if ($this->uri->segment(3) != "" )             $start= $this->uri->segment(3);
+          
+          	$data['userlist']=$this->users->getlist($start,$per_pg);
+            $this->load->library('pagination');
+
+            $config['base_url'] = $data['base'].'/index.php/admin/users/';
+            $config['total_rows'] =$total_users;
+            $config['per_page'] =$per_pg;
+    
+            $this->pagination->initialize($config);
+    		
+            $data['paging']= $this->pagination->create_links();
+    
+            $this->load->view("admin_user",$data);
+     
+        }
+        
+        function usr_del()
+        {
+        	if($this->uri->segment(3)!="")
+        	{
+        		$usrid=$this->uri->segment(3);
+        	}
+        	else
+        	{
+        		$usrid=spliti(',',$_POST['id']);
+        	}
+        	$this->load->model("users");
+        	$this->users->del($usrid);
+        }
+        
+        function usr_edit()
+        {
+        	$usrid=$this->uri->segment(3);
+        	$this->load->model("users");
+        	$data['userinfo']=$this->users->info($usrid);
+        	
+        	$this->load->view("admin_user_edit",$data);
         }
         
         function user_update()

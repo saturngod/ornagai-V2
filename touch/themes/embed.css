@@ -1,0 +1,11 @@
+@font-face {
+	font-family: 'Zawgyi-OneRegular';
+	src: url('../embed/ezawgyi.svg#Zawgyi-One') format('svg');
+}
+*, body, h1, h2, h3, h4, h5, h6, strong, b, table,zg,input,a { 
+	letter-spacing: normal;
+	line-height:normal; 
+	font-weight: normal; 
+	font-family: 'Zawgyi-OneRegular';
+}
+
