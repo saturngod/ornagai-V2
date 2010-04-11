@@ -9,11 +9,11 @@ if (!$result) {
 }
 
 echo "Making Tab<br>";
-$myFile = "mmtab.tsv";
+$myFile = "tsv/mmtab.tsv";
 $fh = fopen($myFile, 'w') or die("can't open file");
 
 
-$myFile2 = "ornagaimm.tab";
+$myFile2 = "stardict/ornagaimm.tab";
 $fh2 = fopen($myFile2, 'w') or die("can't open file");
 
 while ($row = mysql_fetch_assoc($result)) 

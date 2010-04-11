@@ -9,11 +9,11 @@ if (!$result) {
 }
 
 echo "Making Tab<br>";
-$myFile = "entab.tsv";
+$myFile = "tsv/entab.tsv";
 $fh = fopen($myFile, 'w') or die("can't open file");
 
 
-$myFile2 = "stardict.tab";
+$myFile2 = "stardict/ornagaien.tab";
 $fh2 = fopen($myFile2, 'w') or die("can't open file");
 
 while ($row = mysql_fetch_assoc($result)) 
@@ -31,7 +31,8 @@ while ($row = mysql_fetch_assoc($result))
 
 fclose($fh);
 fclose($fh2);
-echo shell_exec("zip -r entsv.zip entab.tsv");
+/*echo shell_exec("zip -r entsv.zip entab.tsv");
 echo shell_exec("zip -r stardict.zip stardict.tab");
+*/
 ?>
 

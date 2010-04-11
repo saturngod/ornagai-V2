@@ -3,6 +3,7 @@
 include('config.php');
 include("normalize.php");
 connectdb();
+
 mysql_query("TRUNCATE TABLE `mydblist`");
 $query="select * from dblist";
 $result=mysql_query($query);

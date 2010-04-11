@@ -30,7 +30,7 @@ class Searchmodel extends Model {
             $my_data=mysql_real_escape_string($q);
             $sql="
 		
-SELECT * , IF( `def` = '$my_data', 1, IF( `def` LIKE '$my_data%', 2, IF( `def` LIKE '%$my_data', 4, 3 ) ) ) AS `sort`
+SELECT SQL_NO_CACHE * , IF( `def` = '$my_data', 1, IF( `def` LIKE '$my_data%', 2, IF( `def` LIKE '%$my_data', 4, 3 ) ) ) AS `sort`
 FROM `mydblist`
 WHERE `def` LIKE '%$my_data%'
 ORDER BY `sort` , `def`
@@ -41,7 +41,7 @@ ORDER BY `sort` , `def`
         else{
             $data_q=mysql_real_escape_string($q);
 	    $sql="
-		SELECT * , IF( `Word` = '$data_q', 1, IF( `Word` LIKE '$data_q%', 2, IF( `Word` LIKE '%$data_q', 4, 3 ) ) ) AS `sort`
+		SELECT SQL_NO_CACHE * , IF( `Word` = '$data_q', 1, IF( `Word` LIKE '$data_q%', 2, IF( `Word` LIKE '%$data_q', 4, 3 ) ) ) AS `sort`
 FROM `dblist`
 WHERE `Word` LIKE '%$data_q%'
 ORDER BY `sort` , `Word`
@@ -76,7 +76,7 @@ ORDER BY `sort` , `Word`
             $my_data=mysql_real_escape_string($q);
             $sql="
 		
-SELECT * , IF( `def` = '$my_data', 1, IF( `def` LIKE '$my_data%', 2, IF( `def` LIKE '%$my_data', 4, 3 ) ) ) AS `sort`
+SELECT SQL_NO_CACHE * , IF( `def` = '$my_data', 1, IF( `def` LIKE '$my_data%', 2, IF( `def` LIKE '%$my_data', 4, 3 ) ) ) AS `sort`
 FROM `mydblist`
 WHERE `def` LIKE '%$my_data%'
 ORDER BY `sort` , `def`
@@ -87,7 +87,7 @@ ORDER BY `sort` , `def`
         else{
             $data_q=mysql_real_escape_string($q);
 	    $sql="
-		SELECT * , IF( `Word` = '$data_q', 1, IF( `Word` LIKE '$data_q%', 2, IF( `Word` LIKE '%$data_q', 4, 3 ) ) ) AS `sort`
+		SELECT SQL_NO_CACHE * , IF( `Word` = '$data_q', 1, IF( `Word` LIKE '$data_q%', 2, IF( `Word` LIKE '%$data_q', 4, 3 ) ) ) AS `sort`
 FROM `dblist`
 WHERE `Word` LIKE '%$data_q%'
 ORDER BY `sort` , `Word`
