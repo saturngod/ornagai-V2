@@ -49,7 +49,6 @@ class Words extends Model {
 	    	{		    
 				$this->load->library("zawgyi");
 				$mya_def=$this->zawgyi->normalize($val,"|",true);
-		 		$mya_def="|".$mya_def;
 				$data = array(
 		   			'Word' => $word ,
 		   			'state' => $state ,
