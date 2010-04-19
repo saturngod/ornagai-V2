@@ -3,6 +3,7 @@
 //Myanmar To English CSV
 include('config.php');
 connectdb();
+date_default_timezone_set('Asia/Singapore');
 $result=mysql_query("select `Word`,`state`,`def` from mydblist ORDER BY `Word`");
 if (!$result) {
     die('Invalid query: ' . mysql_error());
