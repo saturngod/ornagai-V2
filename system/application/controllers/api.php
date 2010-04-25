@@ -31,12 +31,9 @@ class api extends REST_Controller
 		    $q=$this->zawgyi->normalize($q,"|",true);
         }
         $query=$this->searchmodel->query($q,$myanmar,$page);
+
+        $num_rows=array("count"=>$this->searchmodel->query_numrows($q,$myanmar));
         
-      
-      		if($this->get('count'))
-      		{
-        		$num_rows[0]=array("count"=>$this->searchmodel->query_numrows($q,$myanmar));
-        	}
         	
         	
         	//exit;
@@ -44,29 +41,42 @@ class api extends REST_Controller
         
         
        $i=0;
-       	foreach($query as $row)
-       	{
-       		$return[$i]['word']=$row->Word;
-       		$return[$i]['state']=$row->state;
-       		if(!$myanmar)
-       		{
-       			$return[$i]['def']=str_replace("|","",$row->def);
-       		}
-       		else
-       		{
-       			$return[$i]['def']=$row->def;
-       		}
-       		$i++;
+       $notfound=false;
+       if($num_rows['count']>0)
+       {
+	       	foreach($query as $row)
+	       	{
+	       		$return[$i]['word']=$row->Word;
+	       		$return[$i]['state']=$row->state;
+	       		if(!$myanmar)
+	       		{
+	       			$return[$i]['def']=str_replace("|","",$row->def);
+	       		}
+	       		else
+	       		{
+	       			$return[$i]['def']=$row->def;
+	       		}
+	       		$i++;
+	       	}
        	}
-       	
-       	if(isset($num_rows))
+       	else
+       	{
+       		$notfound=true;
+       	}
+       	if($this->get('count'))
        	{
        		$this->response($num_rows,200);
        	}
        	else if(isset($return))
        	{
-       		$this->response($return, 200); // 200 being the HTTP response code
-       		
+       		if(!$notfound)
+       		{
+	       		$this->response($return, 200); // 200 being the HTTP response code
+	       	}
+	       	else
+	       	{
+	       		$this->response(array('error' => 'word could not be found'), 404);
+	       	}	
        	}
        	else
        	{
