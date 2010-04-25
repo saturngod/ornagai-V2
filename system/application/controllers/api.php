@@ -48,7 +48,7 @@ class api extends REST_Controller
 	       	{
 	       		$return[$i]['word']=$row->Word;
 	       		$return[$i]['state']=$row->state;
-	       		if(!$myanmar)
+	       		if($myanmar)
 	       		{
 	       			$return[$i]['def']=str_replace("|","",$row->def);
 	       		}
