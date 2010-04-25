@@ -9,6 +9,7 @@ class api extends REST_Controller
 		if(!$this->get('q'))
 		{
 			$this->response(NULL, 400);
+			exit;
 		}
 		$q=$this->get("q");
 		
