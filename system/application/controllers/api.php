@@ -52,6 +52,7 @@ class api extends REST_Controller
 	       		{
 	       			$return[$i]['def']=$row->def;
 	       		}
+	       		$return[$i]['approve']=$row->approve;
 	       		$i++;
 	       	}
        	}
