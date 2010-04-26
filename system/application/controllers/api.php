@@ -61,7 +61,7 @@ class api extends REST_Controller
        		$notfound=true;
        	}
        	
-       	else if(isset($return))
+       	if(isset($return))
        	{
        		if(!$notfound)
        		{
