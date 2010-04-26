@@ -33,11 +33,7 @@ class api extends REST_Controller
         $query=$this->searchmodel->query($q,$myanmar,$page);
 
         $num_rows=array("count"=>$this->searchmodel->query_numrows($q,$myanmar));
-        
-        	
-        	
-        	//exit;
-     
+             
         
         
        $i=0;
@@ -63,10 +59,7 @@ class api extends REST_Controller
        	{
        		$notfound=true;
        	}
-       	if($this->get('count'))
-       	{
-       		$this->response($num_rows,200);
-       	}
+       	
        	else if(isset($return))
        	{
        		if(!$notfound)
@@ -83,6 +76,42 @@ class api extends REST_Controller
        	    $this->response(array('error' => 'word could not be found'), 404);
        	}
        	
+	}
+	
+	function count_get()
+	{
+		if(!$this->get('q'))
+		{
+			exit;
+		}
+		
+		$q=$this->get("q");
+				
+		$this->load->model('searchmodel');
+		$myanmar=$this->searchmodel->detect_langauage($q);
+		
+		if(!$this->get('page'))
+		{
+			$page=1;
+		}
+		else
+		{
+			$page=$this->get('page');
+		}
+		
+        if($myanmar)
+        {
+		    $this->load->library("zawgyi");
+		    $q=$this->zawgyi->normalize($q,"|",true);
+        }
+        $query=$this->searchmodel->query($q,$myanmar,$page);
+
+        $num_rows=array("count"=>$this->searchmodel->query_numrows($q,$myanmar));
+		        
+		if($this->get('q'))
+		{
+			$this->response($num_rows,200);
+		}
 	}
 }
 ?>
