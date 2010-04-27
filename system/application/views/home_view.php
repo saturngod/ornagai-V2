@@ -51,7 +51,7 @@ $(document).ready(function(){
 	
          $.ajax({
             type: "POST",
-            url: "<?php echo $base ?>/index.php/search?utm_source=search&utm_medium=usages&utm_campaign=search_track",
+            url: "<?php echo $base ?>/index.php/search",
             data: "message="+message_val,
             success: function(html){
               $("#result").html(html);
