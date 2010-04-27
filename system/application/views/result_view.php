@@ -71,3 +71,8 @@ for($i=$start;$i<=$end;$i++)
 }
 ?>
 </div>
+
+<?php
+$this->load->helper("google");
+echo google_analytics();
+?>
