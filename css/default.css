@@ -41,6 +41,7 @@ img{
 input[type=text],input[type=password]
 {
      -moz-border-radius: 2em;  
+     border-radius: 2em;
     -webkit-border-radius: 2em;
     background-color:#FFF;
     border:1px solid #5C5C5C;
@@ -64,6 +65,7 @@ input[type=button],input[type=submit],input[type=reset]
     
     background-color:#E9E9E9;
     border:1px solid #5C5C5C;
+    border-radius: 2em;
     -moz-border-radius: 2em;  
     -webkit-border-radius: 2em;
     margin-left:5px;
