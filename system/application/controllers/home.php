@@ -59,6 +59,23 @@ class Home extends Controller {
 			$this->load->view('home_view',$data);
 
 	}
+	function fbprofile()
+	{
+		$data['base']=$this->config->item('base_url');
+					 
+		$this->load->helper('url');
+        
+        //Total En mm word
+        $this->load->model("words");
+        $data['entotal']=$this->words->get_en_total();
+        $data['mmtotal']=$this->words->get_mm_total();
+        
+        
+        
+        $data['login']=$this->session->userdata('logged_in');  
+        $data['fbprofile']=true;
+		$this->load->view('home_view',$data);
+	}
 }
 
 ?>

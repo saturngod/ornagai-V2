@@ -1,6 +1,16 @@
 <?php
 $data['base']=$base;
+if(!isset($fbprofile))
+{
 $this->load->view("header_view.php",$data);
+}
+else
+{
+?>
+	<link rel="stylesheet" href="<?php echo $base ?>/css/default.css">
+	<script src="<?php echo $base ?>/js/jquery.js"></script>
+<?
+}
 $this->load->helper('form');
 ?>
 <link rel="stylesheet" type="text/css" href="<?php echo $base ?>/css/jquery.autocomplete.css" />
@@ -417,8 +427,14 @@ $(document).ready(function(){
     
 });
 </script>
+<?php
+if(!isset($fbprofile))
+{
+?>
 <body>
-
+<?
+}
+?>
     <div id="forget_popup">
         <div class="err" id="forget_err"></div>
        <form action="<?php echo $base ?>/index.php/user/forgetpwd">
@@ -519,5 +535,8 @@ $(document).ready(function(){
         <div class="history_result"></div>
     </div>
 <?php
-$this->load->view("footer_view");
+if(!isset($fbprofile))
+{
+	$this->load->view("footer_view");
+}
 ?>
