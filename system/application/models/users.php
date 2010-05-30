@@ -49,6 +49,13 @@ class Users extends Model {
     }
     function login($user,$pwd,$admin=false)
     {
+    	$user=trim($user);
+    	if($user=="" || $pwd=="")
+    	{
+    		return false;
+    	}
+    	$pwd=stripcslashes($pwd);
+    	$pwd=mysql_escape_string($pwd);
         $this->db->where("username",$user);
         $query=$this->db->get("user");
         ////// get slat for password checking
