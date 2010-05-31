@@ -13,7 +13,7 @@ foreach ($query  as $row)
 {
     echo "<div class='result'>";
     
-    echo "<div id='speech_".$row->id."' style='visibility:hidden;height:0px;'>".$row->Word."</div>";
+   
     if(!$mm)
     {
         echo str_replace($result,"<span class='bluesel'>".$result."</span>",$row->Word);   
@@ -26,7 +26,7 @@ foreach ($query  as $row)
    {
 	 echo "<img src='".$approve."' alt='approve' class='res_img' title='waiting to approve' >";
    }
-    echo '<a href="javascript:void(0);" onclick="get_id(\'speech_'.$row->id.'\',\'en\',\'mlfm\');">';
+    echo '<a href="javascript:void(0);" onclick="window.open(\''.$base.'/index.php/voice/play/'.$row->Word.'\',\'Voice\',\'menubar=no,width=210,height=15,toolbar=no\')">';
     echo "<img src='".$voice."' alt='voice' class='res_img' title='click to speech' >";
     echo "</a>";
     echo "<br>";
