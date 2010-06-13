@@ -531,6 +531,9 @@ if(!isset($fbprofile))
         	<div id="res_list" class="result">
         		<span class="bluesel">Total Myanmar To English Word :</span> <?php echo $mmtotal ?>
         	</div>
+        	<div>
+        	<a href="http://itunes.apple.com/us/app/ornagai/id376579933?mt=8">iPhone Ornagai App</a>
+        	</div>
         </div>
         <div class="history_result"></div>
     </div>

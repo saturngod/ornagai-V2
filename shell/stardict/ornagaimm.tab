@@ -7447,6 +7447,7 @@ Beachelor of Law ဥပေဒ ဝိဇၹာဘြဲ႕	BL\nabbr
 အပိုဆုေၾကး	bonus\nn
 အပိုဆုေၾကးမ်ား	bonuses\nn[pl]
 အရိုးမ်ားေသာ	bony\nadj
+အံအားသင့္ အလန္႕တၾကားျဖစ္ေအာင္ ေအာ္သံ	boo\ninterj
 စာအုပ္	book\nn
 စာအုပ္ထဲတြင္ ေရးမွတ္သည္	book\nv
 လက္မွတ္ႀကိဳတင္ဝယ္သည္	book\nv
@@ -11250,6 +11251,9 @@ S ဩဇာအာဏာအရိွဆံုး	chief\nadj
 ဆတ္ခနဲ ေထာင္သည္၊ ေျမွာက္သည္	cock\nv
 ငဲ့ေစာင္းသည္	cock\nv
 ေမာင္းတင္သည္	cock\nv
+ၾကက္ဖ	cock\nn
+အရြယ္ေရာက္ၿပီးသား ငွက္ အထီး	cock\nn
+အမ်ိဳးသား လိင္အဂၤါ	cock\nn
 လင္းၾကက္ေဆာ္ခ်ိန္	cock crow\nn
 ေခါင္ၾကက္	cock of the walk\nidm
 ေအာက္ အီအီးအြတ္	cock-a-doodle-doo\nn
@@ -12862,6 +12866,8 @@ $ အထူးသျဖင့္ တို႕ႏွင့္တြဲ၍ ကံ�
 ထို႕ေၾကာင့္	consequently\nadv
 ထိန္းသိမ္းေစာင့္ေရွာက္	conservation\nn
 ထိန္းသိမ္းေစာင့္ေရွာက္ျခင္းမ်ား	conservations\nn[pl]
+ရိွရင္းစြဲအေျခေနကို တည္ျမဲလိုသည့္ဝါဒ	conservatism\nn
+ရုတ္တရက္ ေျပာင္းလဲမွဳမလိုလားသည့္ဝါဒ	conservatism\nn
 ေရွးရိုးစြဲ	conservative\nadj
 ေရွးဆန္သူ	conservative\nn
 ေရွးဆန္သူမ်ား	conservatives\nn[pl]
@@ -16632,6 +16638,10 @@ v usu passive  တုန္လႈပ္ေခ်ာက္ခ်ားသည္	d
 ခြဲျခားသိျမင္ခဲ့ၿပီး	distinguished\nv[pp]
 ခြဲျခားသိျမင္	distinguishes\nv[sg]
 ခြဲျခားသိျမင္ေန	distinguishing\nv[ing]
+စိတ္ပင္ပန္းျခင္း	distress\nnoun
+ပူပင္ေသာက	distress\nnoun
+ပူပင္ေသာကျဖစ္ေစသည္	distress\nverb
+စိတ္ညစ္ေစသည္	distress\nverb
 ျဖန္႕ျဖဴးေရာင္းခ်	distribute\nv
 ျဖန္႕ျဖဴးေရာင္းခ်ခဲ့	distributed\nv[pt]
 ျဖန္႕ျဖဴးေရာင္းခ်ခဲ့ၿပီး	distributed\nv[pp]
@@ -17115,6 +17125,9 @@ n usu sing တစ္ေမွး	doze\nv
 အမ်ားႀကီး	dozen\ndet
 ဒါဇင္မ်ား	dozens\nn[pl]
 အမ်ားႀကီး	dozens of\nidm
+ပ်င္းစရာေကာင္းေသာ၊  စိတ္ဝင္စားဖြယ္ မရိွေသာ	drab\nadj
+အလြန္ၾကမ္းတမ္းေသာ	draconian\nadj
+ျပင္းထန္ေသာ	draconian\nadj
 မူၾကမ္း	draft\nn
 မူၾကမ္းေရး	draft\nv
 မူၾကမ္းေရးဆြဲ	draft\nadj
@@ -17350,6 +17363,7 @@ britဥေရာပသမဂၢ စည္းမ်ဉ္းမ်ားအရ �
 ဧကဝုစ္နာမ္၊ ဧကဝုစ္ႀကိယာတို႕ႏွင့္ တြဲသံုးသည္	each\nadj
 အမ်ားထဲမွ တစ္ခုခ်င္း၊ တစ္ခုစီ၊ တစ္ေယာက္ခ်င္း၊ တစ္ေယာက္စီ	each\nadj
 ... တိုင္း	each\nadj
+စိတ္ထက္သန္ေသာ	eager\nadj
 infmlအလုပ္ကို တက္ႂကြထက္သန္စြာ လုပ္သူ	eager beaver\nn
 ေဂါက္သီး သတ္မွတ္ရိုက္ခ်က္ ေအာက္ ႏွစ္ခ်က္ ေလ်ာ့သည့္ ရိုက္ခ်က္	eagle\nn
 us အလြန္လ်င္ေသာ မ်က္စိ	eagle eye\nn
@@ -24238,7 +24252,7 @@ Bပဲနိဝက္	halfpenny\nn
 စိတ္ခ်မ္းေျမ့စရာ	happiness\nn
 ေပ်ာ္ရႊင္ေသာ	happy\nadj
 ဝမ္းသာေသာ	happy\nadj
- ေပ်ာ္ရႊင္ခ်မ္းေျမ့ေသာ	happy\nadj
+ေပ်ာ္ရႊင္ခ်မ္းေျမ့ေသာ	happy\nadj
 ေပ်ာ္ရႊင္ဖြယ္ျဖစ္ေသာ	happy\nadj
 ေက်နပ္အားရေသာ	happy\nadj
 ေပ်ာ္ရႊင္မႈႏွင့္ျပည့္စံုေသာ	happy\nadj
@@ -25917,6 +25931,8 @@ hour အခ်ိန္ နာရီ	hr\nabbr
 အခ်က္အခ်ာ	hub\nn
 ဆူဆူညံညံ အသံ	hubbub\nn
 လင္ေယာက်ာ္း	hubby\nn
+မာန္	hubris\nn
+မာန	hubris\nn
 ေရာေထြးထားသည့္အရာမ်ား သို႕မဟုတ္ လူမ်ား	huddle\nvt,vi
 အေရာင္းအဆင္း	hue\nn
 ပိုက္သည္	hug\nvt
@@ -25975,6 +25991,8 @@ hour အခ်ိန္ နာရီ	hr\nabbr
 အေမရိကန္ႏိုင္ငံသံုးေပါင္၁၀	hundredweight\nn
 မၿပီးျပတ္ဘဲ	hundredweight\nadj
  တန္းလန္း	hundredweight\nadj
+မၿပီးျပတ္ပဲ	hung\nadj
+တန္းလန္း	hung\nadj
 အရက္နာက်ေသာ	hung-over\nadj
 ငတ္ျခင္း	hunger\nn
 ဆာျခင္း	hunger\nn
@@ -27724,6 +27742,8 @@ the installation of the new vice-chancellor m installation costs m Installation 
 အစာ	instead of\nprep
 ေျခဖမိုး	instep\nn
 ေျခဖမိုးမ်ား	insteps\nn[pl]
+ဗီဇ	instinct\nn
+ပင္ကိုစရိုက္	instinct\nn
 လူမူေရး	institute\nn
 လူမူေရးမ်ား	institutes\nn[pl]
 တကၠသိုလ္	institution\nn
@@ -31353,6 +31373,7 @@ Apple inc မွထုတ္ေသာ OSOpreating System တစ္မ်ိဳ�
 ဆံပင္ရွည္	mane\nn
 ဇြဲသတၱိႏွင့္ျပည့္စံုေသာ	manful\nadj
 သရက္သီး	mang\nn
+ကာတြန္းစာအုပ္	manga\nn
 သံမဏိႏွင့္ဖန္ခ်က္လုပ္ငန္းတြင္အသံုးျပဳသည့္မီးခိုးေရာင္သတၱဳျဒပ္စင္တစ္မ်ိဳး	manganese\nn
 မန္ဂနိ	manganese\nn
 အေမြးထူတိရစာၦန္တြင္ေပါက္တတ္ေသာဝဲနာ	mange\nn
@@ -32653,6 +32674,7 @@ Bill Gates တည္ေထာင္ခဲ့ေသာ Company	microsoft\nn
 အေရာအေႏွာ	mixture\nn
 ေရာစပ္ျခင္း	mixture\nn
 ေရာစပ္ထားေသာ အရာမ်ား	mixtures\nn[pl]
+က်ံဳး	moat\nn
 ေရႊ႕ေျပာင္းႏိုင္	mobile\nadj
 ပ်က္ရယ္ျပဳသည္	mock\nv
 ျဖစ္ႏိုင္ေျခရိွျခင္း၊ခြင့္ျပဳျခင္း စသည္ကိုျပေသာႀကိယာ	modal\nn
@@ -32831,6 +32853,8 @@ Bill Gates တည္ေထာင္ခဲ့ေသာ Company	microsoft\nn
 ျပကၡဒိန္ လ	month \nn
 တစ္လတာကာလ	month \nn
 လ	month \nn
+အေမ	monther\nn
+မိခင္	monther\nn
 လတိုင္း	monthlies\nn[pl]
 တစ္လတစ္ႀကိမ္	monthly\nadj
 လစဉ္	monthly\nadj
@@ -36763,6 +36787,7 @@ Officers Trainning School ဗိုလ္သင္တန္းေက်ာင္
 အိမ္ေရွ႕ေပၚတီကို	patio\nn
 အိမ္ေရွ႕ေပၚတီကိုမ်ား	patios\nn[pl]
 အမ်ိဳးခ်စ္သူ	patriotic\nn
+မ်ိဳးခ်စ္စိတ္	patriotism\nn
 မိုးရြာသံ	pattering of the rain\nn
 ပံုစံ	pattern\nn
 ပံုစံေဖာ္	pattern\nv
@@ -36816,6 +36841,7 @@ Officers Trainning School ဗိုလ္သင္တန္းေက်ာင္
 ပုလဲကံုး	pearls\nn
 ပုလဲမ်ား	pears\nn[pl]
 ပုလဲကံုးမ်ား	peas\nn[pl]
+လယ္သမား၊ ေတာင္ယာလုပ္သား၊ ေက်းလက္သား	peasant\nn
 ဆာသလိုလိုရိွေသာ	peckish\nadj (Briti
 မႏွစ္ၿမိဳ႕ဖြယ္ထူးျခားေသာ၊တစ္မူထူးေသာ	peculiar\nadj
 တစ္မ်ိဳးႀကီးျဖစ္ေသာ	peculiar\nadj
@@ -38922,6 +38948,8 @@ $ အပ္က်မပ္က်ဂရုတစိုက္ေသခ်ာေသ
 ေရွးဦးျဖစ္စဉ္	prehistory\nn
 ရွည္ရွည္လ်ားလ်ား	prejudge\nadj
 အေလးဆြေသာ	prejudge\nadj
+အမွန္ကိုမစူးစမ္းဘဲ အဂတိတရားျဖင့္ မလိုမုန္းထားျခင္း	prejudice\nn
+မ်က္စိမိွတ္ ဘက္လိုက္ျခင္း	prejudice\nn
 အဆိုမ်ား	premia\nn[pl]
 အဆို	premise\nn
 အေဆာက္အအံုဥပစာ	premises\nn
@@ -41829,6 +41857,10 @@ US ဘူတာရံုရိွ အထမ္းသမား	redcap\nn
 အမွန္	right\nn
 ပို၍မွန္ကန္	righter\nadj[com]
 အမွန္ဆံုး	rightest\nadj[sup]
+ေျဖာင့္မတ္ေသာ	rightful\nadj
+တရားေသာ	rightful\nadj
+ပိုင္ဆိုင္ခြင့္ရိွေသာ	rightful\nadj
+ရသင့္ရထိုင္ေသာ	rightful\nadj
 တရားသျဖင့္	rightly\nadv
 အမွန္မ်ား	rights\nn[pl]
 လက္စြပ္	ring\nn
@@ -41915,6 +41947,8 @@ US ဘူတာရံုရိွ အထမ္းသမား	redcap\nn
 ေခါင္မိုးမ်ား	roofs\nn[pl]
 အခန္း	room\nn
 အခန္းမ်ား	rooms\nn[pl]
+ၾကက္ဖ	rooster\nn
+အရြယ္ေရာက္ၿပီးသား ငွက္ အထီး	rooster\nn
 အျမစ္	root\nn
 အျမစ္မ်ား	roots\nn[pl]
 ႀကိဳး	rope\nn
@@ -47369,6 +47403,8 @@ something ၏ အတိုေကာက္စာလံုး	sth\nn
 သိမ္ေမြ႕	subtle\nadj
 ပို၍သိမ္ေမြ႕	subtler\nadj[com]
 အသိမ္ေမြ႕ဆံုး	subtlest\nadj[sup]
+အႏႈတ္	subtract\nn
+ႏႈတ္သည္	subtract\nv
 ၿမိဳ႕ဆင္ေျခဖံုး	suburb\nn
 ေျမေအာက္ရထား	subway\nn
 ေအာင္ျမင္	succeed\nv
@@ -47517,6 +47553,8 @@ something ၏ အတိုေကာက္စာလံုး	sth\nn
 ခြဲစိတ္ကုသမုမ်ား	surgeries\nn[pl]
 ခြဲစိတ္ကုသမု	surgery\nn
 မိသားစုအမည္	surname\nn
+သာလြန္သည္	surpass\nv
+ေက်ာ္လြန္သည္	surpass\nv
 အပိုအလ်ံွ	surplus\nn
 ပိုလ်ံွ	surplus\nadj
 အံ႕အားသင့္ျခင္း	surprise\nn
@@ -47651,6 +47689,8 @@ something ၏ အတိုေကာက္စာလံုး	sth\nn
 ေရာဂါလကၡဏာမ်ား	symptoms\nn[pl]
 ဂ်ဴးဘုရားေက်ာင္း	synagogue\nn
 ဂ်ဴးဘုရားေက်ာင္းမ်ား	synagogues\nn[pl]
+အႏွစ္ခ်ဳပ္	synopsis\nn
+သံခိပ္	synopsis\nn
 စုေပါင္းညိွႏိုင္းမု	synthesis\nn
 စနစ္	system\nn
 စနစ္မ်ား	systems\nn[pl]
@@ -48887,6 +48927,9 @@ AURORA BOREALIS	the northern lights\nn
 ကိုယ့္ေသတြင္းကိုယ္တူး	throats\nv[sg]
 ႏွလံုးေသြးတိုးသည္	throb\nv
 ႏွလံုးခုန္သည္	throb\nv
+ဘုရင့္အာဏာစက္	throne\nn
+ထီးနန္း	throne\nn
+ရာဇာပလႅင္	throne\nn
 ျဖတ္၍	through\nprep
 ျဖတ္၍	through\nadv
 ေနာက္ေဖးေပါက္ မွ	through the back door\nidm
@@ -51026,6 +51069,8 @@ also vampire bat ေသြးစုပ္လင္းဆြဲ	vampire\nn
 ေျပာင္းလဲႏိုင္ေသာ အရာမ်ား	variables\nn
 ကိန္းရွင္မ်ား	variables\nn
 အရွင္	variably\nadv
+ကြဲလြဲမႈ	variance\nn
+ျခားနားမႈ	variance\nn
 အေျပာင္းအလဲ	variation\nn
 အေျပာင္းအလဲ	variations\nn[pl]
 ကြဲ	varied\nadj
@@ -51062,6 +51107,8 @@ also vampire bat ေသြးစုပ္လင္းဆြဲ	vampire\nn
 ကုန္းလမ္းသြား ယာဉ္	vehicles\nn[pl]
 ေသြးျပန္ေၾကာ	vein\nn
 ေသြးျပန္ေၾကာ	veins\nn[pl]
+ႏိုင္လြန္ အေမႊးပြ ႏွင့္ ကြင္းခ်ိတ္အျပင္ တစ္ဖက္စီ ပါေသာ အဝတ္ ၊အိတ္စသည္ ပိတ္ရန္ ၊ဆက္ရန္ သံုးသည့္ တြယ္စရာပစၥည္း	velcro\nn
+ႏိုင္လြန္ ကပ္ေစးႏွဲ	velcro\nn
 အလ်င္	velocities\nn[pl]
 အလ်င္	velocity\nn
 ပ်ံက်ေဈးသည္	vendor\nn
@@ -51100,6 +51147,8 @@ also vampire bat ေသြးစုပ္လင္းဆြဲ	vampire\nn
 စြပ္က်ယ္	vests\nn[pl]
 အပ္ႏွင္း	vests\nv[sg]
 မွတစ္ဆင့္ျဖင့္	via\nprep
+ရက္စက္ေသာ	vicious\nadj
+ေၾကာက္စရာေကာင္းေသာ	vicious\nadj
 ဒုကၡသည္	victim\nn
 ဒုကၡသည္	victims\nn[pl]
 ဒုကၡသည္	victories\nn[pl]
@@ -51653,6 +51702,8 @@ also vampire bat ေသြးစုပ္လင္းဆြဲ	vampire\nn
 လက္ျပ၍သြားခိုင္းသည္	wave\nv
 လုပ္ယမ္းေနခဲ့	waved\nv[pt]
 လုပ္ယမ္းေနခဲ့ၿပီး	waved\nv[pp]
+တုန္လႈပ္သည္	waver\nv
+ယိမ္းယိုင္သည္	waver\nv
 လိုင္းလံုးမ်ား	waves\nn[pl]
 လုပ္ယမ္းေန	waves\nv[sg]
 လုပ္ယမ္းေန	waving\nv[ing]
