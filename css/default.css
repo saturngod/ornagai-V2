@@ -162,6 +162,20 @@ form{
     border-bottom:#ccc 1px dotted;
 }
 
+.result a,.result a:visited
+{
+	border: none;
+	text-decoration: none;
+	color: #222;
+	font-weight: bold;
+	
+}
+
+.result a:hover
+{
+	text-decoration: underline;
+}
+
 .btn
 {
     display:inline;
