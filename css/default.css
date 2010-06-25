@@ -202,7 +202,16 @@ form{
 {
     color:#333;
     text-decoration:none;
+    background-color:#EFEFEF;
+    border:1px solid #DDDDDD;
+    padding: 5px;
   
+}
+
+.page_lnk a:hover
+{
+	background-color: #333;
+	color: #FFF;
 }
 
 .login_frm

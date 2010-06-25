@@ -66,7 +66,7 @@ for($i=$start;$i<=$end;$i++)
 	}
 	else
 	{
-		echo "<a href='#{$i}' rel='{$result}' class='page_nav'>$i</a>&nbsp;";
+		echo "<a href='#' rel='{$result}' class='page_nav'>$i</a>&nbsp;";
 	}
 }
 ?>

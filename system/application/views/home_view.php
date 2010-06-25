@@ -77,8 +77,11 @@ $(document).ready(function(){
         	message_val=loc.substr(1);
         	message_val=decodeURIComponent(message_val.replace(/\+/g,  " "));
         	message_val=message_val.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-        	$("#message").val(message_val);
-        	ajaxsearch(message_val);
+        	if(message_val!="")
+        	{
+        		$("#message").val(message_val);
+	        	ajaxsearch(message_val);
+	        }
         }
         
     //////// search Ajax function //////
@@ -533,7 +536,7 @@ if(!isset($fbprofile))
     </div>
     <?php echo form_open("search/result"); ?>
     <div id="top_menu" class="top_menu">
-        <input type="text" id="message" name="message" class="searchbox">
+        <input type="text" id="message" name="message" class="searchbox" autofocus>
         <input type="submit" value="Search" id="search">
         <img src="./images/history.png" id="history_onoff" class="btn" title="history" >
         <img src="./images/user_off.png" id="login_btn" class="btn" title="Users">
