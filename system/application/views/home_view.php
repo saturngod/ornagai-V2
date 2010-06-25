@@ -76,7 +76,7 @@ $(document).ready(function(){
         {
         	message_val=loc.substr(1);
         	message_val=decodeURIComponent(message_val.replace(/\+/g,  " "));
-        	
+        	message_val=message_val.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
         	$("#message").val(message_val);
         	ajaxsearch(message_val);
         }
