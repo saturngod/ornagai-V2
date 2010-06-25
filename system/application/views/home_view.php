@@ -37,6 +37,8 @@ $(document).ready(function(){
     //call resize the result (right side)
     resultsize(225);
     // Window Size changes
+    
+    
     $(window).resize(function(){
     	
    		resultsize(225);
@@ -49,34 +51,53 @@ $(document).ready(function(){
     
     
     $("#message").autocomplete("<?php echo $base ?>/index.php/search/autocomplete", {
-		
 		selectFirst: false
 	});
     $("#search").click(function(){
         
-    if($("#message").val()!="")
-    {
-	 message_val=$("#message").val();
-	message_val=message_val.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-	
-         $.ajax({
-            type: "POST",
-            url: "<?php echo $base ?>/index.php/search",
-            data: "message="+message_val,
-            success: function(html){
-              $("#result").html(html);
-              $("#left").append('<div id="history_'+h_id+'" class="history"><a rel="'+message_val+'" href="#" class="history_result">'+message_val+'<img rel="history_'+h_id+'" src="./images/remove.png" align="middle" class="sidebar_rm" align="right" /></a></div>');
-               
-                h_id=h_id+1;
-            },
-            beforeSend:function(){
-                $("#result").html("Loading...")
-            }
-        });
-     }
+	    if($("#message").val()!="")
+	    {
+			 message_val=$("#message").val();
+			 
+			 window.location.href="<?php echo $base ?>/#"+message_val;
+			message_val=message_val.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+			ajaxsearch(message_val);
+	        
+	     }
         return false;
     });
     ////////////
+    
+    
+    loc=window.location.href;
+        loc=loc.replace("<?php echo $base?>/","");
+    
+        if(loc.substr(0,1)=="#")
+        {
+        	$("#message").val(loc.substr(1));
+        	ajaxsearch(loc.substr(1));
+        }
+        
+    //////// search Ajax function //////
+    
+    function ajaxsearch(message_val)  
+    {
+    	$.ajax({
+    	    type: "POST",
+    	    url: "<?php echo $base ?>/index.php/search",
+    	    data: "message="+message_val,
+    	    success: function(html){
+    	      $("#result").html(html);
+    	      $("#left").append('<div id="history_'+h_id+'" class="history"><a rel="'+message_val+'" href="#" class="history_result">'+message_val+'<img rel="history_'+h_id+'" src="./images/remove.png" align="middle" class="sidebar_rm" align="right" /></a></div>');
+    	       
+    	        h_id=h_id+1;
+    	    },
+    	    beforeSend:function(){
+    	        $("#result").html("Loading...")
+    	    }
+    	});
+    }
+    //////////
     $("#forget_send").live("click",function(){
 	
 	email=$("#forg_email").val();
