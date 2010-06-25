@@ -74,8 +74,11 @@ $(document).ready(function(){
     
         if(loc.substr(0,1)=="#")
         {
-        	$("#message").val(loc.substr(1));
-        	ajaxsearch(loc.substr(1));
+        	message_val=loc.substr(1);
+        	message_val=decodeURIComponent(message_val.replace(/\+/g,  " "));
+        	
+        	$("#message").val(message_val);
+        	ajaxsearch(message_val);
         }
         
     //////// search Ajax function //////
