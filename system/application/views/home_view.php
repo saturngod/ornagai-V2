@@ -33,7 +33,7 @@ function resultsize(subwidth)
 }
 $(document).ready(function(){
     $("#login_form").hide();
-    
+    $("#message").focus();
     //call resize the result (right side)
     resultsize(225);
     // Window Size changes
