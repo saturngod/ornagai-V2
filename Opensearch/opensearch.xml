@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+ <ShortName>Ornagai Dictionary</ShortName>
+ <Description>Search in Ornagai</Description>
+ <Tags>ornagai</Tags>
+ <Url type="text/html"
+      template="http://www.ornagai.com/#{searchTerms}"/>
+	  <Image height="32" width="32" type="image/png">http://www.ornagai.com/favicon.png</Image>
+
+</OpenSearchDescription>
