@@ -11,6 +11,7 @@ class api extends REST_Controller
 			$this->response(NULL, 400);
 			exit;
 		}
+
 		$q=$this->get("q");
 		
 		$this->load->model('searchmodel');
@@ -98,6 +99,7 @@ class api extends REST_Controller
 		else
 		{
 			$page=$this->get('page');
+		
 		}
 		
         if($myanmar)
