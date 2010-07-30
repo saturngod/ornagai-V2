@@ -38,7 +38,7 @@ img{
      outline:none;
 }
 
-input[type=text],input[type=password]
+input[type=text],input[type=password],input[type=search]
 {
      -moz-border-radius: 2em;  
      border-radius: 2em;
