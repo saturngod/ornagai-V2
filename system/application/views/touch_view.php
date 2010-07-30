@@ -10,7 +10,7 @@ $this->load->view("touch_head",$data);
         <h1>Ornagai</h1>
     </div>
     <ul class="rounded">
-        <li><input id="query" type="text" name="search" value="" placeholder="Search" /></li>
+        <li><input id="query" type="search" name="search" value="" placeholder="Search" /></li>
     </ul>
     <a style="margin:0 10px;color:rgba(0,0,0,.9)" id="search" href="#result" class="submit whiteButton">Search</a>
     
