@@ -1,8 +1,12 @@
 Ornagai is a Online English To Myanmar, Myanmar To English Dictionary.
 All of the english to myanmar word from MZ dictionary.
 
+
+Developer
+-- Saturngod (Htain Lin Shwe)
+
 MySQL Query for search by
-Charles Reace (http://charles-reace.com)
+-- Charles Reace (http://charles-reace.com)
 
 Using
 --PHP
