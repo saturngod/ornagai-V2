@@ -62,9 +62,7 @@ $(document).ready(function(){
 			 window.location.href="<?php echo $base ?>/#"+message_val;
 			message_val=message_val.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 			ajaxsearch(message_val);
-			if(pageTracker) { 
-				pageTracker._trackPageview("#"+message_val); 
-			}
+			
 			
 			
 	        
@@ -100,7 +98,15 @@ $(document).ready(function(){
     	    success: function(html){
     	      $("#result").html(html);
     	      $("#left").append('<div id="history_'+h_id+'" class="history"><a rel="'+message_val+'" href="#" class="history_result">'+message_val+'<img rel="history_'+h_id+'" src="./images/remove.png" align="middle" class="sidebar_rm" align="right" /></a></div>');
-    	       
+    	      
+    	      append="";
+    	      if(html=="Can't Find")
+    	      {
+    	      	append="_notfound";
+    	      }
+    	       if(pageTracker) { 
+    	       	pageTracker._trackPageview("#"+message_val+append); 
+    	       }
     	        h_id=h_id+1;
     	       
     	    },
