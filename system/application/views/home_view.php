@@ -62,6 +62,8 @@ $(document).ready(function(){
 			 window.location.href="<?php echo $base ?>/#"+message_val;
 			message_val=message_val.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 			ajaxsearch(message_val);
+			
+			pageTracker._trackPageview("<?php echo $base ?>/#"+message_val); 
 	        
 	     }
         return false;
