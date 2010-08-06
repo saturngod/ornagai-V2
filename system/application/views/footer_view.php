@@ -1,6 +1,6 @@
 <?php
-//$this->load->helper("google");
-//echo google_analytics();
+$this->load->helper("google");
+echo google_analytics();
 ?>
 <script type="text/javascript" src="http://include.reinvigorate.net/re_.js"></script>
 <script type="text/javascript">
