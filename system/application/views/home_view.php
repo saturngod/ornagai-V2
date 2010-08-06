@@ -62,8 +62,12 @@ $(document).ready(function(){
 			 window.location.href="<?php echo $base ?>/#"+message_val;
 			message_val=message_val.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 			ajaxsearch(message_val);
+			if(pageTracker) { 
+				pageTracker._trackPageview("<?php echo $base ?>/#"+message_val); 
+			}
 			
-			pageTracker._trackPageview("<?php echo $base ?>/#"+message_val); 
+			var re_name_tag =message_val;
+			re_("71f36-anodd21w3e");
 	        
 	     }
         return false;
