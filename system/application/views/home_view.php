@@ -107,6 +107,15 @@ $(document).ready(function(){
     	       if(pageTracker) { 
     	       	pageTracker._trackPageview("#"+message_val+append); 
     	       }
+    	       
+    	       //<![CDATA[
+    	       try {
+    	       var re_name_tag = message_val;
+    	       var re_context_tag = append;
+    	       reinvigorate.track("71f36-anodd21w3e");
+    	       } catch(err) {}
+    	       //]]>
+    	       
     	        h_id=h_id+1;
     	       
     	    },
