@@ -66,8 +66,7 @@ $(document).ready(function(){
 				pageTracker._trackPageview("<?php echo $base ?>/#"+message_val); 
 			}
 			
-			var re_name_tag =message_val;
-			re_("71f36-anodd21w3e");
+			
 	        
 	     }
         return false;
@@ -103,6 +102,9 @@ $(document).ready(function(){
     	      $("#left").append('<div id="history_'+h_id+'" class="history"><a rel="'+message_val+'" href="#" class="history_result">'+message_val+'<img rel="history_'+h_id+'" src="./images/remove.png" align="middle" class="sidebar_rm" align="right" /></a></div>');
     	       
     	        h_id=h_id+1;
+    	        
+    	        var re_name_tag =message_val;
+    	        re_("71f36-anodd21w3e");
     	    },
     	    beforeSend:function(){
     	        $("#result").html("Loading...")
