@@ -99,13 +99,14 @@ $(document).ready(function(){
     	      $("#result").html(html);
     	      $("#left").append('<div id="history_'+h_id+'" class="history"><a rel="'+message_val+'" href="#" class="history_result">'+message_val+'<img rel="history_'+h_id+'" src="./images/remove.png" align="middle" class="sidebar_rm" align="right" /></a></div>');
     	      
-    	      append="";
+    	      append="found";
     	      if(html=="Can't Find")
     	      {
-    	      	append="_notfound";
+    	      	append="notfound";
     	      }
     	       if(pageTracker) { 
-    	       	pageTracker._trackPageview("#"+message_val+append); 
+    	       	pageTracker._setVar(append);
+    	       	pageTracker._trackPageview("#"+message_val); 
     	       }
     	   
     	       
