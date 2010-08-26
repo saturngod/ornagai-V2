@@ -578,7 +578,7 @@ if(!isset($fbprofile))
         	<a href="http://itunes.apple.com/us/app/ornagai/id376579933?mt=8">iPhone Ornagai App</a>
         	</div>
         	<div style="color:red">
-        	Ornagai 1.4 ကို upgrade မလုပ္ပါနဲ႕အံုး။ မဝယ္ပါနဲ႕အံုး။ ျမန္မာစာ embed အလုပ္မလုပ္ေတာ့လို႕ပါ။ version 1.4.1 update ထြက္တဲ့အခ်ိန္မွ upgrade လုပ္ပါ။
+        	Ornagai 1.4.1 has been released.
         	</div>
         </div>
         <div class="history_result"></div>
