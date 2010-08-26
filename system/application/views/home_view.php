@@ -578,7 +578,7 @@ if(!isset($fbprofile))
         	<a href="http://itunes.apple.com/us/app/ornagai/id376579933?mt=8">iPhone Ornagai App</a>
         	</div>
         	<div style="color:red">
-        	Ornagai 1.4.1 has been released.
+        	Ornagai 1.4.1 iphone app has been released. Support iPodTouch and iPad also.
         	</div>
         </div>
         <div class="history_result"></div>
