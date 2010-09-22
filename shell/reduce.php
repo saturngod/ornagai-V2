@@ -29,7 +29,7 @@ if(!$result)
 }
 
 
-$sql="Select * from dblist";
+$sql="Select * from dblist ORDER BY `Word` ASC";
 
 $result=mysql_query($sql);
 
@@ -54,7 +54,7 @@ else
 		$row['state']=str_replace("'","\'",$row['state']);
 		$row['def']=str_replace("'","\'",$row['def']);
 		
-		$sql2="select * from `tmptable` where `Word`='".$row['Word']."' And `state`='".$row['state']."'";
+		$sql2="select * from `tmptable` where `Word`='".$row['Word']."' And `state`='".$row['state']."' ORDER BY `Word` ASC";
 		$result2=mysql_query($sql2);
 		
 		if(!$result2)

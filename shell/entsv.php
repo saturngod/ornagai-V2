@@ -22,8 +22,8 @@ while ($row = mysql_fetch_assoc($result))
 	if(($row['Word']!="") and ($row['def']!=""))
 	{
 
-		$tmp=$row['Word']."	".$row['state']."	".$row['def'];
-		$tmp2=$row['Word']."	".$row['state']."\\n".$row['def'];
+		$tmp=trim($row['Word'])."	".$row['state']."	".trim($row['def']);
+		$tmp2=trim($row['Word'])."	".$row['state']."\\n".trim($row['def']);
 		fwrite($fh,$tmp."\n");
 		fwrite($fh2,$tmp2."\n");
 	}
