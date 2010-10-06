@@ -4,6 +4,7 @@
 	background-color: white;
 	overflow: hidden;
 	z-index: 99999;
+	font-family: "Zawgyi-One",Zawgyi1;
 }
 
 .ac_results ul {
@@ -32,6 +33,7 @@
 	*/
 	line-height: 16px;
 	overflow: hidden;
+	font-family: "Zawgyi-One",Zawgyi1;
 }
 
 .ac_loading {

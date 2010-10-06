@@ -46,6 +46,7 @@ input[type=text],input[type=password],input[type=search]
     background-color:#FFF;
     border:1px solid #5C5C5C;
     padding-left:8px;
+    font-family: "Zawgyi-One",Zawgyi1;
    
 }
 
@@ -58,6 +59,7 @@ input[type=text],input[type=password],input[type=search]
     position:relative;
     height:22px;
     border:1px solid #5C5C5C;
+    font-family: "Zawgyi-One",Zawgyi1;
 }
 
 input[type=button],input[type=submit],input[type=reset]
