@@ -12,6 +12,7 @@
 |
 */
 $config['base_url']	= "http://localhost/ornagai-V2";
+$config['abs_path'] = "/Applications/MAMP/htdocs/Ornagai-V2";
 
 /*
 |--------------------------------------------------------------------------

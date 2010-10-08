@@ -19,10 +19,11 @@ class Voice extends Controller {
 		
 		if ($this->agent->is_browser())
 		{
-		    if($this->agent->browser()=="Safari")
+		    /*if($this->agent->browser()=="Safari")
 		    {
 		    	$data['mp3']=true;
 		    }
+		    */
 		}
 		
 		$this->load->view('voice.php',$data);

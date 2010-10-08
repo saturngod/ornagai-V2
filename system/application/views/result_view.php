@@ -21,12 +21,15 @@ foreach ($query  as $row)
     else{
         echo $row->Word;
     }
+    ?>
+   <div style="display:none" id="tts_<?php echo $row->Word ?>"><?php echo $row->Word ?></div>
+    <?php
    
    if($row->approve==0)
    {
 	 echo "<img src='".$approve."' alt='approve' class='res_img' title='waiting to approve' >";
    }
-    echo '<a href="javascript:void(0);" onclick="window.open(\''.$base.'/index.php/voice/play/'.$row->Word.'\',\'Voice\',\'menubar=no,width=210,height=15,toolbar=no\')">';
+    echo '<a href="javascript:void(0);" onclick="javascript::get_id(\'tts_'.$row->Word.'\',\'en\',\'fm\');">';
     echo "<img src='".$voice."' alt='voice' class='res_img' title='click to speech' >";
     echo "</a>";
     echo "<br>";

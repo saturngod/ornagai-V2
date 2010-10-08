@@ -10,5 +10,6 @@
         <!-- meta for search engine -->
         <META NAME="DESCRIPTION" CONTENT="English To Myanmar,Myanmar To English Dictionary">
         <META NAME="KEYWORDS" CONTENT="ornagai,dictionary,english,myanmar,english myanmar,english myanmar dictionary,myanmar english dicitonary">
+         <script type="text/javascript" src="http://vozme.com/get_text.js"></script>
     </head>
     

@@ -551,7 +551,7 @@ if(!isset($fbprofile))
     </div>
     <?php echo form_open("search/result"); ?>
     <div id="top_menu" class="top_menu">
-        <input type="search" id="message" name="message" class="searchbox" autofocus>
+        <input type="text" id="message" name="message" class="searchbox" autofocus>
         <input type="submit" value="Search" id="search">
         <img src="./images/history.png" id="history_onoff" class="btn" title="history" >
         <img src="./images/user_off.png" id="login_btn" class="btn" title="Users">
