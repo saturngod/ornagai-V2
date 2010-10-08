@@ -29,7 +29,7 @@ foreach ($query  as $row)
    {
 	 echo "<img src='".$approve."' alt='approve' class='res_img' title='waiting to approve' >";
    }
-    echo '<a href="javascript:void(0);" onclick="javascript::get_id(\'tts_'.$row->Word.'\',\'en\',\'fm\');">';
+    echo '<a href="javascript:void(0);" onclick="get_id(\'tts_'.$row->Word.'\',\'en\',\'fm\');">';
     echo "<img src='".$voice."' alt='voice' class='res_img' title='click to speech' >";
     echo "</a>";
     echo "<br>";
