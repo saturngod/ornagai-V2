@@ -579,9 +579,6 @@ if(!isset($fbprofile))
         		<img src='<? echo $base ?>/images/onappstore.png'>
         	</a>
         	</div>
-        	<div style="color:red">
-        	Ornagai 1.4.1 iphone app has been released. Support iPodTouch and iPad also.
-        	</div>
         </div>
         <div class="history_result"></div>
     </div>
