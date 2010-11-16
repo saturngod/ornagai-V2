@@ -574,11 +574,13 @@ if(!isset($fbprofile))
         		<span class="bluesel">Total Myanmar To English Word :</span> <?php echo $mmtotal ?>
         	</div>
         	<div class="result">
-        	<a href="http://ornagai.posterous.com">Blog</a> | 
+        	<a href="https://github.com/saturngod/ornagai-V2/downloads">Download</a> | 
+        	<a href="http://ornagai.posterous.com">Read Our Blog</a> | 
+        	<a href="https://github.com/saturngod/ornagai-V2/issues">Report Issue</a> 
+        	</div>
         	<a href="http://itunes.apple.com/us/app/ornagai/id376579933?mt=8">
         		<img src='<? echo $base ?>/images/onappstore.png'>
         	</a>
-        	</div>
         </div>
         <div class="history_result"></div>
     </div>
