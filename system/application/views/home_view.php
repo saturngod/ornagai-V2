@@ -574,8 +574,10 @@ if(!isset($fbprofile))
         		<span class="bluesel">Total Myanmar To English Word :</span> <?php echo $mmtotal ?>
         	</div>
         	<div class="result">
-        	<a href="http://blog.ornagai.com">Blog</a> | 
-        	<a href="http://itunes.apple.com/us/app/ornagai/id376579933?mt=8">iPhone Ornagai App</a>
+        	<a href="http://ornagai.posterous.com">Blog</a> | 
+        	<a href="http://itunes.apple.com/us/app/ornagai/id376579933?mt=8">
+        		<img src='<? echo $base ?>/images/onappstore.png'>
+        	</a>
         	</div>
         	<div style="color:red">
         	Ornagai 1.4.1 iphone app has been released. Support iPodTouch and iPad also.
