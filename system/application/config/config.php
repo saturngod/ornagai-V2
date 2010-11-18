@@ -11,7 +11,7 @@
 |	http://example.com/
 |
 */
-$config['base_url']	= "http://localhost/ornagai-V2";
+$config['base_url']	= "http://localhost/ornagai";
 
 /*
 |--------------------------------------------------------------------------
@@ -329,8 +329,8 @@ $config['proxy_ips'] = '';
 |Google Analystic
 |-----------------
 */
-$config['google_uacct']='UA-2358448-18';
-$config['google_uacct_m']='MO-2358448-20';
+$config['google_uacct']='';
+$config['google_uacct_m']='';
 
 /* End of file config.php */
 /* Location: ./system/application/config/config.php */
