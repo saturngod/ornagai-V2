@@ -13,7 +13,16 @@ class api extends REST_Controller
 		}
 
 		$q=$this->get("q");
-		
+
+        if(!$this->get('encode'))
+        {
+            $encode="zawgyi";
+        }
+        else
+        {
+            $encode=strtolower($this->get('encode'));
+        }
+
 		$this->load->model('searchmodel');
 		$myanmar=$this->searchmodel->detect_langauage($q);
 		
@@ -25,10 +34,11 @@ class api extends REST_Controller
 		{
 			$page=$this->get('page');
 		}
-		
+
+        $this->load->library("zawgyi");
         if($myanmar)
         {
-		    $this->load->library("zawgyi");
+
 		    $q=$this->zawgyi->normalize($q,"|",true);
         }
         $query=$this->searchmodel->query($q,$myanmar,$page);
@@ -47,11 +57,24 @@ class api extends REST_Controller
 	       		$return[$i]['state']=$row->state;
 	       		if($myanmar)
 	       		{
-	       			$return[$i]['def']=str_replace("|","",$row->def);
+                    if($encode=='zawgyi')
+                    {
+	       			    $return[$i]['def']=str_replace("|","",$row->def);
+                    }
+                    else {
+                         $return[$i]['def']=$this->zawgyi->unicode(str_replace("|","",$row->def));
+                    }
 	       		}
 	       		else
 	       		{
-	       			$return[$i]['def']=$row->def;
+                    if($encode=='zawgyi')
+                    {
+	       			    $return[$i]['def']=$row->def;
+                    }
+                       else
+                       {
+                           $return[$i]['def']=$this->zawgyi->unicode($row->def);
+                       }
 	       		}
 	       		$return[$i]['approve']=$row->approve;
 	       		$i++;
