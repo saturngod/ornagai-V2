@@ -45,6 +45,17 @@ $(document).ready(function(){
     	
     });
    
+	$(".spelling_check").live("click",function(){
+	
+		
+		 message_val=$(this).text();
+		$("#message").val(message_val);
+		 window.location.href="<?php echo $base ?>/#"+message_val;
+		message_val=message_val.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+		ajaxsearch(message_val);
+		
+	});
+	
     $("#top_menu *").tooltip({
 	showURL: false 
 	});
@@ -70,7 +81,7 @@ $(document).ready(function(){
         return false;
     });
     ////////////
-    
+   
     
     loc=window.location.href;
         loc=loc.replace("<?php echo $base?>/","");
@@ -104,11 +115,6 @@ $(document).ready(function(){
     	      {
     	      	append="notfound";
     	      }
-    	       if(pageTracker) { 
-    	       	pageTracker._setVar(append);
-    	       	pageTracker._trackPageview("#"+message_val); 
-    	       }
-    	   
     	       
     	        h_id=h_id+1;
     	       

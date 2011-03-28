@@ -31,14 +31,20 @@ class Search extends Controller {
         
                 if($myanmar)
                 {
-		    $this->load->library("zawgyi");
-		    $q=$this->zawgyi->normalize($q,"|",true);
+		    		$this->load->library("zawgyi");
+		    		$q=$this->zawgyi->normalize($q,"|",true);
+					$data['spelling']=false;
                 }
+				else
+				{
+					//specll check
+					$this->load->library("spellcheck");
+					$data['spelling']=$this->spellcheck->check($q);
+				}
                 $data['query']=$this->searchmodel->query($q,$myanmar,$page);
                 $data['result']=$q;
                 $data['mm']=$myanmar;
-               
-                $data['num_rows']=$this->searchmodel->query_numrows($q,$myanmar);
+				$data['num_rows']=$this->searchmodel->query_numrows($q,$myanmar);
                 
                 $data['numshow']=10;
                 
@@ -48,7 +54,22 @@ class Search extends Controller {
                     $this->load->view('result_view',$data);
                 }
                 else{
+					echo '<div id="res_list" class="result">';
+					if($data['spelling'])
+					{
+
+						echo "<ul class='spell'>";
+						echo "<li>Did you mean: </li>";
+						foreach($data['spelling'] as $spell_word)
+						{
+							echo "<li><a class='spelling_check' href='#'>".$spell_word."</a></li>";
+						}
+
+						echo "</ul>";
+					}
+					echo "<br/><br/><br/>";
                     echo "Can't Find";
+					echo "</div>";
                 }
                 
                 

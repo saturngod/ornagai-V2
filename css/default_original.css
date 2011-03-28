@@ -328,3 +328,18 @@ form{
     outline:none;
     cursor:pointer;
 }
+
+/*
+spelling
+*/
+ul.spell , ul.spell li {
+	display:inline;
+	list-style:none;
+	padding:0px;
+	margin:0px;
+}
+
+ul.spell li
+{
+	padding-right:5px;
+}

@@ -6,13 +6,29 @@ $(document).ready(function(){
 });
 </script>
 <div id="res_list" class="result">
+
 <?php
+
+if($spelling)
+{
+
+	echo "<ul class='spell'>";
+	echo "<li>Did you mean: </li>";
+	foreach($spelling as $spell_word)
+	{
+		echo "<li><a class='spelling_check' href='#'>".$spell_word."</a></li>";
+	}
+	
+	echo "</ul>";
+}
+
 $voice=$base.'/images/voice.png';
 $approve=$base.'/images/approve.png';
 foreach ($query  as $row)
 {
     echo "<div class='result'>";
-    
+
+
    
     if(!$mm)
     {
