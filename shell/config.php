@@ -11,7 +11,7 @@ $usr="root";
 
 $pwd="root";
 
-$db="ornagai-test";
+$db="tmp_dictionary";
 
 global $add_new;
 
