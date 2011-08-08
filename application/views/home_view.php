@@ -582,7 +582,9 @@ if(!isset($fbprofile))
         	<div class="result">
         	<a href="https://github.com/saturngod/ornagai-V2/downloads">Download</a> | 
         	<a href="http://ornagai.posterous.com">Read Our Blog</a> | 
-        	<a href="https://github.com/saturngod/ornagai-V2/issues">Report Issue</a> 
+        	<a href="https://github.com/saturngod/ornagai-V2/issues">Report application Issue</a> |
+<a href="http://wp.me/pjkI5-QV">Credit</a> |
+<a href="https://github.com/saturngod/ornagai-V2/wiki/API">API</a>
         	</div>
         	<a href="http://itunes.apple.com/us/app/ornagai/id376579933?mt=8">
         		<img src='<?php echo $base ?>/images/onappstore.png'>
